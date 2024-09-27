@@ -99,13 +99,20 @@ export default function Post({frontmatter, content, spanishFrontmatter, spanishC
 // Generating the paths for each post
 export async function getStaticPaths() {
   // Get list of all files from our posts directory
-  const files = fs.readdirSync("posts");
+  const files = fs.readdirSync("posts/en");
+  const esFiles = fs.readdirSync("posts/es")
   // Generate a path for each one
   const paths = files.map((fileName) => ({
     params: {
       slug: fileName.replace(".md", ""),
     },
   }));
+  const pathsEs = esFiles.map((fileName) => ({
+    params: {
+      slug: fileName.replace(".md", ""),
+    },
+  }));
+  paths.push(...pathsEs)
   // return list of paths
   return {
     paths,
@@ -116,11 +123,11 @@ export async function getStaticPaths() {
 
 // Generate the static props for the page
 export async function getStaticProps({ params: { slug } }) {
-    const fileName = fs.readFileSync(`posts/${slug}.md`, 'utf-8');
-    const spanishFileName = fs.readFileSync(`posts/${slug}-spanish.md`, 'utf-8');
+    console.log(slug)
+    const fileName = fs.readFileSync(`posts/en/${slug}.md`, 'utf-8');
+    const spanishFileName = fs.readFileSync(`posts/es/${slug}.md`, 'utf-8');
     const { data: frontmatter, content } = matter(fileName);
     const { data: spanishFrontmatter, content: spanishContent } = matter(spanishFileName);
-    console.log(slug, "dvsberdf")
     return {
       props: {
         frontmatter,

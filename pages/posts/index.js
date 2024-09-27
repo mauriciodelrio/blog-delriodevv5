@@ -239,7 +239,8 @@ export default function Posts({ posts, spanishPosts, categorization }) {  // Ren
 };
 
 export async function getStaticProps({}) {
-  const postsDirectory = 'posts';
+  const postsDirectory = 'posts/en';
+  const spanishPostsDirectory = 'posts/es';
   const categories = []
   const categoriesSpanish = []
   const tags = []
@@ -247,26 +248,25 @@ export async function getStaticProps({}) {
   const posts = fs.readdirSync(postsDirectory).map((file) => {
     const postContent = fs.readFileSync(`${postsDirectory}/${file}`, 'utf8');
     const { data, content } = matter(postContent);
-    if(!file.includes('spanish')) {
-      categories.find(category => category === data.category) ? null : categories.push(data.category)
-      data.tags.map(tag => tags.find(t => t === tag) ? null : tags.push(tag))
-      return {
-        frontmatter: data,
-        content,
-      };
-    }
+
+    categories.find(category => category === data.category) ? null : categories.push(data.category)
+    data.tags.map(tag => tags.find(t => t === tag) ? null : tags.push(tag))
+    return {
+      frontmatter: data,
+      content,
+    };
+    
   }).filter((post) => post !== undefined);
-  const spanishPosts = fs.readdirSync(postsDirectory).map((file) => {
-    const postContent = fs.readFileSync(`${postsDirectory}/${file}`, 'utf8');
+  const spanishPosts = fs.readdirSync(spanishPostsDirectory).map((file) => {
+    const postContent = fs.readFileSync(`${spanishPostsDirectory}/${file}`, 'utf8');
     const { data, content } = matter(postContent);
-    if(file.includes('spanish')) {
-      categoriesSpanish.find(category => category === data.category) ? null : categoriesSpanish.push(data.category)
-      data.tags.map(tag => tagsSpanish.find(t => t === tag) ? null : tagsSpanish.push(tag))
-      return {
-        frontmatter: data,
-        content,
-      };
-    }
+    categoriesSpanish.find(category => category === data.category) ? null : categoriesSpanish.push(data.category)
+    data.tags.map(tag => tagsSpanish.find(t => t === tag) ? null : tagsSpanish.push(tag))
+    return {
+      frontmatter: data,
+      content,
+    };
+    
   }).filter((post) => post !== undefined);
   return {
     props: {
