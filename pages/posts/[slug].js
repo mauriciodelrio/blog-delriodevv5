@@ -38,7 +38,6 @@ export default function Post({frontmatter, content, spanishFrontmatter, spanishC
         setTranslated(true)
       }
     }
-    console.log(imgs)
     return (<>
       <div className="flex flex-wrap justify-center w-full h-max">
         <div className="flex flex-wrap justify-between m-4 mobile:m-0 w-full max-w-[1440px] mobile:text-sm">
@@ -121,7 +120,7 @@ export async function getStaticProps({ params: { slug } }) {
     const spanishFileName = fs.readFileSync(`posts/${slug}-spanish.md`, 'utf-8');
     const { data: frontmatter, content } = matter(fileName);
     const { data: spanishFrontmatter, content: spanishContent } = matter(spanishFileName);
-
+    console.log(slug, "dvsberdf")
     return {
       props: {
         frontmatter,
