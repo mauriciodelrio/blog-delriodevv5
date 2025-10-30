@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./posts/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -18,15 +19,14 @@ module.exports = {
       },
     },
     screens: {
-
-      'mobile': {'max': '640px'},
-      // => @media (max-width: 640px) { ... }
+      'mobile': '640px',
+      // => @media (min-width: 640px) { ... }
   
-      'tablet': {'max': '1399px', 'min': '641px'},
-      // => @media (max-width: 1279px) { ... }
+      'tablet': '768px',
+      // => @media (min-width: 768px) { ... }
   
-      'desktop': {'min': '1400px'},
-      // => @media (min-width: 1280px) { ... }
+      'desktop': '1024px',
+      // => @media (min-width: 1024px) { ... }
     },
   },
   plugins: [

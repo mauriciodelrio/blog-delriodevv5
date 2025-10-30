@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "test:apis": "./test-apis.sh"
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom",
@@ -16,10 +17,25 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-      "^@/components/(.*)$": "<rootDir>/app/components/$1"
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^@/components/(.*)$": "<rootDir>/src/components/$1",
+      "^@/hooks/(.*)$": "<rootDir>/src/hooks/$1",
+      "^@/utils/(.*)$": "<rootDir>/src/utils/$1",
+      "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
+      "^@/styles/(.*)$": "<rootDir>/src/styles/$1",
+      "^@/public/(.*)$": "<rootDir>/public/$1",
+      "^@/posts/(.*)$": "<rootDir>/src/posts/$1",
+      "^@/app/(.*)$": "<rootDir>/src/app/$1"
     },
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+      "^.+\\.(js|jsx|ts|tsx)$": [
+        "next/jest",
+        {
+          "presets": [
+            "next/babel"
+          ]
+        }
+      ]
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
@@ -33,7 +49,7 @@
     ]
   },
   "dependencies": {
-    "@babel/helper-plugin-utils": "latest",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "autoprefixer": "^10.4.19",
     "gray-matter": "^4.0.3",
     "next": "^14.2.13",
@@ -47,13 +63,9 @@
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.9",
-    "@babel/preset-env": "^7.25.0",
-    "@babel/preset-react": "^7.24.7",
     "@tailwindcss/typography": "^0.5.13",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
-    "babel-jest": "^29.7.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "jest": "^29.7.0",
