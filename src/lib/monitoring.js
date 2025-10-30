@@ -47,7 +47,8 @@ export class ViewsMonitor {
     const health = {
       timestamp: new Date().toISOString(),
       status: 'healthy',
-      issues: []
+      issues: [],
+      environment: process.env.VERCEL ? 'serverless' : 'traditional'
     };
     
     try {
@@ -72,6 +73,9 @@ export class ViewsMonitor {
           if (!parsed.posts || !parsed.metadata) {
             health.issues.push('Invalid JSON structure');
             health.status = 'error';
+          } else {
+            health.postsCount = Object.keys(parsed.posts).length;
+            health.totalViews = parsed.metadata.totalViews || 0;
           }
         } catch (jsonError) {
           health.issues.push('Invalid JSON format');
@@ -79,14 +83,26 @@ export class ViewsMonitor {
         }
       }
       
-      // Verificar permisos de escritura
-      try {
-        const testFile = path.join(path.dirname(VIEWS_FILE), '.write-test');
-        fs.writeFileSync(testFile, 'test');
-        fs.unlinkSync(testFile);
-      } catch (writeError) {
-        health.issues.push('No write permissions');
-        health.status = 'error';
+      // Verificar permisos de escritura - ajustado para Vercel
+      if (!process.env.VERCEL) {
+        try {
+          const testFile = path.join(path.dirname(VIEWS_FILE), '.write-test');
+          fs.writeFileSync(testFile, 'test');
+          fs.unlinkSync(testFile);
+        } catch (writeError) {
+          health.issues.push('No write permissions');
+          health.status = 'error';
+        }
+      } else {
+        // En Vercel, verificamos que podemos leer el archivo principal
+        try {
+          const data = fs.readFileSync(VIEWS_FILE, 'utf8');
+          JSON.parse(data); // Verificar que es JSON válido
+          health.vercelStatus = 'file accessible';
+        } catch (error) {
+          health.issues.push('Cannot access views file in Vercel');
+          health.status = 'error';
+        }
       }
       
     } catch (error) {
