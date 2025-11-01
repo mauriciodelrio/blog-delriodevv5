@@ -127,58 +127,96 @@ export async function getAllPosts() {
     const enPostsDirectory = path.join(process.cwd(), 'src', 'posts', 'en');
     const esPostsDirectory = path.join(process.cwd(), 'src', 'posts', 'es');
     
+    // Verificar que los directorios existen
+    if (!fs.existsSync(enPostsDirectory)) {
+      throw new Error(`English posts directory not found: ${enPostsDirectory}`);
+    }
+    
+    if (!fs.existsSync(esPostsDirectory)) {
+      throw new Error(`Spanish posts directory not found: ${esPostsDirectory}`);
+    }
+    
     const categories = [];
     const categoriesSpanish = [];
     const tags = [];
     const tagsSpanish = [];
     
     // Procesar posts en inglés
-    const enFiles = fs.readdirSync(enPostsDirectory);
-    const posts = enFiles.map((file) => {
-      const postContent = fs.readFileSync(path.join(enPostsDirectory, file), 'utf8');
-      const { data, content } = matter(postContent);
-      
-      // Recopilar categorías y tags únicos
-      if (!categories.includes(data.category)) {
-        categories.push(data.category);
-      }
-      
-      data.tags?.forEach(tag => {
-        if (!tags.includes(tag)) {
-          tags.push(tag);
+    const enFiles = fs.readdirSync(enPostsDirectory);    
+    const posts = enFiles
+      .filter(file => file.endsWith('.md'))
+      .map((file) => {
+        try {
+          const postContent = fs.readFileSync(path.join(enPostsDirectory, file), 'utf8');
+          const { data, content } = matter(postContent);
+          
+          // Verificar que el post tiene los campos necesarios
+          if (!data.title || !data.slug) {
+            console.warn(`Post ${file} missing required fields:`, { title: data.title, slug: data.slug });
+          }
+          
+          // Recopilar categorías y tags únicos
+          if (data.category && !categories.includes(data.category)) {
+            categories.push(data.category);
+          }
+          
+          data.tags?.forEach(tag => {
+            if (!tags.includes(tag)) {
+              tags.push(tag);
+            }
+          });
+          
+          return {
+            frontmatter: data,
+            content,
+          };
+        } catch (fileError) {
+          console.error(`Error processing EN file ${file}:`, fileError);
+          return null;
         }
-      });
-      
-      return {
-        frontmatter: data,
-        content,
-      };
-    }).filter((post) => post !== undefined);
+      })
+      .filter((post) => post !== null);
+    
     
     // Procesar posts en español
     const esFiles = fs.readdirSync(esPostsDirectory);
-    const spanishPosts = esFiles.map((file) => {
-      const postContent = fs.readFileSync(path.join(esPostsDirectory, file), 'utf8');
-      const { data, content } = matter(postContent);
-      
-      // Recopilar categorías y tags únicos para español
-      if (!categoriesSpanish.includes(data.category)) {
-        categoriesSpanish.push(data.category);
-      }
-      
-      data.tags?.forEach(tag => {
-        if (!tagsSpanish.includes(tag)) {
-          tagsSpanish.push(tag);
-        }
-      });
-      
-      return {
-        frontmatter: data,
-        content,
-      };
-    }).filter((post) => post !== undefined);
     
-    return {
+    const spanishPosts = esFiles
+      .filter(file => file.endsWith('.md'))
+      .map((file) => {
+        try {
+          const postContent = fs.readFileSync(path.join(esPostsDirectory, file), 'utf8');
+          const { data, content } = matter(postContent);
+          
+          // Verificar que el post tiene los campos necesarios
+          if (!data.title || !data.slug) {
+            console.warn(`Post ${file} missing required fields:`, { title: data.title, slug: data.slug });
+          }
+          
+          // Recopilar categorías y tags únicos para español
+          if (data.category && !categoriesSpanish.includes(data.category)) {
+            categoriesSpanish.push(data.category);
+          }
+          
+          data.tags?.forEach(tag => {
+            if (!tagsSpanish.includes(tag)) {
+              tagsSpanish.push(tag);
+            }
+          });
+          
+          return {
+            frontmatter: data,
+            content,
+          };
+        } catch (fileError) {
+          console.error(`Error processing ES file ${file}:`, fileError);
+          return null;
+        }
+      })
+      .filter((post) => post !== null);
+    
+    
+    const result = {
       posts,
       spanishPosts,
       categorization: {
@@ -188,8 +226,14 @@ export async function getAllPosts() {
         tagsSpanish
       }
     };
+
+    
+    return result;
   } catch (error) {
-    console.error('Error reading all posts:', error);
+    console.error('getAllPosts: Critical error:', error);
+    console.error('getAllPosts: Stack trace:', error.stack);
+    
+    // Retornar estructura vacía pero válida en caso de error
     return {
       posts: [],
       spanishPosts: [],

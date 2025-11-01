@@ -4,6 +4,15 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   
+  // Configuración experimental para incluir archivos en el build
+  experimental: {
+    outputFileTracingIncludes: {
+      '/': ['./src/posts/**/*'],
+      '/[locale]/posts': ['./src/posts/**/*'],
+      '/[locale]/posts/[slug]': ['./src/posts/**/*'],
+    },
+  },
+  
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -17,6 +26,13 @@ const nextConfig = {
       '@/posts': path.resolve(__dirname, 'src/posts'),
       '@/app': path.resolve(__dirname, 'src/app'),
     };
+    
+    // Copiar archivos de posts al build
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    });
+    
     return config;
   },
 };
