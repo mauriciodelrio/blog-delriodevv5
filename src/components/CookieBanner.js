@@ -101,7 +101,7 @@ export default function CookieBanner({ locale = 'en' }) {
                 </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-3 min-w-fit">
+              <div className="flex flex-wrap flex-row gap-3 min-w-fit">
                 <button
                   onClick={() => setShowSettings(true)}
                   className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm"

@@ -1,14 +1,39 @@
 import "@/styles/globals.css";
+import { headers } from 'next/headers';
 
 export async function generateMetadata() {
   // Metadata base para cuando no hay locale específico
   return {
-    title: 'Mauricio Del Río | Web Developer',
-    description: 'Personal blog about web development, programming, React, Next.js, and technology.',
-    keywords: 'web development, programming, React, Next.js, JavaScript, TypeScript, blog',
-    authors: [{ name: 'Mauricio Del Río' }],
+    title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
+    description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
+    keywords: [
+      'web development',
+      'react developer',
+      'next.js expert',
+      'javascript specialist',
+      'typescript developer',
+      'frontend architect',
+      'technical lead',
+      'node.js',
+      'full stack developer',
+      'agile methodology',
+      'software engineering',
+      'ui/ux development',
+      'responsive design',
+      'web performance',
+      'code review',
+      'team leadership',
+      'remote work',
+      'freelance developer',
+      'chile developer',
+      'latin america tech'
+    ],
+    authors: [{ name: 'Mauricio Del Río', url: 'https://delrio.dev' }],
     creator: 'Mauricio Del Río',
-    metadataBase: new URL('https://delrio.dev'), // Cambia por tu dominio
+    publisher: 'Mauricio Del Río',
+    category: 'Technology',
+    classification: 'Business',
+    metadataBase: new URL('https://delrio.dev'),
     alternates: {
       canonical: '/',
       languages: {
@@ -20,19 +45,32 @@ export async function generateMetadata() {
       type: 'website',
       locale: 'en_US',
       url: '/',
-      title: 'Mauricio Del Río | Web Developer',
-      description: 'Personal blog about web development, programming, React, Next.js, and technology.',
-      siteName: 'DelRio Dev Blog',
+      title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
+      description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
+      siteName: 'DelRio Dev',
+      images: [
+        {
+          url: '/api/og?locale=en&type=home',
+          width: 1200,
+          height: 630,
+          alt: 'Mauricio Del Río - Senior Web Developer',
+        }
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Mauricio Del Río | Web Developer',
-      description: 'Personal blog about web development, programming, React, Next.js, and technology.',
-      creator: '@mauriciodelrio', // Cambia por tu handle
+      title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
+      description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies.',
+      creator: '@mauriciodelrio',
+      images: ['/api/og?locale=en&type=home'],
     },
     robots: {
       index: true,
       follow: true,
+      noarchive: false,
+      nosnippet: false,
+      noimageindex: false,
+      nocache: false,
       googleBot: {
         index: true,
         follow: true,
@@ -41,10 +79,33 @@ export async function generateMetadata() {
         'max-snippet': -1,
       },
     },
+    verification: {
+      google: 'AQUI_VAS_A_PEGAR_TU_CODIGO_DE_GOOGLE_SEARCH_CONSOLE',
+      // yandex: 'tu-codigo-de-verificacion-de-yandex',
+      // yahoo: 'tu-codigo-de-verificacion-de-yahoo',
+      // other: {
+      //   'msvalidate.01': 'tu-codigo-de-bing',
+      // },
+    },
+    other: {
+      'theme-color': '#ffffff',
+      'color-scheme': 'light',
+      'format-detection': 'telephone=no',
+    },
   };
 }
 
 export default function RootLayout({ children }) {
-  // Solo renderizar children, el HTML se maneja en [locale]/layout.js
-  return children;
+  // Extraer el locale del pathname para el atributo lang
+  const headersList = headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const locale = pathname.split('/')[1] || 'en';
+  
+  return (
+    <html lang={locale}>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
 }

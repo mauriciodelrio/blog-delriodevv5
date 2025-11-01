@@ -64,7 +64,11 @@ export function middleware(request) {
     );
   }
 
-  return NextResponse.next();
+  // Clonar la respuesta y agregar el pathname como header
+  const response = NextResponse.next();
+  response.headers.set('x-pathname', request.nextUrl.pathname);
+  
+  return response;
 }
 
 export const config = {

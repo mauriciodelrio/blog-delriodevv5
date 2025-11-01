@@ -3,8 +3,15 @@
 import { useState, useEffect } from 'react';
 
 export function usePostsActions(posts, spanishPosts, categorization, locale) {
-  // Determinar contenido inicial basado en el locale
-  const initialPosts = locale === 'es' ? spanishPosts : posts;
+  // Función helper para ordenar posts de más nuevo a más viejo
+  const sortPostsByDateDesc = (postsArray) => {
+    return [...postsArray].sort((a, b) => {
+      return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+    });
+  };
+
+  // Determinar contenido inicial basado en el locale y ordenado por fecha descendente
+  const initialPosts = sortPostsByDateDesc(locale === 'es' ? spanishPosts : posts);
   const initialCategorization = {
     categories: locale === 'es' ? categorization.categoriesSpanish : categorization.categories,
     tags: locale === 'es' ? categorization.tagsSpanish : categorization.tags,
@@ -16,11 +23,11 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
   const [showTags, setShowTags] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [changedOrder, setChangedOrder] = useState(true);
+  const [changedOrder, setChangedOrder] = useState(false); // false = más nuevos primero (por defecto)
 
   // Actualizar contenido cuando cambie el locale
   useEffect(() => {
-    const newPosts = locale === 'es' ? spanishPosts : posts;
+    const newPosts = sortPostsByDateDesc(locale === 'es' ? spanishPosts : posts);
     const newCategorization = {
       categories: locale === 'es' ? categorization.categoriesSpanish : categorization.categories,
       tags: locale === 'es' ? categorization.tagsSpanish : categorization.tags,
@@ -53,13 +60,13 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
       filteredPosts = filteredPosts.filter(({ frontmatter }, index) => 
         !ids.includes(frontmatter.title, index + 1)
       );
-      setContentToRender(filteredPosts);
+      setContentToRender(sortPostsByDateDesc(filteredPosts));
     } else {
       newTags = selectedTags.filter(t => t !== tag);
       
       if (newTags.length === 0) {
         setSelectedTags([]);
-        setContentToRender(currentPosts);
+        setContentToRender(sortPostsByDateDesc(currentPosts));
         return;
       }
       
@@ -75,7 +82,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
       filteredPosts = filteredPosts.filter(({ frontmatter }, index) => 
         !ids.includes(frontmatter.title, index + 1)
       );
-      setContentToRender(filteredPosts);
+      setContentToRender(sortPostsByDateDesc(filteredPosts));
     }
   };
 
@@ -85,7 +92,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
     
     if (selectedCategories.includes(category)) {
       setSelectedCategories([]);
-      setContentToRender(currentPosts);
+      setContentToRender(sortPostsByDateDesc(currentPosts));
       setShowCategories(false);
       return;
     } else {
@@ -96,7 +103,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
       });
       
       setShowCategories(false);
-      setContentToRender(filteredPosts);
+      setContentToRender(sortPostsByDateDesc(filteredPosts));
     }
   };
 
@@ -136,7 +143,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
     const currentPosts = locale === 'es' ? spanishPosts : posts;
     setSelectedCategories([]);
     setSelectedTags([]);
-    setContentToRender(currentPosts);
+    setContentToRender(sortPostsByDateDesc(currentPosts));
     setShowCategories(false);
     setShowTags(false);
     // Mantener el orden actual

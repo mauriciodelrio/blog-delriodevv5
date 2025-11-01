@@ -50,7 +50,7 @@ export const dictionaries = {
       refresh: 'Refresh Page',
     },
     cookies: {
-      title: '🍪 Cookie Settings',
+      title: 'Cookie Settings',
       description: 'We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. You can accept all cookies or customize your preferences.',
       disclaimer: 'By continuing to browse, you accept our cookie policy.',
       customize: 'Customize',
@@ -148,11 +148,202 @@ export const dictionaries = {
       }
     },
     metadata: {
-      title: 'Mauricio Del Río | Web Developer',
-      description: 'Personal blog about web development, programming, React, Next.js, and technology.',
-      keywords: 'web development, programming, React, Next.js, JavaScript, TypeScript, blog',
+      title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
+      description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture, team management, and agile methodologies.',
+      keywords: [
+        'senior web developer',
+        'react expert',
+        'next.js specialist',
+        'javascript developer',
+        'typescript expert',
+        'frontend architect',
+        'technical lead',
+        'node.js developer',
+        'full stack engineer',
+        'agile methodology',
+        'software engineering',
+        'ui/ux development',
+        'responsive design',
+        'web performance optimization',
+        'code review',
+        'team leadership',
+        'remote developer',
+        'freelance consultant',
+        'chile developer',
+        'latin america tech',
+        'react hooks',
+        'redux expert',
+        'tailwind css',
+        'github actions',
+        'ci/cd',
+        'storybook',
+        'jest testing',
+        'sonarqube',
+        'aws cloud',
+        'postgresql',
+        'mongodb'
+      ],
       postNotFound: 'Post Not Found',
       postNotFoundDescription: 'The requested blog post could not be found.',
+    },
+    home: {
+      title: 'Mauricio Del Río Zorrilla',
+      subtitle: 'Software developer, IT consultant and Human.',
+      contact: {
+        openToWork: 'Open to work:',
+        workLocation: 'Working From Home (Global) | Hybrid (Santiago)',
+        salaryRange: 'USD 75,000 - Infinite (Hahaha) /Yr',
+        relocation: 'Yes: CA, NZ'
+      },
+      sidebar: {
+        skills: 'Skills',
+        frontendDev: 'Frontend Development',
+        backendDev: 'Backend & Databases',
+        devTools: 'Development Tools & DevOps',
+        testing: 'Testing & Quality',
+        otherTech: 'Other Technologies',
+        managementTools: 'Management & Design Tools',
+        leadership: 'Leadership & Soft Skills',
+        aiTools: 'AI Tools',
+        languages: 'Languages',
+        education: 'Education',
+        additionalInfo: 'Additional Info',
+        salaryRangeTitle: 'Salary Range',
+        possibleRelocation: 'Possible Relocation',
+        native: 'Native',
+        ielts: 'IELTS B2'
+      },
+      overview: {
+        title: 'Overview',
+        paragraph1: "Hi there! I'm Mauricio, a JavaScript enthusiast with 9+ years of turning coffee into code and bugs into features (with more bugs! Hahaha). My career is marked a lot by React, but it's a labor coincidence. Also, I am more than a frontend developer or TL, I love computer science. Programming? It's just a tool. I want to design, build, think and create solutions that make me feel proud of my work.",
+        paragraph2: "I have a lot of experience working in Agile environments, collaborating with cross-functional teams to deliver high-quality software solutions blah blah blah... (What a boring line, right?) I think that it's more important to highlight the capacity to say NO, but in the same line, propose alternatives that can help the team achieve its goals.",
+        paragraph3: "I'm trying to think outside the box. I love to learn other stuff that's not necessarily related to programming, like philosophy, psychology, art, music, cooking, etc. I believe that a well-rounded individual can bring a unique perspective to software development, leading to more innovative and effective solutions."
+      },
+      experience: {
+        title: 'Experience',
+        freelanceTitle: 'Freelance Experiences',
+        technologies: 'Technologies:',
+        methodology: 'Methodology:'
+      },
+      learning: {
+        title: 'Learning Now'
+      },
+      education: {
+        utfsm: {
+          university: 'Universidad Técnica Federico Santa María',
+          degree: 'Ingeniería Civil Informática',
+          period: '2010 - 2015 (Incomplete)'
+        },
+        usach: {
+          university: 'Universidad de Santiago de Chile',
+          degree: 'Bachelor Degree on Computer Science',
+          period: '2015 - 2020 (Incomplete)'
+        }
+      },
+      jobs: [
+        {
+          company: "Globant",
+          url: "https://www.globant.com/",
+          title: "Senior Web Developer",
+          startDate: "2025-02-02",
+          endDate: "Current",
+          description: "I work as a Senior Web Developer for the British Airways client. My team develops cross-functional tools for over 40 artifacts built with Next.js. My current objetives are: Creating packages and utilities for cross-product use. Establishing and supporting standard code quality rules. Automating and defining product delivery processes. Planning and implementing methods for optimizing and updating critical dependencies across all supported artifacts. Defining security rules and vulnerability management processes.",
+          keywords: ["Javascript", "React", "Typescript", "Next JS", "TailwindCSS", "Vite", "Jest", "Eslint", "Shell", "Snyk", "SonarQube", "CI/CD", "CSP", "Storybook"],
+          methodology: ["Agile", "Scrum"]
+        },
+        {
+          company: "Perficient",
+          url: "https://www.perficient.com/",
+          title: "Senior Software Engineer",
+          startDate: "2022-11-02",
+          endDate: "2024-06-01",
+          description: "I worked as a senior software developer, specializing in frontend development. I focused on building a product that rewarded car salespeople across multiple companies in the USA and Europe. My role required a high degree of skill and reliability, given the complexity of the product.",
+          keywords: ["Javascript", "React", "Typescript", "Next JS", "Jest", "Storybook"],
+          methodology: ["Agile", "Scrum"]
+        },
+        {
+          company: "1Health",
+          url: "https://www.1health.io/",
+          title: "Technical Lead",
+          startDate: "2021-04-01",
+          endDate: "2022-10-31",
+          description: "I was the technical lead for a team of five, where I was responsible for ensuring the quality and guiding the delivery of health exam results. This role honed my leadership skills and attention to detail, which are essential in a demanding industry.",
+          keywords: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL", "Storybook"],
+          methodology: ["Agile", "Kanban"]
+        },
+        {
+          company: "1Health",
+          url: "https://www.1health.io/",
+          title: "Senior Software Engineer",
+          startDate: "2019-07-15",
+          endDate: "2021-03-31",
+          description: "I worked as a senior software developer, specializing in frontend development. I focused on a product that specialized in genetic analysis and family tree tracking. I used an own AI model to analyze data and create intuitive, user-friendly interfaces. My ability to design interactive visualizations for complex datasets demonstrated my attention to detail and dedication to delivering high-quality products.",
+          keywords: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL"],
+          methodology: ["Agile", "Kanban"]
+        },
+        {
+          company: "Open Green Road",
+          url: "https://www.opengreenroad.com/",
+          title: "Software Engineer",
+          startDate: "2017-09-01",
+          endDate: "2019-07-02",
+          description: "I worked as a senior software developer, focused on developing interactive user interfaces for educational platforms. My experience in creating engaging interfaces showcased my expertise in software development and my commitment to delivering high-quality products.",
+          keywords: ["Javascript", "React", "Jest", "JQuery", "Node JS", "Express JS", "MongoDB"],
+          methodology: ["Agile", "Kanban"]
+        },
+        {
+          company: "Nursoft",
+          url: "https://www.nursoft.cl/",
+          title: "Software Engineer",
+          startDate: "2017-04-01",
+          endDate: "2017-08-20",
+          description: "I worked as a software developer on various agile projects for different clients. In this role, I also provided technical support to internal squads. My ability to work effectively on different teams and adapt to new challenges demonstrates my skills in software development.",
+          keywords: ["Javascript", "React", "Jest", "JQuery", "React Native", "Electron"],
+          methodology: ["Agile", "Scrum"]
+        },
+        {
+          company: "Mediastream",
+          url: "https://www.mediastream.co/",
+          title: "Jr Software Engineer",
+          startDate: "2016-09-22",
+          endDate: "2017-03-25",
+          description: "I started my career as a junior developer at a streaming services company that served clients throughout Latin America. My primary role was to support the development team with various tasks related to content visualization on Over-the-Top (OTT) platforms. This experience gave me a solid foundation in software development and taught me how to work effectively within a team.",
+          keywords: ["Javascript", "React", "Node JS", "Express JS", "JQuery", "MongoDB"],
+          methodology: ["Agile", "Scrum", "Kanban"]
+        }
+      ],
+      freelanceExperiences: [
+        {
+          company: "Aevum",
+          url: "https://www.aevum.cl/",
+          title: "Senior Frontend Developer (freelance)",
+          startDate: "2022-04-01",
+          endDate: "2024-07-01",
+          description: "I was a frontend developer at a company that specialized in providing economic projections for both individual and large-scale corporate investors. My role involved optimizing and implementing highly functional and efficient visual interfaces, using data visualization and real-time updating tools.",
+          keywords: ["Javascript", "React", "Storybook"],
+          methodology: ["Agile", "Scrum"]
+        },
+        {
+          company: "4Geeks Academy (freelance)",
+          url: "https://www.4geeksacademy.com/",
+          title: "Teacher (freelance)",
+          startDate: "2021-03-01",
+          endDate: "2021-12-31",
+          description: "I worked as a full-stack mentor, primarily teaching keywords such as JavaScript, React, Python, and Flask.",
+          keywords: ["Javascript", "React", "Python", "Flask", "PostgreSQL"],
+          methodology: ["online sessions"]
+        },
+        {
+          company: "Desafío Latam (freelance)",
+          url: "https://www.desafiolatam.com/",
+          title: "Content Creator (freelance)",
+          startDate: "2019-23-08",
+          endDate: "2020-04-01",
+          description: "I was a content creator, where I developed content for their JavaScript and React courses.",
+          keywords: ["Javascript", "React"],
+          methodology: ["online sessions"]
+        }
+      ]
     }
   },
   es: {
@@ -298,11 +489,202 @@ export const dictionaries = {
       }
     },
     metadata: {
-      title: 'Mauricio Del Río | Desarrollador Web',
-      description: 'Blog personal sobre desarrollo web, programación, React, Next.js y tecnología.',
-      keywords: 'desarrollo web, programación, React, Next.js, JavaScript, TypeScript, blog',
+      title: 'Mauricio Del Río | Desarrollador Web Senior y Líder Técnico',
+      description: 'Desarrollador Web Senior con más de 9 años de experiencia en React, Next.js, Node.js y tecnologías web modernas. Líder Técnico especializado en arquitectura frontend, gestión de equipos y metodologías ágiles.',
+      keywords: [
+        'desarrollador web senior',
+        'experto react',
+        'especialista next.js',
+        'desarrollador javascript',
+        'experto typescript',
+        'arquitecto frontend',
+        'líder técnico',
+        'desarrollador node.js',
+        'ingeniero full stack',
+        'metodología ágil',
+        'ingeniería de software',
+        'desarrollo ui/ux',
+        'diseño responsivo',
+        'optimización web',
+        'revisión de código',
+        'liderazgo de equipos',
+        'desarrollador remoto',
+        'consultor freelance',
+        'desarrollador chile',
+        'tech latinoamérica',
+        'react hooks',
+        'experto redux',
+        'tailwind css',
+        'github actions',
+        'ci/cd',
+        'storybook',
+        'testing jest',
+        'sonarqube',
+        'aws cloud',
+        'postgresql',
+        'mongodb'
+      ],
       postNotFound: 'Post No Encontrado',
       postNotFoundDescription: 'El post solicitado no pudo ser encontrado.',
+    },
+    home: {
+      title: 'Mauricio Del Río Zorrilla',
+      subtitle: 'Desarrollador de software, consultor TI y Humano.',
+      contact: {
+        openToWork: 'Disponible para trabajar:',
+        workLocation: 'Trabajo Remoto (Global) | Híbrido (Santiago)',
+        salaryRange: 'USD 75,000 - Infinito (Jajaja) /Año',
+        relocation: 'Sí: CA, NZ'
+      },
+      sidebar: {
+        skills: 'Habilidades',
+        frontendDev: 'Desarrollo Frontend',
+        backendDev: 'Backend y Bases de Datos',
+        devTools: 'Herramientas y DevOps',
+        testing: 'Testing y Calidad',
+        otherTech: 'Otras Tecnologías',
+        managementTools: 'Herramientas de Gestión y Diseño',
+        leadership: 'Liderazgo y Habilidades Blandas',
+        aiTools: 'Herramientas IA',
+        languages: 'Idiomas',
+        education: 'Educación',
+        additionalInfo: 'Información Adicional',
+        salaryRangeTitle: 'Rango Salarial',
+        possibleRelocation: 'Posible Relocalización',
+        native: 'Nativo',
+        ielts: 'IELTS B2'
+      },
+      overview: {
+        title: 'Resumen',
+        paragraph1: '¡Hola! Soy Mauricio, un entusiasta de JavaScript con 9+ años convirtiendo café en código y bugs en features (¡con más bugs! Jajaja). Mi carrera está muy marcada por React, pero es una coincidencia laboral. Además, soy más que un desarrollador frontend o TL, amo las ciencias de la computación. ¿Programación? Es solo una herramienta. Quiero diseñar, construir, pensar y crear soluciones que me hagan sentir orgulloso de mi trabajo.',
+        paragraph2: 'Tengo mucha experiencia trabajando en entornos Ágiles, colaborando con equipos multifuncionales para entregar soluciones de software de alta calidad bla bla bla... (¡Qué línea tan aburrida, verdad?) Creo que es más importante destacar la capacidad de decir NO, pero en la misma línea, proponer alternativas que puedan ayudar al equipo a lograr sus objetivos.',
+        paragraph3: 'Trato de pensar fuera de la caja. Me encanta aprender otras cosas que no están necesariamente relacionadas con la programación, como filosofía, psicología, arte, música, cocina, etc. Creo que una persona integral puede aportar una perspectiva única al desarrollo de software, llevando a soluciones más innovadoras y efectivas.'
+      },
+      experience: {
+        title: 'Experiencia',
+        freelanceTitle: 'Experiencias Freelance',
+        technologies: 'Tecnologías:',
+        methodology: 'Metodología:'
+      },
+      learning: {
+        title: 'Aprendiendo Ahora'
+      },
+      education: {
+        utfsm: {
+          university: 'Universidad Técnica Federico Santa María',
+          degree: 'Ingeniería Civil Informática',
+          period: '2010 - 2015 (Incompleto)'
+        },
+        usach: {
+          university: 'Universidad de Santiago de Chile',
+          degree: 'Licenciatura en Ciencias de la Computación',
+          period: '2015 - 2020 (Incompleto)'
+        }
+      },
+      jobs: [
+        {
+          company: "Globant",
+          url: "https://www.globant.com/",
+          title: "Desarrollador Web Senior",
+          startDate: "2025-02-02",
+          endDate: "Actual",
+          description: "Trabajo como Desarrollador Web Senior para el cliente British Airways. Mi equipo desarrolla herramientas transversales para más de 40 artefactos construidos con Next.js. Mis objetivos actuales son: Crear paquetes y utilidades para uso transversal entre productos. Establecer y apoyar reglas estándar de calidad de código. Automatizar y definir procesos de entrega de productos. Planificar e implementar métodos para optimizar y actualizar dependencias críticas en todos los artefactos soportados. Definir reglas de seguridad y procesos de gestión de vulnerabilidades.",
+          keywords: ["Javascript", "React", "Typescript", "Next JS", "TailwindCSS", "Vite", "Jest", "Eslint", "Shell", "Snyk", "SonarQube", "CI/CD", "CSP", "Storybook"],
+          methodology: ["Ágil", "Scrum"]
+        },
+        {
+          company: "Perficient",
+          url: "https://www.perficient.com/",
+          title: "Ingeniero de Software Senior",
+          startDate: "2022-11-02",
+          endDate: "2024-06-01",
+          description: "Trabajé como desarrollador de software senior, especializándome en desarrollo frontend. Me enfoqué en construir un producto que recompensaba a vendedores de autos en múltiples empresas de EE.UU. y Europa. Mi rol requería un alto grado de habilidad y confiabilidad, dada la complejidad del producto.",
+          keywords: ["Javascript", "React", "Typescript", "Next JS", "Jest", "Storybook"],
+          methodology: ["Ágil", "Scrum"]
+        },
+        {
+          company: "1Health",
+          url: "https://www.1health.io/",
+          title: "Líder Técnico",
+          startDate: "2021-04-01",
+          endDate: "2022-10-31",
+          description: "Fui el líder técnico de un equipo de cinco personas, donde era responsable de asegurar la calidad y guiar la entrega de resultados de exámenes médicos. Este rol perfeccionó mis habilidades de liderazgo y atención al detalle, que son esenciales en una industria exigente.",
+          keywords: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL", "Storybook"],
+          methodology: ["Ágil", "Kanban"]
+        },
+        {
+          company: "1Health",
+          url: "https://www.1health.io/",
+          title: "Ingeniero de Software Senior",
+          startDate: "2019-07-15",
+          endDate: "2021-03-31",
+          description: "Trabajé como desarrollador de software senior, especializándome en desarrollo frontend. Me enfoqué en un producto especializado en análisis genético y seguimiento de árboles familiares. Usé un modelo de IA propio para analizar datos y crear interfaces intuitivas y fáciles de usar. Mi capacidad para diseñar visualizaciones interactivas para conjuntos de datos complejos demostró mi atención al detalle y dedicación a entregar productos de alta calidad.",
+          keywords: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL"],
+          methodology: ["Ágil", "Kanban"]
+        },
+        {
+          company: "Open Green Road",
+          url: "https://www.opengreenroad.com/",
+          title: "Ingeniero de Software",
+          startDate: "2017-09-01",
+          endDate: "2019-07-02",
+          description: "Trabajé como desarrollador de software senior, enfocado en desarrollar interfaces de usuario interactivas para plataformas educativas. Mi experiencia creando interfaces atractivas mostró mi expertise en desarrollo de software y mi compromiso con entregar productos de alta calidad.",
+          keywords: ["Javascript", "React", "Jest", "JQuery", "Node JS", "Express JS", "MongoDB"],
+          methodology: ["Ágil", "Kanban"]
+        },
+        {
+          company: "Nursoft",
+          url: "https://www.nursoft.cl/",
+          title: "Ingeniero de Software",
+          startDate: "2017-04-01",
+          endDate: "2017-08-20",
+          description: "Trabajé como desarrollador de software en varios proyectos ágiles para diferentes clientes. En este rol, también proporcioné soporte técnico a equipos internos. Mi capacidad para trabajar efectivamente en diferentes equipos y adaptarme a nuevos desafíos demuestra mis habilidades en desarrollo de software.",
+          keywords: ["Javascript", "React", "Jest", "JQuery", "React Native", "Electron"],
+          methodology: ["Ágil", "Scrum"]
+        },
+        {
+          company: "Mediastream",
+          url: "https://www.mediastream.co/",
+          title: "Ingeniero de Software Jr",
+          startDate: "2016-09-22",
+          endDate: "2017-03-25",
+          description: "Comencé mi carrera como desarrollador junior en una empresa de servicios de streaming que servía a clientes en toda Latinoamérica. Mi rol principal era apoyar al equipo de desarrollo con varias tareas relacionadas con visualización de contenido en plataformas Over-the-Top (OTT). Esta experiencia me dio una base sólida en desarrollo de software y me enseñó cómo trabajar efectivamente dentro de un equipo.",
+          keywords: ["Javascript", "React", "Node JS", "Express JS", "JQuery", "MongoDB"],
+          methodology: ["Ágil", "Scrum", "Kanban"]
+        }
+      ],
+      freelanceExperiences: [
+        {
+          company: "Aevum",
+          url: "https://www.aevum.cl/",
+          title: "Desarrollador Frontend Senior (freelance)",
+          startDate: "2022-04-01",
+          endDate: "2024-07-01",
+          description: "Fui desarrollador frontend en una empresa especializada en proporcionar proyecciones económicas para inversores individuales y corporativos a gran escala. Mi rol involucró optimizar e implementar interfaces visuales altamente funcionales y eficientes, usando herramientas de visualización de datos y actualización en tiempo real.",
+          keywords: ["Javascript", "React", "Storybook"],
+          methodology: ["Ágil", "Scrum"]
+        },
+        {
+          company: "4Geeks Academy (freelance)",
+          url: "https://www.4geeksacademy.com/",
+          title: "Profesor (freelance)",
+          startDate: "2021-03-01",
+          endDate: "2021-12-31",
+          description: "Trabajé como mentor full-stack, enseñando principalmente tecnologías como JavaScript, React, Python y Flask.",
+          keywords: ["Javascript", "React", "Python", "Flask", "PostgreSQL"],
+          methodology: ["sesiones online"]
+        },
+        {
+          company: "Desafío Latam (freelance)",
+          url: "https://www.desafiolatam.com/",
+          title: "Creador de Contenido (freelance)",
+          startDate: "2019-23-08",
+          endDate: "2020-04-01",
+          description: "Fui creador de contenido, donde desarrollé contenido para sus cursos de JavaScript y React.",
+          keywords: ["Javascript", "React"],
+          methodology: ["sesiones online"]
+        }
+      ]
     }
   }
 };

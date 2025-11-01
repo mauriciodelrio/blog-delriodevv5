@@ -1,6 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { 
+  FaStar, 
+  FaFire, 
+  FaTrendingUp, 
+  FaLightbulb, 
+  FaCrown 
+} from 'react-icons/fa';
 
 export function usePostBadges() {
   const [badges, setBadges] = useState({});
@@ -131,7 +138,7 @@ export function usePostTracking() {
 export function getBadgeConfig(badgeType, locale = 'en') {
   const configs = {
     new: {
-      emoji: '🆕',
+      icon: FaStar,
       colors: {
         bg: 'bg-green-100',
         text: 'text-green-800',
@@ -143,7 +150,7 @@ export function getBadgeConfig(badgeType, locale = 'en') {
       }
     },
     top: {
-      emoji: '👑',
+      icon: FaCrown,
       colors: {
         bg: 'bg-yellow-100',
         text: 'text-yellow-800',
@@ -155,7 +162,7 @@ export function getBadgeConfig(badgeType, locale = 'en') {
       }
     },
     trending: {
-      emoji: '🔥',
+      icon: FaFire,
       colors: {
         bg: 'bg-orange-100',
         text: 'text-orange-800',
@@ -167,7 +174,7 @@ export function getBadgeConfig(badgeType, locale = 'en') {
       }
     },
     popular: {
-      emoji: '📈',
+      icon: FaTrendingUp,
       colors: {
         bg: 'bg-blue-100',
         text: 'text-blue-800',
@@ -179,7 +186,7 @@ export function getBadgeConfig(badgeType, locale = 'en') {
       }
     },
     'must-read': {
-      emoji: '💡',
+      icon: FaLightbulb,
       colors: {
         bg: 'bg-purple-100',
         text: 'text-purple-800',

@@ -8,7 +8,7 @@ export default function Badge({ type, locale = 'en', className = '' }) {
   const config = getBadgeConfig(type, locale);
   if (!config) return null;
 
-  const { emoji, colors, labels } = config;
+  const { icon: IconComponent, colors, labels } = config;
   const label = labels[locale] || labels.en;
 
   return (
@@ -20,7 +20,7 @@ export default function Badge({ type, locale = 'en', className = '' }) {
         ${className}
       `}
     >
-      <span className="text-sm">{emoji}</span>
+      <IconComponent className="w-3 h-3" />
       <span>{label}</span>
     </div>
   );

@@ -4,112 +4,7 @@ import { useState, useEffect } from 'react';
 import { AiFillLinkedin, AiFillGithub, AiFillGitlab } from "react-icons/ai";
 import { FaStar, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Link from 'next/link';
-
-const jobs = [
-    {
-        company: "Perficient",
-        url: "https://www.perficient.com/",
-        title: "Senior Software Engineer",
-        startDate: "2022-11-02",
-        endDate: "Current",
-        description: "Works as a senior software engineer, specializing in frontend development for a product that rewards automobile sellers across multiple companies in the USA and Europe. Their expertise in frontend development and experience in a complex product make them a skilled and reliable professional.",
-        technologies: ["Javascript", "React", "Typescript", "Next JS", "Jest", "Storybook"],
-        metotology: ["Agile", "Scrum"],
-    },
-    {
-        company: "1Health",
-        url: "https://www.1health.io/",
-        title: "Technical Lead",
-        startDate: "2021-04-01",
-        endDate: "2022-10-31",
-        description: "Worked as a technical lead for a team of five, responsible for ensuring quality and providing guidance in the delivery of health exam results. Their experience demonstrates strong leadership skills and attention to detail in a demanding industry.",
-        technologies: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL", "Storybook"],
-        metotology: ["Agile", "Kanban"],
-    },
-    {
-        company: "1Health",
-        url: "https://www.1health.io/",
-        title: "Senior Software Engineer",
-        startDate: "2019-07-15",
-        endDate: "2021-03-31",
-        description: "Worked as a senior software engineer in a product that specializes in genetic analysis and family tree tracking. Their expertise in using artificial intelligence for data analysis and creating intuitive user interfaces showcases their skills in software development. Their ability to create interactive and user-friendly visualizations for complex data sets demonstrates their attention to detail and dedication to delivering high-quality products.",
-        technologies: ["Javascript", "React", "Jest", "Python", "Django", "AWS", "PostgreSQL"],
-        metotology: ["Agile", "Kanban"],
-    },
-    {
-        company: "Open Green Road",
-        url: "https://www.opengreenroad.com/",
-        title: "Software Engineer",
-        startDate: "2017-09-01",
-        endDate: "2019-07-02",
-        description: "Worked on an educational platform for companies, specializing in developing interactive user interfaces. Their experience in creating engaging interfaces showcases their expertise in software development and dedication to delivering high-quality products.",
-        technologies: ["Javascript", "React", "Jest", "JQuery", "Node JS", "Express JS", "MongoDB"],
-        metotology: ["Agile", "Kanban"],
-    },
-    {
-        company: "Nursoft",
-        url: "https://www.nursoft.cl/",
-        title: "Software Engineer",
-        startDate: "2017-04-01",
-        endDate: "2017-08-20",
-        description: "Worked as a software developer on various agile projects catering to different clients, providing technical support to assigned developers. Their ability to work effectively in different teams and adapt to new challenges demonstrates their skills in software development.",
-        technologies: ["Javascript", "React", "Jest", "JQuery", "React Native", "Electron"],
-        metotology: ["Agile", "Scrum"],
-    },
-    {
-        company: "Mediastream",
-        url: "https://www.mediastream.co/",
-        title: "Jr Software Engineer",
-        startDate: "2016-09-22",
-        endDate: "2017-03-25",
-        description: "Worked as a Junior Developer in a streaming services company catering to clients throughout Latin America. Their primary role was to support the development team with various tasks related to the visualization of content through Over the Top (OTT) platforms. Their experience in this role showcases their knowledge in software development and their ability to work effectively within a team.",
-        technologies: ["Javascript", "React", "Node JS", "Express JS", "JQuery", "MongoDB"],
-        metotology: ["Agile", "Scrum", "Kanban"],
-    },
-];
-
-const otherExperiences = [
-    {
-        company: "Aevum",
-        title: "Senior Frontend Developer (freelance)",
-        startDate: "2022-04-01",
-        url: "https://www.aevum.cl/",
-        endDate: "Current",
-        description: "Works as a freelance analyst specializing in investment analysis for large companies. He provides economic projections and market analysis, with a focus on user interface design for end-users. His insights help clients make informed investment decisions.",
-        technologies: ["Javascript", "React", "Storybook"],
-        metotology: ["Agile", "Scrum"],
-    },
-    {
-        company: "Digital Partners",
-        url: "https://www.digitalpartners.ai/",
-        title: "Senior Fullstack Developer (freelance)",
-        startDate: "2022-03-01",
-        endDate: "2022-09-05",
-        description: "Worked on a startup that provided a platform to match suppliers with businesses in need of their services. The role was to develop and ensure the delivery of a minimum viable product for the platform.",
-        technologies: ["Javascript", "Vue", "JQuery", "Python", "Django", "GraphQl", "PostgreSQL"],
-        metotology: ["Agile", "Scrum"],
-    },
-    {
-        company: "4Geeks Academy",
-        url: "https://www.4geeksacademy.com/",
-        title: "Teacher (freelance)",
-        startDate: "2021-03-01",
-        endDate: "2021-12-31",
-        description: "I worked as a fullstack teacher, mainly teaching technologies such as Javascript, React, Python, and Flask.",
-        technologies: ["Javascript", "React", "Python", "Flask", "PostgreSQL"],
-        metotology: ["online sessions"],
-    },
-    {
-        company: "Desafío Latam",
-        url: "https://www.desafiolatam.com/",
-        title: "Content Creator (freelance)",
-        startDate: "2019-23-08",
-        endDate: "2020-04-01",
-        description: "I worked as a content creator for the Desafío Latam bootcamp, creating content for the Javascript and React courses.",
-        technologies: ["Javascript", "React"],
-        metotology: ["online sessions"],
-    }
-];
+import { getDictionary } from '../lib/i18n';
 
 const AccordionSection = ({ id, title, children, isOpen, onToggle }) => {
   return (
@@ -143,7 +38,14 @@ export default function HomePage({ params, dictionary }) {
 
   // Estado para manejar qué acordeones están abiertos
   const [accordionState, setAccordionState] = useState({
-    skills: false,
+    frontendDev: false,
+    backendDev: false,
+    devTools: false,
+    testing: false,
+    otherTech: false,
+    managementTools: false,
+    leadership: false,
+    AI: false,
     languages: false,
     education: false,
     additionalInfo: false
@@ -170,7 +72,14 @@ export default function HomePage({ params, dictionary }) {
   // Inicializar estado de acordeones basado en el tamaño de pantalla
   useEffect(() => {
     setAccordionState({
-      skills: !isMobile, // En desktop abierto, en mobile cerrado
+      frontendDev: !isMobile, // En desktop abierto, en mobile cerrado
+      backendDev: !isMobile,
+      devTools: !isMobile,
+      testing: !isMobile,
+      otherTech: !isMobile,
+      managementTools: !isMobile,
+      leadership: !isMobile,
+      AI: !isMobile,
       languages: !isMobile,
       education: !isMobile,
       additionalInfo: !isMobile
@@ -185,6 +94,138 @@ export default function HomePage({ params, dictionary }) {
     }));
   };
 
+  // Función helper para renderizar skills
+  const renderSkills = (skillsArray) => (
+    <div className="space-y-3">
+      {skillsArray.map((item, index) => (
+        <div key={index} className="flex items-center justify-between">
+          <span className="text-gray-700 text-sm">{item.skill}</span>
+          <div className="flex">
+            {[...Array(5)].map((_, i) => (
+              <FaStar
+                key={i}
+                className={`w-3 h-3 ${
+                  i < item.rating ? 'text-gray-800' : 'text-gray-300'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  // Skills categorizadas
+  const frontendSkills = [
+    { skill: "Javascript", rating: 5 },
+    { skill: "React", rating: 5 },
+    { skill: "Redux", rating: 5 },
+    { skill: "Zustand", rating: 5 },
+    { skill: "Signals", rating: 5  },
+    { skill: "Hooks", rating: 5 },
+    { skill: "Typescript", rating: 5 },
+    { skill: "HTML", rating: 5 },
+    { skill: "CSS", rating: 5 },
+    { skill: "Tailwind", rating: 5 },
+    { skill: "Bootstrap", rating: 5 },
+    { skill: "UI Frameworks", rating: 5 },
+    { skill: "Next JS", rating: 5 },
+    { skill: "JQuery", rating: 5 },
+    { skill: "Preact", rating: 4 },
+    { skill: "Vue JS", rating: 3 }
+  ];
+
+  const backendSkills = [
+    { skill: "Node JS", rating: 5 },
+    { skill: "Express JS", rating: 5 },
+    { skill: "PostgreSQL", rating: 4 },
+    { skill: "Redis", rating: 4 },
+    { skill: "GraphQL", rating: 4 },
+    { skill: "SQLLite", rating: 4 },
+    { skill: "Apollo", rating: 4 },
+    { skill: "MySQL", rating: 3 },
+    { skill: "Mongo DB", rating: 3 },
+    { skill: "Python", rating: 3 },
+    { skill: "Django", rating: 3 },
+    { skill: "Flask", rating: 3 },
+    { skill: "FastAPI", rating: 3 },
+    { skill: "Sequelize", rating: 3 },
+    { skill: "Mongoose", rating: 2 },
+    { skill: "Prisma", rating: 2 }
+  ];
+
+  const devToolsSkills = [
+    { skill: "Git", rating: 5 },
+    { skill: "SonarQube", rating: 4 },
+    { skill: "Eslint", rating: 4 },
+    { skill: "Snyk", rating: 4 },
+    { skill: "CI/CD", rating: 4 },
+    { skill: "Turbopack", rating: 4 },
+    { skill: "CSP", rating: 4 },
+    { skill: "Shell", rating: 4 },
+    { skill: "Github Actions", rating: 4 },
+    { skill: "Docker", rating: 3 },
+  ];
+
+  const testingSkills = [
+    { skill: "Storybook", rating: 5 },
+    { skill: "Jest", rating: 4 },
+    { skill: "React Testing Library", rating: 4 },
+    { skill: "TDD", rating: 3 },
+    { skill: "Cypress", rating: 3 }
+  ];
+
+  const otherTechSkills = [
+    { skill: "Electron", rating: 3 },
+    { skill: "React Native", rating: 2 },
+    { skill: "AWS", rating: 2 },
+    { skill: "Firebase", rating: 2 },
+    { skill: "GCP", rating: 2 }
+  ];
+
+  const managementTools = [
+    { skill: "Jira", rating: 5 },
+    { skill: "Confluence", rating: 5 },
+    { skill: "Notion", rating: 5 },
+    { skill: "Miro", rating: 5 },
+    { skill: "UML", rating: 5 },
+    { skill: "Figma", rating: 3 }
+  ];
+
+  const leadershipSkills = [
+    { skill: "Agile", rating: 5 },
+    { skill: "Leadership", rating: 5 },
+    { skill: "Team Management", rating: 5 },
+    { skill: "Project Planning", rating: 5 },
+    { skill: "Strategic Thinking", rating: 5 },
+    { skill: "Mentoring", rating: 5 },
+    { skill: "Cross-functional Collaboration", rating: 5 },
+    { skill: "Code Review", rating: 5 },
+    { skill: "Stakeholder Management", rating: 4 },
+    { skill: "Technical Architecture", rating: 4 },
+    { skill: "Process Improvement", rating: 4 },
+    { skill: "Risk Assessment", rating: 4 }
+  ];
+
+  const aiSkills = [
+    { skill: "Copilot", rating: 5 },
+    { skill: "GPT", rating: 5 },
+    { skill: "Gemini", rating: 5 },
+    { skill: "Agents", rating: 5 },
+    { skill: "LLM", rating: 5 },
+    { skill: "MCP", rating: 5 },
+    { skill: "Cursor", rating: 5 },
+    { skill: "Windsurf", rating: 5 },
+    { skill: "Warp", rating: 5 },
+    { skill: "API Integrations", rating: 5 },
+    { skill: "Prompt Engineering", rating: 5 },
+    { skill: "Ollama", rating: 5 },
+    { skill: "Claude", rating: 5 },
+    { skill: "Lensa", rating: 5 },
+    { skill: "Midjourney", rating: 5 },
+    { skill: "Dall-E", rating: 4 }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Main Container */}
@@ -193,21 +234,21 @@ export default function HomePage({ params, dictionary }) {
         <header className="mb-12 flex flex-col items-center">
           <div className="text-center desktop:text-left mb-8">
             <h1 className="text-4xl desktop:text-5xl font-bold text-gray-900 mb-4">
-              Mauricio Del Río Zorrilla
+              {dictionary.home.title}
             </h1>
             <p className="text-xl text-center text-gray-600 italic mb-6">
-              Software developer, IT consultant and Human.
+              {dictionary.home.subtitle}
             </p>
           </div>
           
           {/* Contact Info */}
           <div className="flex flex-col tablet:flex-row tablet:items-center gap-4 text-gray-700 mb-6 justify-center desktop:justify-start">
             <div className="flex items-center justify-center tablet:justify-start gap-2">
-              <span className="font-semibold">Open to work:</span>
-              <span>Working From Home (Global)</span>
+              <span className="font-semibold">{dictionary.home.contact.openToWork}</span>
+              <span>{dictionary.home.contact.workLocation}</span>
             </div>
             <div className="hidden tablet:block text-gray-400">•</div>
-            <div className="text-center tablet:text-left">+56 9 3333 9394</div>
+            <div className="text-center tablet:text-left">+56 9 3333 9394 / +56 9 2917 6592</div>
             <div className="hidden tablet:block text-gray-400">•</div>
             <div className="text-center tablet:text-left">mauricio.delr@gmail.com</div>
           </div>
@@ -241,68 +282,91 @@ export default function HomePage({ params, dictionary }) {
         {/* Content Layout */}
         <div className="flex flex-col desktop:flex-row gap-12 items-start">
           {/* Sidebar */}
-          <aside className="desktop:w-1/3 w-full desktop:sticky desktop:top-8 space-y-8">
-            {/* Skills Section */}
+          <aside className="desktop:w-1/3 w-full desktop:sticky desktop:top-8 desktop:max-h-[calc(100vh-4rem)] desktop:overflow-y-auto desktop:pr-2 space-y-8 desktop:scrollbar-thin desktop:scrollbar-track-gray-100 desktop:scrollbar-thumb-gray-300 desktop:hover:scrollbar-thumb-gray-400">
+            {/* Frontend Development Section */}
             <AccordionSection 
-              id="skills" 
-              title="Skills" 
-              isOpen={accordionState.skills}
+              id="frontendDev" 
+              title={dictionary.home.sidebar.frontendDev}
+              isOpen={accordionState.frontendDev}
               onToggle={toggleAccordion}
             >
-              <div className="space-y-3">
-                {[
-                  { skill: "Javascript", rating: 5 },
-                  { skill: "React", rating: 5 },
-                  { skill: "Redux", rating: 5 },
-                  { skill: "Hooks", rating: 5 },
-                  { skill: "Typescript", rating: 5 },
-                  { skill: "Tailwind", rating: 5 },
-                  { skill: "UI Frameworks", rating: 5 },
-                  { skill: "Next JS", rating: 5 },
-                  { skill: "Node JS", rating: 5 },
-                  { skill: "HTML", rating: 5 },
-                  { skill: "CSS", rating: 5 },
-                  { skill: "Express JS", rating: 5 },
-                  { skill: "JQuery", rating: 5 },
-                  { skill: "Agile", rating: 5 },
-                  { skill: "Leadership", rating: 5 },
-                  { skill: "Storybook", rating: 4 },
-                  { skill: "PostgreSQL", rating: 4 },
-                  { skill: "Jest", rating: 4 },
-                  { skill: "React Testing Library", rating: 4 },
-                  { skill: "TDD", rating: 3 },
-                  { skill: "MySQL", rating: 3 },
-                  { skill: "Electron", rating: 3 },
-                  { skill: "Sequelize", rating: 3 },
-                  { skill: "Python", rating: 3 },
-                  { skill: "Django", rating: 3 },
-                  { skill: "Mongo DB", rating: 3 },
-                  { skill: "Mongoose", rating: 2 },
-                  { skill: "React Native", rating: 2 },
-                  { skill: "Prisma", rating: 2 },
-                  { skill: "AWS", rating: 2 }
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <span className="text-gray-700 text-sm">{item.skill}</span>
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar
-                          key={i}
-                          className={`w-3 h-3 ${
-                            i < item.rating ? 'text-gray-800' : 'text-gray-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {renderSkills(frontendSkills)}
+            </AccordionSection>
+
+            {/* Backend & Databases Section */}
+            <AccordionSection 
+              id="backendDev" 
+              title={dictionary.home.sidebar.backendDev}
+              isOpen={accordionState.backendDev}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(backendSkills)}
+            </AccordionSection>
+
+            {/* Development Tools & DevOps Section */}
+            <AccordionSection 
+              id="devTools" 
+              title={dictionary.home.sidebar.devTools}
+              isOpen={accordionState.devTools}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(devToolsSkills)}
+            </AccordionSection>
+
+            {/* Testing & Quality Section */}
+            <AccordionSection 
+              id="testing" 
+              title={dictionary.home.sidebar.testing}
+              isOpen={accordionState.testing}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(testingSkills)}
+            </AccordionSection>
+
+            {/* Other Technologies Section */}
+            <AccordionSection 
+              id="otherTech" 
+              title={dictionary.home.sidebar.otherTech}
+              isOpen={accordionState.otherTech}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(otherTechSkills)}
+            </AccordionSection>
+
+            {/* Management & Design Tools Section */}
+            <AccordionSection 
+              id="managementTools" 
+              title={dictionary.home.sidebar.managementTools}
+              isOpen={accordionState.managementTools}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(managementTools)}
+            </AccordionSection>
+
+            {/* Leadership & Soft Skills Section */}
+            <AccordionSection 
+              id="leadership" 
+              title={dictionary.home.sidebar.leadership}
+              isOpen={accordionState.leadership}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(leadershipSkills)}
+            </AccordionSection>
+
+            {/* AI Section */}
+            <AccordionSection 
+              id="AI" 
+              title={dictionary.home.sidebar.aiTools}
+              isOpen={accordionState.AI}
+              onToggle={toggleAccordion}
+            >
+              {renderSkills(aiSkills)}
             </AccordionSection>
 
             {/* Languages Section */}
             <AccordionSection 
               id="languages" 
-              title="Languages" 
+              title={dictionary.home.sidebar.languages}
               isOpen={accordionState.languages}
               onToggle={toggleAccordion}
             >
@@ -315,7 +379,7 @@ export default function HomePage({ params, dictionary }) {
                         <FaStar key={i} className="w-3 h-3 text-gray-800" />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500">Native</span>
+                    <span className="text-xs text-gray-500">{dictionary.home.sidebar.native}</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
@@ -329,7 +393,7 @@ export default function HomePage({ params, dictionary }) {
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500">IELTS B2</span>
+                    <span className="text-xs text-gray-500">{dictionary.home.sidebar.ielts}</span>
                   </div>
                 </div>
               </div>
@@ -338,20 +402,20 @@ export default function HomePage({ params, dictionary }) {
             {/* Education Section */}
             <AccordionSection 
               id="education" 
-              title="Education" 
+              title={dictionary.home.sidebar.education}
               isOpen={accordionState.education}
               onToggle={toggleAccordion}
             >
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-gray-900">Universidad Técnica Federico Santa María</h3>
-                  <p className="text-gray-600 text-sm">Ingeniería Civil Informática</p>
-                  <p className="text-gray-500 text-xs">2010 - 2015 (Incomplete)</p>
+                  <h3 className="font-semibold text-gray-900">{dictionary.home.education.utfsm.university}</h3>
+                  <p className="text-gray-600 text-sm">{dictionary.home.education.utfsm.degree}</p>
+                  <p className="text-gray-500 text-xs">{dictionary.home.education.utfsm.period}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Universidad de Santiago de Chile</h3>
-                  <p className="text-gray-600 text-sm">Bachelor Degree on Computer Science</p>
-                  <p className="text-gray-500 text-xs">2015 - 2020 (Incomplete)</p>
+                  <h3 className="font-semibold text-gray-900">{dictionary.home.education.usach.university}</h3>
+                  <p className="text-gray-600 text-sm">{dictionary.home.education.usach.degree}</p>
+                  <p className="text-gray-500 text-xs">{dictionary.home.education.usach.period}</p>
                 </div>
               </div>
             </AccordionSection>
@@ -359,18 +423,18 @@ export default function HomePage({ params, dictionary }) {
             {/* Additional Info */}
             <AccordionSection 
               id="additionalInfo" 
-              title="Additional Info" 
+              title={dictionary.home.sidebar.additionalInfo}
               isOpen={accordionState.additionalInfo}
               onToggle={toggleAccordion}
             >
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Salary Range</h3>
-                  <p className="text-gray-600">USD 75,000 - USD 120,000 /Yr</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{dictionary.home.sidebar.salaryRangeTitle}</h3>
+                  <p className="text-gray-600">{dictionary.home.contact.salaryRange}</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Possible Relocation</h3>
-                  <p className="text-gray-600">Yes: CA, NZ (not mandatory)</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{dictionary.home.sidebar.possibleRelocation}</h3>
+                  <p className="text-gray-600">{dictionary.home.contact.relocation}</p>
                 </div>
               </div>
             </AccordionSection>
@@ -381,25 +445,17 @@ export default function HomePage({ params, dictionary }) {
             {/* Overview Section */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-gray-200 pb-2">
-                Overview
+                {dictionary.home.overview.title}
               </h2>
               <div className="prose prose-gray max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Mauricio is an experienced software developer with over 8 years of experience in the industry. 
-                  With a strong focus on Javascript technologies and frameworks, Mauricio has worked on challenging 
-                  projects across various industries, including software factories, education products, streaming, 
-                  and health and wellness.
+                  {dictionary.home.overview.paragraph1}
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  In addition to their software development expertise, Mauricio is also a passionate instructor who 
-                  has worked as a bootcamp teacher, sharing their knowledge and expertise with the next generation 
-                  of professionals. Their dedication to teaching and mentoring demonstrates their commitment to 
-                  helping others succeed in their careers.
+                  {dictionary.home.overview.paragraph2}
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Overall, Mauricio is a talented and dedicated individual with a wealth of experience in the software 
-                  industry. Their passion for teaching and mentoring, combined with their desire for personal and 
-                  professional growth, make them a valuable asset to any team.
+                  {dictionary.home.overview.paragraph3}
                 </p>
               </div>
             </section>
@@ -407,10 +463,10 @@ export default function HomePage({ params, dictionary }) {
             {/* Experience Section */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-gray-200 pb-2">
-                Experience
+                {dictionary.home.experience.title}
               </h2>
               <div className="space-y-8">
-                {jobs.map((job, index) => (
+                {dictionary.home.jobs.map((job, index) => (
                   <article key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
                     <div className="flex flex-col tablet:flex-row tablet:items-start tablet:justify-between mb-4">
                       <div>
@@ -431,9 +487,9 @@ export default function HomePage({ params, dictionary }) {
                     
                     <div className="space-y-3">
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Technologies:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">{dictionary.home.experience.technologies}</h4>
                         <div className="flex flex-wrap gap-2">
-                          {job.technologies.map((tech, techIndex) => (
+                          {job.keywords.map((tech, techIndex) => (
                             <span 
                               key={techIndex} 
                               className="px-3 py-1 bg-gray-200 text-gray-800 text-sm rounded-full"
@@ -445,9 +501,9 @@ export default function HomePage({ params, dictionary }) {
                       </div>
                       
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Methodology:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">{dictionary.home.experience.methodology}</h4>
                         <div className="flex flex-wrap gap-2">
-                          {job.metotology.map((method, methodIndex) => (
+                          {job.methodology.map((method, methodIndex) => (
                             <span 
                               key={methodIndex} 
                               className="px-3 py-1 bg-gray-200 text-gray-800 text-sm rounded-full"
@@ -466,10 +522,10 @@ export default function HomePage({ params, dictionary }) {
             {/* Freelance Experience Section */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-gray-200 pb-2">
-                Freelance Experiences
+                {dictionary.home.experience.freelanceTitle}
               </h2>
               <div className="space-y-8">
-                {otherExperiences.map((experience, index) => (
+                {dictionary.home.freelanceExperiences.map((experience, index) => (
                   <article key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                       <div>
@@ -490,9 +546,9 @@ export default function HomePage({ params, dictionary }) {
                     
                     <div className="space-y-3">
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Technologies:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">{dictionary.home.experience.technologies}</h4>
                         <div className="flex flex-wrap gap-2">
-                          {experience.technologies.map((tech, techIndex) => (
+                          {experience.keywords.map((tech, techIndex) => (
                             <span 
                               key={techIndex} 
                               className="px-3 py-1 bg-gray-200 text-gray-800 text-sm rounded-full"
@@ -504,9 +560,9 @@ export default function HomePage({ params, dictionary }) {
                       </div>
                       
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Methodology:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-2">{dictionary.home.experience.methodology}</h4>
                         <div className="flex flex-wrap gap-2">
-                          {experience.metotology.map((method, methodIndex) => (
+                          {experience.methodology.map((method, methodIndex) => (
                             <span 
                               key={methodIndex} 
                               className="px-3 py-1 bg-gray-200 text-gray-800 text-sm rounded-full"
@@ -525,7 +581,7 @@ export default function HomePage({ params, dictionary }) {
             {/* Learning Now Section */}
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-gray-200 pb-2">
-                Learning Now
+                {dictionary.home.learning.title}
               </h2>
               <div className="bg-gray-50 rounded-lg p-6">
                 <ul className="space-y-2">
