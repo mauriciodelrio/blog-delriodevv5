@@ -1,11 +1,11 @@
-import { getAllPosts } from '@/lib/markdownReader';
+import { getAllPostSlugs } from '@/utils/postUtils';
 
-export default function sitemap() {
+export default async function sitemap() {
   const baseUrl = 'https://delrio.dev';
   
-  // Obtener todos los posts para incluir en el sitemap
-  const { posts: englishPosts } = getAllPosts('en');
-  const { posts: spanishPosts } = getAllPosts('es');
+  // Obtener todos los slugs de posts
+  const englishSlugs = await getAllPostSlugs('en');
+  const spanishSlugs = await getAllPostSlugs('es');
   
   // URLs estáticas principales
   const staticUrls = [
@@ -60,35 +60,19 @@ export default function sitemap() {
   ];
   
   // URLs de posts en inglés
-  const englishPostUrls = englishPosts.map((post) => ({
-    url: `${baseUrl}/en/posts/${post.slug}`,
-    lastModified: new Date(post.frontmatter.date),
+  const englishPostUrls = englishSlugs.map((slug) => ({
+    url: `${baseUrl}/en/posts/${slug}`,
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
-    alternates: {
-      languages: {
-        en: `${baseUrl}/en/posts/${post.slug}`,
-        es: post.frontmatter.spanishSlug 
-          ? `${baseUrl}/es/posts/${post.frontmatter.spanishSlug}`
-          : undefined,
-      },
-    },
   }));
   
   // URLs de posts en español
-  const spanishPostUrls = spanishPosts.map((post) => ({
-    url: `${baseUrl}/es/posts/${post.slug}`,
-    lastModified: new Date(post.frontmatter.date),
+  const spanishPostUrls = spanishSlugs.map((slug) => ({
+    url: `${baseUrl}/es/posts/${slug}`,
+    lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
-    alternates: {
-      languages: {
-        es: `${baseUrl}/es/posts/${post.slug}`,
-        en: post.frontmatter.englishSlug 
-          ? `${baseUrl}/en/posts/${post.frontmatter.englishSlug}`
-          : undefined,
-      },
-    },
   }));
   
   return [...staticUrls, ...englishPostUrls, ...spanishPostUrls];

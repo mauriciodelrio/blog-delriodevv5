@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { 
   FaStar, 
   FaFire, 
-  FaTrendingUp, 
+  FaChartLine, 
   FaLightbulb, 
   FaCrown 
 } from 'react-icons/fa';
@@ -174,7 +174,7 @@ export function getBadgeConfig(badgeType, locale = 'en') {
       }
     },
     popular: {
-      icon: FaTrendingUp,
+      icon: FaChartLine,
       colors: {
         bg: 'bg-blue-100',
         text: 'text-blue-800',
