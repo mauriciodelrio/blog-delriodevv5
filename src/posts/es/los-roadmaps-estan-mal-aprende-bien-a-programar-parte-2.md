@@ -2,7 +2,7 @@
 title: "Los roadmaps están mal: aprende bien a programar - Parte 2"
 author: "Mauricio Del Río"
 category: "Programación"
-date: "2025-11-01"
+date: "2025-11-05"
 bannerImage: "/blog_images/roadmap.png"
 slug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2"
 englishSlug: "roadmaps-are-wrong-learn-to-code-properly-part-2"
