@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { 
   FaStar, 
   FaFire, 
@@ -8,6 +8,9 @@ import {
   FaLightbulb, 
   FaCrown 
 } from 'react-icons/fa';
+
+// Track de views ya procesadas para evitar duplicados
+const processedViews = new Set();
 
 export function usePostBadges() {
   const [badges, setBadges] = useState({});
@@ -100,18 +103,23 @@ export function usePostBadges() {
 export function usePostTracking() {
   const [isTracking, setIsTracking] = useState(false);
 
-  const trackView = async (slug) => {
-    if (isTracking || !slug) return null;
+  const trackView = useCallback(async (slug) => {
+    // Verificar si ya se procesó esta vista
+    if (!slug || processedViews.has(slug)) {
+      return null;
+    }
 
     try {
       setIsTracking(true);
       
-      // Usar el slug original (no canónico) para que la API haga la conversión
+      // Marcar como procesado antes de hacer la llamada
+      processedViews.add(slug);
+      
       const response = await fetch(`/api/views/${slug}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       });
 
       if (!response.ok) {
@@ -122,11 +130,13 @@ export function usePostTracking() {
       return data;
     } catch (error) {
       console.error('Error tracking view:', error);
+      // Si hay error, remover de la lista para permitir retry
+      processedViews.delete(slug);
       return null;
     } finally {
       setIsTracking(false);
     }
-  };
+  }, []); // Sin dependencias
 
   return {
     trackView,

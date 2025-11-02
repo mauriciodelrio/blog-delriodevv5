@@ -94,136 +94,61 @@ export default function HomePage({ params, dictionary }) {
     }));
   };
 
-  // Función helper para renderizar skills
-  const renderSkills = (skillsArray) => (
-    <div className="space-y-3">
-      {skillsArray.map((item, index) => (
-        <div key={index} className="flex items-center justify-between">
-          <span className="text-gray-700 text-sm">{item.skill}</span>
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
-              <FaStar
-                key={i}
-                className={`w-3 h-3 ${
-                  i < item.rating ? 'text-gray-800' : 'text-gray-300'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+  // Función helper para renderizar skills como tags
+  const renderSkillTags = (skillsArray) => (
+    <div className="flex flex-wrap gap-2">
+      {skillsArray.map((skill, index) => (
+        <span 
+          key={index} 
+          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+        >
+          {skill}
+        </span>
       ))}
     </div>
   );
 
-  // Skills categorizadas
+  // Skills categorizadas (sin ratings, solo nombres)
   const frontendSkills = [
-    { skill: "Javascript", rating: 5 },
-    { skill: "React", rating: 5 },
-    { skill: "Redux", rating: 5 },
-    { skill: "Zustand", rating: 5 },
-    { skill: "Signals", rating: 5  },
-    { skill: "Hooks", rating: 5 },
-    { skill: "Typescript", rating: 5 },
-    { skill: "HTML", rating: 5 },
-    { skill: "CSS", rating: 5 },
-    { skill: "Tailwind", rating: 5 },
-    { skill: "Bootstrap", rating: 5 },
-    { skill: "UI Frameworks", rating: 5 },
-    { skill: "Next JS", rating: 5 },
-    { skill: "JQuery", rating: 5 },
-    { skill: "Preact", rating: 4 },
-    { skill: "Vue JS", rating: 3 }
+    "Javascript", "React", "Redux", "Zustand", "Signals", "Hooks", 
+    "Typescript", "HTML", "CSS", "Tailwind", "Bootstrap", "UI Frameworks",
+    "Next JS", "JQuery", "Preact"
   ];
 
   const backendSkills = [
-    { skill: "Node JS", rating: 5 },
-    { skill: "Express JS", rating: 5 },
-    { skill: "PostgreSQL", rating: 4 },
-    { skill: "Redis", rating: 4 },
-    { skill: "GraphQL", rating: 4 },
-    { skill: "SQLLite", rating: 4 },
-    { skill: "Apollo", rating: 4 },
-    { skill: "MySQL", rating: 3 },
-    { skill: "Mongo DB", rating: 3 },
-    { skill: "Python", rating: 3 },
-    { skill: "Django", rating: 3 },
-    { skill: "Flask", rating: 3 },
-    { skill: "FastAPI", rating: 3 },
-    { skill: "Sequelize", rating: 3 },
-    { skill: "Mongoose", rating: 2 },
-    { skill: "Prisma", rating: 2 }
+    "Node JS", "Express JS", "PostgreSQL", "Redis", "GraphQL", "SQLLite",
+    "Apollo", "MySQL", "Mongo DB", "Python",
+    "FastAPI", "Sequelize", "Mongoose", "Prisma"
   ];
 
   const devToolsSkills = [
-    { skill: "Git", rating: 5 },
-    { skill: "SonarQube", rating: 4 },
-    { skill: "Eslint", rating: 4 },
-    { skill: "Snyk", rating: 4 },
-    { skill: "CI/CD", rating: 4 },
-    { skill: "Turbopack", rating: 4 },
-    { skill: "CSP", rating: 4 },
-    { skill: "Shell", rating: 4 },
-    { skill: "Github Actions", rating: 4 },
-    { skill: "Docker", rating: 3 },
+    "Git", "SonarQube", "Eslint", "Snyk", "CI/CD", "Webpack", "Vite",
+    "Turbopack", "CSP", "Shell", "Github Actions", "Docker"
   ];
 
   const testingSkills = [
-    { skill: "Storybook", rating: 5 },
-    { skill: "Jest", rating: 4 },
-    { skill: "React Testing Library", rating: 4 },
-    { skill: "TDD", rating: 3 },
-    { skill: "Cypress", rating: 3 }
+    "Storybook", "Jest", "React Testing Library", "TDD", "Cypress"
   ];
 
   const otherTechSkills = [
-    { skill: "Electron", rating: 3 },
-    { skill: "React Native", rating: 2 },
-    { skill: "AWS", rating: 2 },
-    { skill: "Firebase", rating: 2 },
-    { skill: "GCP", rating: 2 }
+    "AWS", "Firebase", "GCP"
   ];
 
   const managementTools = [
-    { skill: "Jira", rating: 5 },
-    { skill: "Confluence", rating: 5 },
-    { skill: "Notion", rating: 5 },
-    { skill: "Miro", rating: 5 },
-    { skill: "UML", rating: 5 },
-    { skill: "Figma", rating: 3 }
+    "Jira", "Confluence", "Notion", "Miro", "Figma"
   ];
 
   const leadershipSkills = [
-    { skill: "Agile", rating: 5 },
-    { skill: "Leadership", rating: 5 },
-    { skill: "Team Management", rating: 5 },
-    { skill: "Project Planning", rating: 5 },
-    { skill: "Strategic Thinking", rating: 5 },
-    { skill: "Mentoring", rating: 5 },
-    { skill: "Cross-functional Collaboration", rating: 5 },
-    { skill: "Code Review", rating: 5 },
-    { skill: "Stakeholder Management", rating: 4 },
-    { skill: "Technical Architecture", rating: 4 },
-    { skill: "Process Improvement", rating: 4 },
-    { skill: "Risk Assessment", rating: 4 }
+    "Agile", "Leadership", "Team Management", "Project Planning", 
+    "Strategic Thinking", "Mentoring", "Cross-functional Collaboration",
+    "Code Review", "Stakeholder Management", "Technical Architecture",
+    "Process Improvement", "Risk Assessment"
   ];
 
   const aiSkills = [
-    { skill: "Copilot", rating: 5 },
-    { skill: "GPT", rating: 5 },
-    { skill: "Gemini", rating: 5 },
-    { skill: "Agents", rating: 5 },
-    { skill: "LLM", rating: 5 },
-    { skill: "MCP", rating: 5 },
-    { skill: "Cursor", rating: 5 },
-    { skill: "Windsurf", rating: 5 },
-    { skill: "Warp", rating: 5 },
-    { skill: "API Integrations", rating: 5 },
-    { skill: "Prompt Engineering", rating: 5 },
-    { skill: "Ollama", rating: 5 },
-    { skill: "Claude", rating: 5 },
-    { skill: "Lensa", rating: 5 },
-    { skill: "Midjourney", rating: 5 },
-    { skill: "Dall-E", rating: 4 }
+    "Copilot", "GPT", "Gemini", "Agents", "LLM", "MCP", "Cursor",
+    "Windsurf", "Warp", "API Integrations", "Prompt Engineering",
+    "Ollama", "Claude"
   ];
 
   return (
@@ -290,7 +215,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.frontendDev}
               onToggle={toggleAccordion}
             >
-              {renderSkills(frontendSkills)}
+              {renderSkillTags(frontendSkills)}
             </AccordionSection>
 
             {/* Backend & Databases Section */}
@@ -300,7 +225,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.backendDev}
               onToggle={toggleAccordion}
             >
-              {renderSkills(backendSkills)}
+              {renderSkillTags(backendSkills)}
             </AccordionSection>
 
             {/* Development Tools & DevOps Section */}
@@ -310,7 +235,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.devTools}
               onToggle={toggleAccordion}
             >
-              {renderSkills(devToolsSkills)}
+              {renderSkillTags(devToolsSkills)}
             </AccordionSection>
 
             {/* Testing & Quality Section */}
@@ -320,7 +245,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.testing}
               onToggle={toggleAccordion}
             >
-              {renderSkills(testingSkills)}
+              {renderSkillTags(testingSkills)}
             </AccordionSection>
 
             {/* Other Technologies Section */}
@@ -330,7 +255,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.otherTech}
               onToggle={toggleAccordion}
             >
-              {renderSkills(otherTechSkills)}
+              {renderSkillTags(otherTechSkills)}
             </AccordionSection>
 
             {/* Management & Design Tools Section */}
@@ -340,7 +265,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.managementTools}
               onToggle={toggleAccordion}
             >
-              {renderSkills(managementTools)}
+              {renderSkillTags(managementTools)}
             </AccordionSection>
 
             {/* Leadership & Soft Skills Section */}
@@ -350,7 +275,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.leadership}
               onToggle={toggleAccordion}
             >
-              {renderSkills(leadershipSkills)}
+              {renderSkillTags(leadershipSkills)}
             </AccordionSection>
 
             {/* AI Section */}
@@ -360,7 +285,7 @@ export default function HomePage({ params, dictionary }) {
               isOpen={accordionState.AI}
               onToggle={toggleAccordion}
             >
-              {renderSkills(aiSkills)}
+              {renderSkillTags(aiSkills)}
             </AccordionSection>
 
             {/* Languages Section */}

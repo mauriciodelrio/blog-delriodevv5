@@ -70,13 +70,39 @@ async function generateSlugMapping() {
       }
     }
     
+    // También leer archivos en inglés para mapeo inverso si es necesario
+    const enDir = path.default.join(postsDirectory, 'en');
+    if (fs.default.existsSync(enDir)) {
+      const enFiles = fs.default.readdirSync(enDir).filter(file => file.endsWith('.md'));
+      
+      for (const file of enFiles) {
+        try {
+          const filePath = path.default.join(enDir, file);
+          const fileContents = fs.default.readFileSync(filePath, 'utf8');
+          const { data: frontmatter } = matter.default(fileContents);
+          
+          const enSlug = file.replace(/\.md$/, '');
+          const esSlug = frontmatter.spanishSlug;
+          
+          // Si encontramos un slug español, asegurémonos de que el mapeo sea correcto
+          if (esSlug && !slugMapping[esSlug]) {
+            slugMapping[esSlug] = enSlug;
+          }
+        } catch (error) {
+          console.error(`Error reading ${file}:`, error);
+        }
+      }
+    }
+    
     return slugMapping;
   } catch (error) {
     console.error('Error generating slug mapping:', error);
     // Fallback a mapeo estático si hay error
     return {
       'consejos-utiles-para-configurar-tu-visual-studio-code': 'useful-tips-to-configure-your-visual-studio-code',
-      'te-cuento-sobre-mi-juego-favorito-no-mans-sky': 'let-me-tell-you-about-my-favorite-game-no-mans-sky'
+      'te-cuento-sobre-mi-juego-favorito-no-mans-sky': 'let-me-tell-you-about-my-favorite-game-no-mans-sky',
+      'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1': 'roadmaps-are-wrong-learn-to-code-properly-part-1',
+      'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2': 'roadmaps-are-wrong-learn-to-code-properly-part-2'
     };
   }
 }
@@ -108,7 +134,6 @@ function readViewsData() {
   // Si no podemos usar el sistema de archivos, usar cache en memoria
   if (!canUseFileSystem()) {
     if (!memoryCache) {
-      console.log('Initializing memory cache for views data');
       memoryCache = { ...defaultData };
     }
     return { ...memoryCache };
@@ -118,13 +143,10 @@ function readViewsData() {
     // Verificar que el directorio 'data' existe
     const dataDir = path.dirname(VIEWS_FILE);
     if (!fs.existsSync(dataDir)) {
-      console.log('Data directory does not exist, creating:', dataDir);
       try {
         fs.mkdirSync(dataDir, { recursive: true });
       } catch (mkdirError) {
         console.error('Could not create data directory:', mkdirError.message);
-        console.error('Process CWD:', process.cwd());
-        console.error('Attempted to create:', dataDir);
         // Fallback to memory cache
         useFileSystem = false;
         memoryCache = { ...defaultData };
@@ -134,14 +156,11 @@ function readViewsData() {
     
     if (!fs.existsSync(VIEWS_FILE)) {
       // Crear archivo inicial si no existe
-      console.log('Views file does not exist, creating initial file:', VIEWS_FILE);
       const sanitized = sanitizeViewsData(defaultData);
       try {
         fs.writeFileSync(VIEWS_FILE, JSON.stringify(sanitized, null, 2));
       } catch (writeError) {
         console.error('Could not create initial views file:', writeError.message);
-        console.error('Path:', VIEWS_FILE);
-        console.error('Directory exists:', fs.existsSync(dataDir));
         // Fallback to memory cache
         useFileSystem = false;
         memoryCache = { ...defaultData };
@@ -171,12 +190,8 @@ function readViewsData() {
     return sanitizeViewsData(parsed);
   } catch (error) {
     console.error('Error reading views data:', error.message);
-    console.error('VIEWS_FILE path:', VIEWS_FILE);
-    console.error('File exists:', fs.existsSync(VIEWS_FILE));
-    console.error('Process CWD:', process.cwd());
     
     // Fallback to memory cache
-    console.log('Falling back to memory cache due to file system error');
     useFileSystem = false;
     if (!memoryCache) {
       memoryCache = { ...defaultData };
@@ -189,7 +204,6 @@ function readViewsData() {
 async function writeViewsData(data) {
   // Si no podemos usar el sistema de archivos, guardar en memoria
   if (!canUseFileSystem()) {
-    console.log('Using memory cache for view data storage');
     memoryCache = { ...sanitizeViewsData(data) };
     return true; // Siempre exitoso en memoria
   }
@@ -210,7 +224,6 @@ async function writeViewsData(data) {
     // Verificar que el directorio 'data' existe
     const dataDir = path.dirname(VIEWS_FILE);
     if (!fs.existsSync(dataDir)) {
-      console.log('Creating data directory:', dataDir);
       fs.mkdirSync(dataDir, { recursive: true });
     }
     
@@ -231,13 +244,8 @@ async function writeViewsData(data) {
       fs.writeFileSync(tempFile, JSON.stringify(sanitized, null, 2));
     } catch (writeError) {
       console.error('Error writing temp file:', writeError.message);
-      console.error('VIEWS_FILE path:', VIEWS_FILE);
-      console.error('Temp file path:', tempFile);
-      console.error('Data directory exists:', fs.existsSync(dataDir));
-      console.error('Data directory permissions:', fs.existsSync(dataDir) ? fs.statSync(dataDir) : 'N/A');
       
       // Fallback to memory cache
-      console.log('Falling back to memory cache due to write error');
       useFileSystem = false;
       memoryCache = { ...sanitized };
       return true;
@@ -254,7 +262,6 @@ async function writeViewsData(data) {
       }
       
       // Fallback to memory cache
-      console.log('Falling back to memory cache due to rename error');
       useFileSystem = false;
       memoryCache = { ...sanitized };
       return true;
@@ -263,12 +270,8 @@ async function writeViewsData(data) {
     return true;
   } catch (error) {
     console.error('Error writing views data:', error.message);
-    console.error('Error stack:', error.stack);
-    console.error('Process CWD:', process.cwd());
-    console.error('VIEWS_FILE path:', VIEWS_FILE);
     
     // Fallback to memory cache
-    console.log('Falling back to memory cache due to general error');
     useFileSystem = false;
     const sanitized = sanitizeViewsData(data);
     memoryCache = { ...sanitized };
@@ -368,11 +371,7 @@ export async function POST(request, { params }) {
     
     // Verificar rate limiting
     if (shouldRateLimit(postData, clientIP)) {
-      ViewsMonitor.info('Rate limited view attempt', {
-        slug: canonicalSlug,
-        originalSlug: slug,
-        ip: clientIP
-      });
+      // Rate limiting es comportamiento normal, no necesita logging frecuente
       return NextResponse.json({ 
         success: true, 
         rateLimited: true,
@@ -410,14 +409,6 @@ export async function POST(request, { params }) {
       });
       return NextResponse.json({ error: 'Failed to save view data to any storage' }, { status: 500 });
     }
-    
-    ViewsMonitor.info('View tracked successfully', {
-      slug: canonicalSlug,
-      originalSlug: slug,
-      views: postData.views,
-      totalViews: viewsData.metadata.totalViews,
-      storageType: useFileSystem ? 'filesystem' : 'memory'
-    });
     
     return NextResponse.json({
       success: true,

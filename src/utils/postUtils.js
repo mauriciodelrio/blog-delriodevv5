@@ -62,6 +62,11 @@ export async function getPostData(slug, locale = 'en') {
       // Esto está bien, solo actualizamos el actualLocale
       actualLocale = otherLocale;
     }
+
+    // Verificar que el post esté publicado
+    if (post.frontmatter.published === false) {
+      throw new Error(`Post not published: ${slug}`);
+    }
     
     // Obtener la versión en el otro idioma
     const otherLocale = actualLocale === 'en' ? 'es' : 'en';
@@ -115,7 +120,27 @@ export async function getAllPostSlugs(locale = 'en') {
   try {
     const postsDirectory = path.join(process.cwd(), 'src', 'posts', locale);
     const filenames = fs.readdirSync(postsDirectory);
-    return filenames.map(name => name.replace('.md', ''));
+    
+    const publishedSlugs = [];
+    
+    for (const filename of filenames) {
+      if (filename.endsWith('.md')) {
+        try {
+          const postPath = path.join(postsDirectory, filename);
+          const fileContent = fs.readFileSync(postPath, 'utf-8');
+          const { data: frontmatter } = matter(fileContent);
+          
+          // Solo incluir si está publicado (si published no está definido, lo consideramos como true por compatibilidad)
+          if (frontmatter.published !== false) {
+            publishedSlugs.push(filename.replace('.md', ''));
+          }
+        } catch (error) {
+          console.error(`Error reading file ${filename}:`, error);
+        }
+      }
+    }
+    
+    return publishedSlugs;
   } catch (error) {
     console.error(`Error reading posts directory for ${locale}:`, error);
     return [];
@@ -175,7 +200,7 @@ export async function getAllPosts() {
           return null;
         }
       })
-      .filter((post) => post !== null);
+      .filter((post) => post !== null && post.frontmatter.published !== false);
     
     
     // Procesar posts en español
@@ -213,7 +238,7 @@ export async function getAllPosts() {
           return null;
         }
       })
-      .filter((post) => post !== null);
+      .filter((post) => post !== null && post.frontmatter.published !== false);
     
     
     const result = {

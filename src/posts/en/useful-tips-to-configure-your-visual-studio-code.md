@@ -7,6 +7,7 @@ bannerImage: "/blog_images/vs_code.jpeg"
 slug: "useful-tips-to-configure-your-visual-studio-code"
 spanishSlug: "consejos-utiles-para-configurar-tu-visual-studio-code"
 overview: "In this article, you will see the best plugins to install in Visual Studio Code based on what I have used for many years as a programmer."
+published: true
 tags:
     - Programming
     - Tips

@@ -7,6 +7,7 @@ bannerImage: "/blog_images/roadmap.png"
 slug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1"
 englishSlug: "roadmaps-are-wrong-learn-to-code-properly-part-1"
 overview: "En este artículo te presento la primera parte de una serie donde te explico por qué los roadmaps para aprender a programar están mal enfocados y cómo deberías abordar tu aprendizaje desde cero."
+published: true
 tags:
     - Programación
     - Consejos
@@ -26,7 +27,7 @@ Sí, esto puede sonar un poco _contradictorio_, ¿No se supone que son para pers
 
 El mundo de la tecnología es **ENORME**. No son décadas de desarrollo, son **SIGLOS**. Este punto mucha gente lo desconoce, la informática existe desde hace miles de años, esto no es para nada una exageración, los primeros conceptos de la programación vienen de múltiples culturas, desde la antigua Grecia hasta la China imperial. Historias hermosas e interesantes, desde teólogos, filósofos, matemáticos, abogados y personalidades excéntricas. La informática se ha gestado en un camino turbulento, azarozo y lleno de íconos que han quedado en el desconocimiento colectivo.
 
-## ¿Al-juarizmi? ¿Cantor? ¿Laplace? ¿Babbage? ¿Turing? ¿Ada Lovelace?
+## ¿Al-juarizmi? ¿Cantor? ¿Laplace? ¿Boole? ¿Babbage? ¿Turing? ¿Ada Lovelace?
 
 No quiero sonar pretencioso, pero conocer la historia, en cualquier ámbito de lo que quieras estudiar, te da perspectiva. Saber por qué se inventó algo, quién lo inventó, en qué contexto histórico, social y económico se dio el invento, te ayuda a entender mejor su propósito y su funcionamiento. 
 
@@ -54,9 +55,9 @@ Te levantas en la mañana, te duchas, te vistes, desayunas, tomas el metro, micr
 
 Tu rutina puede ser igualmente, levantarte, salir a hacer ejercicio, ducharte, vestirte, desayunar, ir a dejar a los niños al colegio, volver a casa, trabajar desde casa, almorzar, etc.
 
-¿Son rutinas verdad? ¿Son algoritmos? Sí, lo son.
+Son rutinas ¿verdad? ¿Son algoritmos? Sí, lo son.
 
-Nuestro trabajo implementa también rutinas, del mimo modo que en la vida diaria. ¿Qué hace un programador? Resuelve problemas, y para resolver problemas, crea algoritmos.
+Nuestro trabajo implementa también rutinas, del mismo modo que en la vida diaria. ¿Qué hace un programador? Resuelve problemas, y para resolver problemas, crea algoritmos.
 
 > Problema: El usuario quiere iniciar sesión en su cuenta de correo electrónico.
 

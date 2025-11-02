@@ -7,6 +7,7 @@ bannerImage: "/blog_images/vs_code.jpeg"
 slug: "consejos-utiles-para-configurar-tu-visual-studio-code"
 englishSlug: "useful-tips-to-configure-your-visual-studio-code"
 overview: "En este artículo verás los mejores plugins para instalar en Visual Studio Code en base a lo que he utilizado por muchos años como programador"
+published: true
 tags:
     - Programación
     - Consejos

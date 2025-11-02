@@ -7,14 +7,16 @@ import { FaArrowLeft, FaUser, FaCalendarAlt, FaHashtag } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useBlogActions } from '@/hooks/useBlogActions';
-import { usePostTracking } from '@/hooks/usePostBadges';
+import { usePostBadges } from '@/hooks/usePostBadges';
 import { useImageColors } from '@/hooks/useImageColors';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 
 export default function BlogPostClient({ frontmatter, content, spanishFrontmatter, spanishContent, locale, dictionary }) {
   const params = useParams();
-  const { trackView } = usePostTracking();
+  const { trackView } = usePostBadges(); // Cambiar a usar el hook principal
+  const hasTrackedView = useRef(false);
+  const trackingTimeoutRef = useRef(null);
   
   const {
     contentToRender,
@@ -30,15 +32,36 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
 
   // Track view when component mounts
   useEffect(() => {
-    if (params.slug) {
+    const sessionKey = `tracked-${params.slug}`;
+    const hasTrackedInSession = typeof window !== 'undefined' && 
+                                sessionStorage.getItem(sessionKey) === 'true';
+    
+    if (params.slug && !hasTrackedView.current && !hasTrackedInSession) {
+      hasTrackedView.current = true;
+      
+      // Marcar en sessionStorage para persistir entre re-mounts
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem(sessionKey, 'true');
+      }
+      
+      // Limpiar timeout anterior si existe
+      if (trackingTimeoutRef.current) {
+        clearTimeout(trackingTimeoutRef.current);
+      }
+      
       // Pequeño delay para asegurar que la página se cargó completamente
-      const timer = setTimeout(() => {
+      trackingTimeoutRef.current = setTimeout(() => {
         trackView(params.slug);
       }, 1000);
 
-      return () => clearTimeout(timer);
+      return () => {
+        if (trackingTimeoutRef.current) {
+          clearTimeout(trackingTimeoutRef.current);
+          trackingTimeoutRef.current = null;
+        }
+      };
     }
-  }, [params.slug]); // Removido trackView de las dependencias
+  }, [params.slug, trackView]); // Incluir trackView que es estable por useCallback
 
   // Estilo de gradiente dinámico o fallback whisper-suave
   const overlayStyle = gradientStyle || {
@@ -108,7 +131,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
               </div>
             </div>
             
-            <div className="p-8 mobile:m-2 mobile:p-4">
+            <div className="p-8 mobile:m-2 mobile:p-4 flex flex-col w-full flex-1 justify-center items-center">
               {/* Tags section con mejor diseño */}
               <div className="flex flex-wrap items-center justify-between mb-8 pb-6 border-b border-gradient-to-r from-blue-200 to-purple-200">
                 <div className="flex flex-wrap items-center gap-2">
@@ -131,7 +154,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
                 {contentToRender}
               </Markdown>
               
-              <div className="mobile:max-w-[300px] mt-16">
+              <div className="mobile:max-w-[300px] desktop:max-w-[750px] flex flex-wrap justify-center mt-16">
                 {imgs && imgs.length > 0 && (
                   <Carousel
                     showArrows={true}

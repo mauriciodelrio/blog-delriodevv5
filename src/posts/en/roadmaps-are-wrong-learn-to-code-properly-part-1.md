@@ -7,6 +7,7 @@ bannerImage: "/blog_images/roadmap.png"
 slug: "roadmaps-are-wrong-learn-to-code-properly-part-1"
 spanishSlug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1"
 overview: "In this article, I present the first part of a series where I explain why roadmaps for learning to code are poorly focused and how you should approach your learning from scratch."
+published: true
 tags:
     - Programming
     - Tips
@@ -26,7 +27,7 @@ Yes, this may sound a bit _contradictory_, aren't they supposed to be for people
 
 The world of technology is **ENORMOUS**. It's not decades of development, it's **CENTURIES**. This point many people are unaware of, computer science has existed for thousands of years, this is not an exaggeration at all, the first concepts of programming come from multiple cultures, from ancient Greece to imperial China. Beautiful and interesting stories, from theologians, philosophers, mathematicians, lawyers and eccentric personalities. Computer science has been gestated in a turbulent, hazardous path full of icons that have remained in collective ignorance.
 
-## Al-Khwarizmi? Cantor? Laplace? Babbage? Turing? Ada Lovelace?
+## Al-Khwarizmi? Cantor? Laplace? Boole? Babbage? Turing? Ada Lovelace?
 
 I don't want to sound pretentious, but knowing history, in any field you want to study, gives you perspective. Knowing why something was invented, who invented it, in what historical, social and economic context the invention occurred, helps you better understand its purpose and functioning.
 

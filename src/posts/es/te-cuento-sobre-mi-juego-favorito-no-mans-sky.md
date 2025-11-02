@@ -8,6 +8,7 @@ slug: "te-cuento-sobre-mi-juego-favorito-no-mans-sky"
 englishSlug: "let-me-tell-you-about-my-favorite-game-no-mans-sky"
 overview: "En este post te cuento sobre cómo no man's sky cambió mi forma de ver los videojuegos"
 images: "/blog_images/nms.jpg,/blog_images/nms2.jpg,/blog_images/nms3.jpg,/blog_images/nms4.jpg"
+published: true
 tags:
     - Offtopic
     - Juegos

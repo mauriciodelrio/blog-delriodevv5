@@ -192,7 +192,7 @@ export const dictionaries = {
       contact: {
         openToWork: 'Open to work:',
         workLocation: 'Working From Home (Global) | Hybrid (Santiago)',
-        salaryRange: 'USD 75,000 - Infinite (Hahaha) /Yr',
+        salaryRange: '75,000 - 120,000 USD/Yr',
         relocation: 'Yes: CA, NZ'
       },
       sidebar: {
@@ -247,7 +247,7 @@ export const dictionaries = {
           title: "Senior Web Developer",
           startDate: "2025-02-02",
           endDate: "Current",
-          description: "I work as a Senior Web Developer for the British Airways client. My team develops cross-functional tools for over 40 artifacts built with Next.js. My current objetives are: Creating packages and utilities for cross-product use. Establishing and supporting standard code quality rules. Automating and defining product delivery processes. Planning and implementing methods for optimizing and updating critical dependencies across all supported artifacts. Defining security rules and vulnerability management processes.",
+          description: "I work as a Senior Web Developer for a major airline client. My team develops cross-functional tools for over 30 web artifacts built with Next.js. My current objectives are: Creating packages and utilities for cross-product use. Establishing and supporting standard code quality rules. Automating and defining product delivery processes. Planning and implementing methods for optimizing and updating critical dependencies across all supported artifacts. Defining security rules and vulnerability management processes.",
           keywords: ["Javascript", "React", "Typescript", "Next JS", "TailwindCSS", "Vite", "Jest", "Eslint", "Shell", "Snyk", "SonarQube", "CI/CD", "CSP", "Storybook"],
           methodology: ["Agile", "Scrum"]
         },
@@ -391,7 +391,7 @@ export const dictionaries = {
       refresh: 'Recargar Página',
     },
     cookies: {
-      title: '🍪 Configuración de Cookies',
+      title: 'Configuración de Cookies',
       description: 'Utilizamos cookies para mejorar tu experiencia de navegación, mostrar contenido personalizado y analizar el tráfico del sitio. Puedes aceptar todas las cookies o personalizar tus preferencias.',
       disclaimer: 'Al continuar navegando, aceptas nuestra política de cookies.',
       customize: 'Personalizar',
@@ -533,7 +533,7 @@ export const dictionaries = {
       contact: {
         openToWork: 'Disponible para trabajar:',
         workLocation: 'Trabajo Remoto (Global) | Híbrido (Santiago)',
-        salaryRange: 'USD 75,000 - Infinito (Jajaja) /Año',
+        salaryRange: '75,000 - 120,000 USD/Año',
         relocation: 'Sí: CA, NZ'
       },
       sidebar: {
@@ -588,7 +588,7 @@ export const dictionaries = {
           title: "Desarrollador Web Senior",
           startDate: "2025-02-02",
           endDate: "Actual",
-          description: "Trabajo como Desarrollador Web Senior para el cliente British Airways. Mi equipo desarrolla herramientas transversales para más de 40 artefactos construidos con Next.js. Mis objetivos actuales son: Crear paquetes y utilidades para uso transversal entre productos. Establecer y apoyar reglas estándar de calidad de código. Automatizar y definir procesos de entrega de productos. Planificar e implementar métodos para optimizar y actualizar dependencias críticas en todos los artefactos soportados. Definir reglas de seguridad y procesos de gestión de vulnerabilidades.",
+          description: "Trabajo como Desarrollador Web Senior para un cliente de una aerolínea importante. Mi equipo desarrolla herramientas transversales para más de 30 artefactos web construidos con Next.js. Mis objetivos actuales son: Crear paquetes y utilidades para uso transversal entre productos. Establecer y apoyar reglas estándar de calidad de código. Automatizar y definir procesos de entrega de productos. Planificar e implementar métodos para optimizar y actualizar dependencias críticas en todos los artefactos soportados. Definir reglas de seguridad y procesos de gestión de vulnerabilidades.",
           keywords: ["Javascript", "React", "Typescript", "Next JS", "TailwindCSS", "Vite", "Jest", "Eslint", "Shell", "Snyk", "SonarQube", "CI/CD", "CSP", "Storybook"],
           methodology: ["Ágil", "Scrum"]
         },
