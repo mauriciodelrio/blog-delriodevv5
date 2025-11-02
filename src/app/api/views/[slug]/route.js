@@ -8,6 +8,35 @@ const VIEWS_FILE = path.join(process.cwd(), 'data', 'views.json');
 const RATE_LIMIT_HOURS = 4; // TTL para evitar spam
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB máximo para el archivo JSON
 
+// Cache en memoria como fallback
+let memoryCache = null;
+let useFileSystem = true;
+
+// Función para verificar si podemos usar el sistema de archivos
+function canUseFileSystem() {
+  if (!useFileSystem) return false;
+  
+  try {
+    const dataDir = path.dirname(VIEWS_FILE);
+    
+    // Intentar crear directorio si no existe
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    
+    // Intentar escribir un archivo de prueba
+    const testFile = path.join(dataDir, '.test-write');
+    fs.writeFileSync(testFile, 'test');
+    fs.unlinkSync(testFile);
+    
+    return true;
+  } catch (error) {
+    console.warn('File system not available, switching to memory cache:', error.message);
+    useFileSystem = false;
+    return false;
+  }
+}
+
 // Función para generar mapeo dinámico de slugs leyendo frontmatters
 async function generateSlugMapping() {
   try {
@@ -67,19 +96,57 @@ async function getCanonicalSlug(slug) {
 
 // Función para leer el archivo de vistas con validación
 function readViewsData() {
+  const defaultData = {
+    posts: {},
+    metadata: {
+      lastUpdated: new Date().toISOString(),
+      totalViews: 0,
+      version: "1.0.0"
+    }
+  };
+  
+  // Si no podemos usar el sistema de archivos, usar cache en memoria
+  if (!canUseFileSystem()) {
+    if (!memoryCache) {
+      console.log('Initializing memory cache for views data');
+      memoryCache = { ...defaultData };
+    }
+    return { ...memoryCache };
+  }
+  
   try {
+    // Verificar que el directorio 'data' existe
+    const dataDir = path.dirname(VIEWS_FILE);
+    if (!fs.existsSync(dataDir)) {
+      console.log('Data directory does not exist, creating:', dataDir);
+      try {
+        fs.mkdirSync(dataDir, { recursive: true });
+      } catch (mkdirError) {
+        console.error('Could not create data directory:', mkdirError.message);
+        console.error('Process CWD:', process.cwd());
+        console.error('Attempted to create:', dataDir);
+        // Fallback to memory cache
+        useFileSystem = false;
+        memoryCache = { ...defaultData };
+        return { ...memoryCache };
+      }
+    }
+    
     if (!fs.existsSync(VIEWS_FILE)) {
       // Crear archivo inicial si no existe
-      const initialData = {
-        posts: {},
-        metadata: {
-          lastUpdated: new Date().toISOString(),
-          totalViews: 0,
-          version: "1.0.0"
-        }
-      };
-      const sanitized = sanitizeViewsData(initialData);
-      fs.writeFileSync(VIEWS_FILE, JSON.stringify(sanitized, null, 2));
+      console.log('Views file does not exist, creating initial file:', VIEWS_FILE);
+      const sanitized = sanitizeViewsData(defaultData);
+      try {
+        fs.writeFileSync(VIEWS_FILE, JSON.stringify(sanitized, null, 2));
+      } catch (writeError) {
+        console.error('Could not create initial views file:', writeError.message);
+        console.error('Path:', VIEWS_FILE);
+        console.error('Directory exists:', fs.existsSync(dataDir));
+        // Fallback to memory cache
+        useFileSystem = false;
+        memoryCache = { ...defaultData };
+        return { ...memoryCache };
+      }
       return sanitized;
     }
     
@@ -103,20 +170,30 @@ function readViewsData() {
     
     return sanitizeViewsData(parsed);
   } catch (error) {
-    console.error('Error reading views data:', error);
-    return {
-      posts: {},
-      metadata: {
-        lastUpdated: new Date().toISOString(),
-        totalViews: 0,
-        version: "1.0.0"
-      }
-    };
+    console.error('Error reading views data:', error.message);
+    console.error('VIEWS_FILE path:', VIEWS_FILE);
+    console.error('File exists:', fs.existsSync(VIEWS_FILE));
+    console.error('Process CWD:', process.cwd());
+    
+    // Fallback to memory cache
+    console.log('Falling back to memory cache due to file system error');
+    useFileSystem = false;
+    if (!memoryCache) {
+      memoryCache = { ...defaultData };
+    }
+    return { ...memoryCache };
   }
 }
 
 // Función para escribir el archivo de vistas con lock y validación
 async function writeViewsData(data) {
+  // Si no podemos usar el sistema de archivos, guardar en memoria
+  if (!canUseFileSystem()) {
+    console.log('Using memory cache for view data storage');
+    memoryCache = { ...sanitizeViewsData(data) };
+    return true; // Siempre exitoso en memoria
+  }
+  
   await viewsFileLock.acquire();
   
   try {
@@ -130,23 +207,72 @@ async function writeViewsData(data) {
       return false;
     }
     
+    // Verificar que el directorio 'data' existe
+    const dataDir = path.dirname(VIEWS_FILE);
+    if (!fs.existsSync(dataDir)) {
+      console.log('Creating data directory:', dataDir);
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    
     // Crear backup del archivo actual si existe
     if (fs.existsSync(VIEWS_FILE)) {
-      const backupFile = VIEWS_FILE + '.backup';
-      fs.copyFileSync(VIEWS_FILE, backupFile);
+      try {
+        const backupFile = VIEWS_FILE + '.backup';
+        fs.copyFileSync(VIEWS_FILE, backupFile);
+      } catch (backupError) {
+        console.warn('Could not create backup:', backupError.message);
+        // Continuar sin backup en caso de error
+      }
     }
     
     // Escribir archivo temporal primero
     const tempFile = VIEWS_FILE + '.tmp';
-    fs.writeFileSync(tempFile, JSON.stringify(sanitized, null, 2));
+    try {
+      fs.writeFileSync(tempFile, JSON.stringify(sanitized, null, 2));
+    } catch (writeError) {
+      console.error('Error writing temp file:', writeError.message);
+      console.error('VIEWS_FILE path:', VIEWS_FILE);
+      console.error('Temp file path:', tempFile);
+      console.error('Data directory exists:', fs.existsSync(dataDir));
+      console.error('Data directory permissions:', fs.existsSync(dataDir) ? fs.statSync(dataDir) : 'N/A');
+      
+      // Fallback to memory cache
+      console.log('Falling back to memory cache due to write error');
+      useFileSystem = false;
+      memoryCache = { ...sanitized };
+      return true;
+    }
     
     // Renombrar archivo temporal al definitivo (operación atómica)
-    fs.renameSync(tempFile, VIEWS_FILE);
+    try {
+      fs.renameSync(tempFile, VIEWS_FILE);
+    } catch (renameError) {
+      console.error('Error renaming temp file:', renameError.message);
+      // Limpiar archivo temporal si falla el rename
+      if (fs.existsSync(tempFile)) {
+        fs.unlinkSync(tempFile);
+      }
+      
+      // Fallback to memory cache
+      console.log('Falling back to memory cache due to rename error');
+      useFileSystem = false;
+      memoryCache = { ...sanitized };
+      return true;
+    }
     
     return true;
   } catch (error) {
-    console.error('Error writing views data:', error);
-    return false;
+    console.error('Error writing views data:', error.message);
+    console.error('Error stack:', error.stack);
+    console.error('Process CWD:', process.cwd());
+    console.error('VIEWS_FILE path:', VIEWS_FILE);
+    
+    // Fallback to memory cache
+    console.log('Falling back to memory cache due to general error');
+    useFileSystem = false;
+    const sanitized = sanitizeViewsData(data);
+    memoryCache = { ...sanitized };
+    return true;
   } finally {
     viewsFileLock.release();
   }
@@ -253,7 +379,8 @@ export async function POST(request, { params }) {
         views: postData.views,
         originalSlug: slug,
         canonicalSlug: canonicalSlug,
-        message: 'View already counted recently'
+        message: 'View already counted recently',
+        storageType: useFileSystem ? 'filesystem' : 'memory'
       });
     }
     
@@ -274,20 +401,22 @@ export async function POST(request, { params }) {
     const saved = await writeViewsData(viewsData);
     
     if (!saved) {
-      ViewsMonitor.error('Failed to save view data', {
+      ViewsMonitor.error('Failed to save view data to any storage', {
         slug: canonicalSlug,
         originalSlug: slug,
         ip: clientIP,
-        views: postData.views
+        views: postData.views,
+        usingFileSystem: useFileSystem
       });
-      return NextResponse.json({ error: 'Failed to save view data' }, { status: 500 });
+      return NextResponse.json({ error: 'Failed to save view data to any storage' }, { status: 500 });
     }
     
     ViewsMonitor.info('View tracked successfully', {
       slug: canonicalSlug,
       originalSlug: slug,
       views: postData.views,
-      totalViews: viewsData.metadata.totalViews
+      totalViews: viewsData.metadata.totalViews,
+      storageType: useFileSystem ? 'filesystem' : 'memory'
     });
     
     return NextResponse.json({
@@ -296,7 +425,8 @@ export async function POST(request, { params }) {
       totalViews: viewsData.metadata.totalViews,
       originalSlug: slug,
       canonicalSlug: canonicalSlug,
-      rateLimited: false
+      rateLimited: false,
+      storageType: useFileSystem ? 'filesystem' : 'memory'
     });
     
   } catch (error) {
@@ -337,7 +467,8 @@ export async function GET(request, { params }) {
         weeklyViews: {},
         lastViewed: null,
         originalSlug: slug,
-        canonicalSlug: canonicalSlug
+        canonicalSlug: canonicalSlug,
+        storageType: useFileSystem ? 'filesystem' : 'memory'
       });
     }
     
@@ -347,7 +478,8 @@ export async function GET(request, { params }) {
       weeklyViews: postData.weeklyViews || {},
       lastViewed: postData.lastViewed,
       originalSlug: slug,
-      canonicalSlug: canonicalSlug
+      canonicalSlug: canonicalSlug,
+      storageType: useFileSystem ? 'filesystem' : 'memory'
     });
     
   } catch (error) {

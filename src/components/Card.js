@@ -1,15 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import { CardBadge } from '@/components/Badge';
-import { usePostBadges } from '@/hooks/usePostBadges';
 
-const Card = ({posts, locale}) => {
-  const { getBadge, loading: badgesLoading } = usePostBadges();
-
+const Card = ({posts, locale, getBadge, badgesLoading}) => {
   return (
     <> 
       {posts.map((post, index) => {
-        const badge = getBadge(post.frontmatter.slug);
+        const badge = getBadge ? getBadge(post.frontmatter.slug) : null;
         
         return (
           <div className="h-[420px] w-full" key={index}>

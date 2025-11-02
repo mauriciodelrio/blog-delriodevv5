@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { MdGTranslate } from "react-icons/md";
 import Card from '@/components/Card';
 import { usePostsActions } from '@/hooks/usePostsActions';
+import { usePostBadges } from '@/hooks/usePostBadges';
 
 export default function PostsClient({ posts, spanishPosts, categorization, locale, dictionary }) {
   const {
@@ -21,6 +22,9 @@ export default function PostsClient({ posts, spanishPosts, categorization, local
     handleOrder,
     clearAllFilters
   } = usePostsActions(posts, spanishPosts, categorization, locale);
+
+  // Hook de badges una sola vez para toda la página
+  const { getBadge, loading: badgesLoading } = usePostBadges();
 
   const CategoryBox = ({ categories }) => {
     return (
@@ -122,7 +126,12 @@ export default function PostsClient({ posts, spanishPosts, categorization, local
         </div>
         
         <div className="grid gap-8 w-full mobile:grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 justify-center">
-          <Card posts={contentToRender} locale={locale} />
+          <Card 
+            posts={contentToRender} 
+            locale={locale} 
+            getBadge={getBadge}
+            badgesLoading={badgesLoading}
+          />
         </div>
       </div>
     </>

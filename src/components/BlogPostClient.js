@@ -38,7 +38,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
 
       return () => clearTimeout(timer);
     }
-  }, [params.slug, trackView]);
+  }, [params.slug]); // Removido trackView de las dependencias
 
   // Estilo de gradiente dinámico o fallback whisper-suave
   const overlayStyle = gradientStyle || {

@@ -36,20 +36,33 @@
       "createdAt": "2025-10-30T01:30:43.096Z"
     },
     "roadmaps-are-wrong-learn-to-code-properly-part-1": {
-      "views": 1,
-      "lastViewed": "2025-11-01T20:26:57.648Z",
+      "views": 3,
+      "lastViewed": "2025-11-02T04:26:59.767Z",
       "dailyViews": {
-        "2025-11-01": 1
+        "2025-11-01": 1,
+        "2025-11-02": 2
       },
       "weeklyViews": {
-        "2025-W44": 1
+        "2025-W44": 2,
+        "2025-W45": 1
       },
       "createdAt": "2025-11-01T20:26:57.648Z"
+    },
+    "roadmaps-are-wrong-learn-to-code-properly-part-2": {
+      "views": 1,
+      "lastViewed": "2025-11-02T06:22:07.574Z",
+      "dailyViews": {
+        "2025-11-02": 1
+      },
+      "weeklyViews": {
+        "2025-W45": 1
+      },
+      "createdAt": "2025-11-02T06:22:07.574Z"
     }
   },
   "metadata": {
-    "lastUpdated": "2025-11-01T20:39:49.093Z",
-    "totalViews": 6,
+    "lastUpdated": "2025-11-02T06:22:07.574Z",
+    "totalViews": 9,
     "version": "1.0.0"
   }
 }
