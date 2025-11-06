@@ -7,7 +7,7 @@ bannerImage: "/blog_images/roadmap.png"
 slug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2"
 englishSlug: "roadmaps-are-wrong-learn-to-code-properly-part-2"
 overview: "En este artículo presento la segunda parte de una serie donde explico por qué los roadmaps para aprender programación están mal enfocados y cómo deberías enfocar tu aprendizaje desde cero."
-published: false
+published: true
 tags:
     - Programación
     - Tips
@@ -17,7 +17,7 @@ tags:
 ---
 ## Acá estamos otra vez!
 
-En mi artículo anterior te hablé sobre la importancia de conocer la historia de la informática, el concepto de algoritmo y cómo pensar en algoritmos. Si no has leído esa primera parte, te recomiendo que lo hagas antes de continuar con este artículo, ya que es **fundamental** para entender lo que voy a explicar a continuación.
+En mi [artículo anterior](https://delrio.dev/es/posts/los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1) te hablé sobre la importancia de conocer la historia de la informática, el concepto de algoritmo y cómo pensar en algoritmos. Si no has leído esa primera parte, te recomiendo que lo hagas antes de continuar con este artículo, ya que es **fundamental** para entender lo que voy a explicar a continuación.
 
 
 ## Estuve dándole unas vueltas al artículo anterior y ... ¿Ahora qué?
@@ -72,9 +72,9 @@ Acá no voy a profundizar, porque bueno, ya hay otras personas que les dedican t
 
 Estas preguntas pueden incluso ser *filosóficas*, pero no nos iremos por las ramas, en la informática un dato es una **representación concreta de un valor**, puede ser un número, una letra, una palabra, una imagen, etc. 
 
-Un dato como tal, **no tiene mucho sentido por sí solo**. Yo simplemente puedo tener el dato "19/04/1992", pero ¿Qué significa ese dato? ¿Por qué es importante? ¿Qué información me entrega ese dato?
+Un dato como tal, **no tiene mucho sentido por sí solo**. Yo simplemente puedo tener el dato _"19/04/1992"_, pero ¿Qué significa ese dato? ¿Por qué es importante? ¿Qué información me entrega ese dato?
 
-La información es el **contexto** que le damos a los datos para que tengan sentido. En este caso, si te digo que "19/04/1992" es mi fecha de nacimiento, ahora ese dato tiene un **significado** y una **importancia** para mí.
+La información es el **contexto** que le damos a los datos para que tengan sentido. En este caso, si te digo que _"19/04/1992"_ es mi fecha de nacimiento, ahora ese dato tiene un **significado** y una **importancia** para mí.
 
 **Todo el software que existe**, es la constante de *enviar y recibir datos e información*, procesarlos, transformarlos y presentarlos de una manera que tenga sentido para la persona que lo utiliza.
 
@@ -90,7 +90,7 @@ Las estructuras de datos son formas específicas de organizar y almacenar inform
 
 ¿No vas a meter en la misma carpeta todos tus documentos verdad? ¿No vas a mezclar fotos con música, con videos, con documentos de texto? No, porque sería un caos.
 
-Y acá viene lo que aparece mágicamente en los cursos de programación. Arrays, Listas, Objetos... ¡Ahá!, pero el concepto sale de acá. Los arreglos, objetos, listas. No nacen de la nada, los lenguajes de alto nivel no tienen estas estructuras de la nada, son abstracciones que se crean para facilitar la construcción de software.
+Y acá viene lo que aparece mágicamente en los cursos de programación. Arrays, Listas, Objetos... ¡Ajá!, pero el concepto sale de acá. Los arreglos, objetos, listas. No nacen de la nada, los lenguajes de alto nivel no tienen estas estructuras de la nada, son abstracciones que se crean para facilitar la construcción de software.
 
 ## Búsqueda, selección y ordenamiento
 
@@ -112,11 +112,11 @@ Si tienes una lista de productos y quieres seleccionar solo aquellos que tienen 
 
 ¿Te han dicho que las entrevistas técnicas te harán preguntas sobre algoritmos y estructuras de datos? Si la respuesta es no... ¿Por qué no aparece este tópico en un roadmap?
 
-¡Porque los roadmaps están mal enfocados! Jaja.
+¡Porque los roadmaps están **mal enfocados**! Jaja.
 
 Haré un artículo específico sobre algoritmos y estructuras de datos en el futuro, pero por ahora, solo quiero que entiendas la importancia de estos conceptos básicos. Si estás leyendo esto y quieres aprender, tu misión será buscar más información sobre algoritmos de búsqueda (búsqueda lineal, búsqueda binaria), algoritmos de ordenamiento (burbuja, selección, inserción, quicksort, mergesort) y estructuras de datos (arrays, listas enlazadas, pilas, colas, árboles, grafos).
 
-¿Necesitas un lenguaje específico para aprender esto? **No**, incluso no necesitas ni programarlo, puedes hacerlo en papel, lápiz y una calculadora si quieres. Lo importante es entender los conceptos.
+¿Necesitas un lenguaje específico para aprender esto? **No**, incluso no necesitas ni programarlo, puedes hacerlo en papel y lápiz si quieres. Lo importante es entender los conceptos.
 
 ## Almacenamiento de datos
 
@@ -142,7 +142,7 @@ Estas preguntas son abiertas, pero te invito a investigarlas, entender cómo fun
 
 **Internet!** ¿Averiguaste lo que es? ¿Cómo nació? Si me hiciste caso en el artículo anterior, estoy seguro que tomaste un tiempo para investigar un poco sobre la historia de internet.
 
-Y el internet nos abre las puertas a las... ¡redes! Redes de computadoras, redes de datos, redes de información.
+Y el internet nos abre las puertas a las... **¡redes!** Redes de computadoras, redes de datos, redes de información.
 
 Las redes para mí siempre fueron algo ... *meh*, muy aburridas, pero es necesario entenderlas un poco para comprender cómo funciona el intercambio de datos en el mundo moderno.
 
@@ -150,7 +150,7 @@ Cuando envías un mensaje a un amigo, cuando subes una foto a una red social, cu
 
 ¿Qué es un paquete de datos? ¿Qué es una dirección IP? ¿Qué es un protocolo de comunicación? ¿Qué es HTTP, HTTPS, FTP, TCP/IP? ¿Cómo funcionan los servidores y los clientes? ¿Qué es una API?
 
-ábrete camino a investigar estos conceptos, entender cómo funcionan las redes te ayudará a escribir software que pueda comunicarse de manera eficiente y segura con otros dispositivos y usuarios.
+Ábrete camino a investigar estos conceptos, entender cómo funcionan las redes te ayudará a escribir software que pueda comunicarse de manera eficiente y segura con otros dispositivos y usuarios.
 
 ## Ya que mencionamos seguridad...
 
@@ -209,6 +209,6 @@ Bueno, hemos cubierto muchas cosas, ahora está en tí investigar y aprender sob
 
 No creo tener la razón en todo pero... En mi experiencia, con estos **fundamentos**, ya puedes tomar el lenguaje o tecnología de moda y ahora sí, comenzar tu roadmap.
 
-No olvides siempre tener una opinión y visión crítica. La ciencia cuestiona todo, y la programación **no es la excepción**.
+No olvides siempre tener una opinión y visión crítica. La ciencia cuestiona todo, y el software **no es la excepción**.
 
 ¡Nos vemos en el siguiente!

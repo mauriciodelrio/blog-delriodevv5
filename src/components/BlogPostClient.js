@@ -84,10 +84,10 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
       </div>
       
       <div className="flex flex-wrap justify-center w-full mb-32 h-max">
-        <div className="flex flex-wrap justify-center desktop:mx-4 mobile:mx-0 w-full max-w-[1280px] mobile:px-2 tablet:px-4 desktop:px-8">
+        <div className="flex flex-wrap justify-center desktop:mx-4 mobile:mx-0 w-full max-w-[1280px] mobile:px-2 tablet:px-4 desktop:px-12">
           <div className="flex flex-wrap flex-row w-auto max-w-[1280px] rounded-lg shadow-md">
             <div 
-              className="flex w-full justify-center bg-fixed h-144 mobile:h-80 tablet:h-96 rounded bg-no-repeat bg-cover bg-center relative overflow-hidden" 
+              className="flex w-full justify-center bg-fixed h-144 mobile:h-80 tablet:h-96 desktop:h-144 rounded bg-no-repeat bg-cover bg-center relative overflow-hidden" 
               style={{ backgroundImage: `url(${bannerImage})` }}
             >
               {/* Overlay con gradiente dinámico basado en la imagen */}
@@ -150,7 +150,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
                 </div>
               </div>
               
-              <Markdown className="prose desktop:mx-12" remarkPlugins={[remarkGfm]}>
+              <Markdown className="prose desktop:mx-20" remarkPlugins={[remarkGfm]}>
                 {contentToRender}
               </Markdown>
               

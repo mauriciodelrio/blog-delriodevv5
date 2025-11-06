@@ -7,7 +7,7 @@ bannerImage: "/blog_images/roadmap.png"
 slug: "roadmaps-are-wrong-learn-to-code-properly-part-2"
 spanishSlug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2"
 overview: "In this article I present the second part of a series where I explain why roadmaps for learning programming are poorly focused and how you should approach your learning from scratch."
-published: false
+published: true
 tags:
     - Programming
     - Tips
@@ -17,7 +17,7 @@ tags:
 ---
 ## Here we are again!
 
-In my previous article I talked to you about the importance of knowing the history of computer science, the concept of algorithm and how to think in algorithms. If you haven't read that first part, I recommend you do it before continuing with this article, as it's **fundamental** to understand what I'm going to explain next.
+In my [previous article](https://delrio.dev/en/posts/roadmaps-are-wrong-learn-to-code-properly-part-1) I talked to you about the importance of knowing the history of computer science, the concept of algorithm and how to think in algorithms. If you haven't read that first part, I recommend you do it before continuing with this article, as it's **fundamental** to understand what I'm going to explain next.
 
 ## I've been thinking about the previous article and... Now what?
 
@@ -31,7 +31,7 @@ Before touching any programming language or starting to tell AI to write code fo
 
 Hardware is the tangible, the physical, the palpable, the pieces that make up any type of electronic device. Before the arrival of personal computers, hardware was something much bigger and more complex, but over time, the miniaturization of electronic components has allowed us to have very powerful devices in very small sizes today.
 
-Why do we talk about hardware? This isn't really out of curiosity. We need to understand beyond what we see on the surface. What is fast access memory? What are cache memories? What is a processor? What is a core? What are execution threads? Why do GPUs exist? What is a data bus?
+Why do we talk about hardware? This isn't really out of curiosity. We need to understand **beyond what we see on the surface.** What is fast access memory? What are cache memories? What is a processor? What is a core? What are execution threads? Why do GPUs exist? What is a data bus?
 
 It might sound a bit *foreign* perhaps, but knowing the differences between memories, data persistence, processing speed, parallelism, etc. will help you better understand how the programs you write work and how to optimize them.
 
@@ -71,9 +71,9 @@ What is **data**? What is **information**?
 
 These questions can even be *philosophical*, but we won't go off on tangents, in computer science data is a concrete representation of a value, it can be a number, a letter, a word, an image, etc.
 
-Data as such doesn't make much sense by itself. I can simply have the data "19/04/1992", but what does that data mean? Why is it important? What information does that data give me?
+Data as such doesn't make much sense by itself. I can simply have the data _"19/04/1992"_, but what does that data mean? Why is it important? What information does that data give me?
 
-Information is the context we give to data so it makes sense. In this case, if I tell you that "19/04/1992" is my birth date, now that data has meaning and importance for me.
+Information is the context we give to data so it makes sense. In this case, if I tell you that _"19/04/1992"_ is my birth date, now that data has meaning and importance for me.
 
 All the software that exists is the constant sending and receiving of data and information, processing them, transforming them and presenting them in a way that makes sense to the person using it.
 
@@ -111,11 +111,11 @@ Sounds simple? *Emmm yes*, but the complexity lies in **efficiency**. Not all al
 
 Have you been told that technical interviews will ask you questions about algorithms and data structures? If the answer is no... Why doesn't this topic appear in a roadmap?
 
-Because roadmaps are poorly focused! Haha.
+Because roadmaps are **poorly focused**! Haha.
 
 I'll write a specific article about algorithms and data structures in the future, but for now, I just want you to understand the importance of these basic concepts. If you're reading this and want to learn, your mission will be to look for more information about search algorithms (linear search, binary search), sorting algorithms (bubble, selection, insertion, quicksort, mergesort) and data structures (arrays, linked lists, stacks, queues, trees, graphs).
 
-Do you need a specific language to learn this? No, you don't even need to program it, you can do it on paper, pencil and a calculator if you want. The important thing is to understand the concepts.
+Do you need a specific language to learn this? No, you don't even need to program it, you can do it on paper and pencil if you want. The important thing is to understand the concepts.
 
 ## Data storage
 
@@ -208,6 +208,6 @@ Shall we do a quick summary?
 
 I don't think I'm right about everything but... In my experience, with these **fundamentals**, you can now take the trendy language or technology and now yes, start your roadmap.
 
-Don't forget to always have a critical opinion and vision. Science questions everything, and programming is **no exception**.
+Don't forget to always have a critical opinion and vision. Science questions everything, and software is **no exception**.
 
 See you in the next one!
