@@ -2,7 +2,7 @@
 title: "Entrevistas técnicas ineficientes: Recordar algoritmos no significa nada"
 author: "Mauricio Del Río"
 category: "Programación"
-date: "2025-11-10"
+date: "2025-11-19"
 bannerImage: "/blog_images/entrevista.png"
 slug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
 englishSlug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
