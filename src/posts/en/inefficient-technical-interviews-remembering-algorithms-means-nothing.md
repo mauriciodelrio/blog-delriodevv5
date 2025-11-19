@@ -89,3 +89,6 @@ This doesn't mean we don't expect a solid response based on technical knowledge,
 It may sound risky, but when you're looking for seniors, you know perfectly when a person is one, just by **talking to them.** What do I care if they solve an algorithm in 20 minutes, if they don't know how to configure headers to protect their requests, what do I care if they remember a heap sort if they have no idea how to use workers to optimize background processes. It can't be more irrelevant to me that they remember the sliding window algorithm if they can't handle React rerenders well.
 
 Let's talk about what's relevant then, let's talk about reactivity, storing, fetching, performance, security, dependency auditing, testing, accessibility, i18n, SEO. And above all... **Let's talk!**
+
+To finish, being a bit contradictory, I'll make some articles talking about a few algorithms that can save your life in a technical interview. Don't learn 20... **Learn 3!**
+

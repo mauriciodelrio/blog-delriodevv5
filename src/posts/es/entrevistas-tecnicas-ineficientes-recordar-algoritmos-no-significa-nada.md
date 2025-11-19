@@ -49,12 +49,12 @@ Claro que no es extraño que en momentos puntuales, sobretodo en aplicaciones gr
 
 Acá me dirijo en base a mi experiencia personal, no creo válido hablar para cualquier tipo de empleo, pero en este sentido, si te contratan como desarrollador web frontend, lo más probable es que tu día a día consista en:
 
-- Implementar interfaces de usuario basadas en diseños proporcionados por un equipo de diseño.
-- Consumir APIs para obtener y mostrar datos en la interfaz.
-- Optimizar el rendimiento de la aplicación web.
-- Asegurar la compatibilidad entre diferentes navegadores y dispositivos.
-- Aplicar conceptos de i18n y accesibilidad.
-- Trabajar e implementar microfrontends o componentes reutilizables.
+- **Implementar** interfaces de usuario basadas en diseños proporcionados por un equipo de diseño.
+- **Consumir** APIs para obtener y mostrar datos en la interfaz.
+- **Optimizar** el rendimiento de la aplicación web.
+- **Asegurar** la compatibilidad entre diferentes navegadores y dispositivos.
+- **Aplicar** conceptos de i18n y accesibilidad.
+- **Trabajar** e implementar microfrontends o componentes reutilizables.
 
 Ahora, no es lo único, siempre hay muchos elementos colaterales, pero en general, estas son las tareas **más comunes.**
 
