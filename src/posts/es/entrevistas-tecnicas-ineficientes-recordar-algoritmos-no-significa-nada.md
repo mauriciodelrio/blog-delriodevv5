@@ -7,7 +7,7 @@ bannerImage: "/blog_images/entrevista.png"
 slug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
 englishSlug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
 overview: "¿Qué es lo que necesita un equipo al momento de contratar a un nuevo desarrollador? En este artículo te explico por qué las entrevistas técnicas basadas en algoritmos no son la mejor forma de evaluar a un candidato."
-published: false
+published: true
 tags:
     - Programación
     - Consejos

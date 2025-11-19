@@ -27,7 +27,7 @@ a {
     font-size: 1.5rem;
   }
 }
-.prose > p {
+.prose > p, li {
   line-height: 1.6;
   font-size: 1.15rem;
   @media (max-width: 768px) {

@@ -63,7 +63,7 @@ export default async function sitemap() {
   const englishPostUrls = englishSlugs.map((slug) => ({
     url: `${baseUrl}/en/posts/${slug}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly',
+    changeFrequency: 'weekly',
     priority: 0.7,
   }));
   
@@ -71,7 +71,7 @@ export default async function sitemap() {
   const spanishPostUrls = spanishSlugs.map((slug) => ({
     url: `${baseUrl}/es/posts/${slug}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly',
+    changeFrequency: 'weekly',
     priority: 0.7,
   }));
   
