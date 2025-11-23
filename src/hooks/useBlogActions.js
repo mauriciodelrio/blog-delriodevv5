@@ -10,7 +10,7 @@ export function useBlogActions(frontmatter, content, spanishFrontmatter, spanish
   const [frontmatterToRender, setFrontmatterToRender] = useState(initialFrontmatter);
   const [imgs, setImgs] = useState([]);
 
-  const { title, author, category, date, bannerImage, tags, images } = frontmatterToRender;
+  const { title, author, category, date, bannerImage, tags, images, readingTime } = frontmatterToRender;
 
   // Effect para manejar las imágenes
   useEffect(() => {
@@ -45,7 +45,8 @@ export function useBlogActions(frontmatter, content, spanishFrontmatter, spanish
       category,
       date,
       bannerImage,
-      tags
+      tags,
+      readingTime
     },
     translationSlugs: {
       englishSlug: frontmatter?.slug || spanishFrontmatter?.englishSlug,

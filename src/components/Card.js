@@ -9,7 +9,7 @@ const Card = ({posts, locale, getBadge, badgesLoading}) => {
         const badge = getBadge ? getBadge(post.frontmatter.slug) : null;
         
         return (
-          <div className="h-[420px] w-full" key={index}>
+          <div className="h-[440px] w-full" key={index}>
             <article className="group bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col relative">
               {/* Badge - Only show if not loading and badge exists */}
               {!badgesLoading && badge && (

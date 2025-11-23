@@ -3,7 +3,9 @@
 import Link from "next/link";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { FaArrowLeft, FaUser, FaCalendarAlt, FaHashtag } from 'react-icons/fa';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { FaArrowLeft, FaUser, FaCalendarAlt, FaHashtag, FaClock } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useBlogActions } from '@/hooks/useBlogActions';
@@ -25,7 +27,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
     goBack
   } = useBlogActions(frontmatter, content, spanishFrontmatter, spanishContent, locale);
 
-  const { title, author, category, date, bannerImage, tags } = postData;
+  const { title, author, category, date, bannerImage, tags, readingTime } = postData;
   
   // Extraer colores dinámicos de la imagen
   const { colors, gradientStyle, textColors, isLoading } = useImageColors(bannerImage);
@@ -126,6 +128,11 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
                     <span className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
                       <FaCalendarAlt className={`${textColors.accent || 'text-purple-300'}`} /> {date}
                     </span>
+                    {readingTime && (
+                      <span className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/20">
+                        <FaClock className={`${textColors.accent || 'text-green-300'}`} /> {readingTime}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -150,7 +157,32 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
                 </div>
               </div>
               
-              <Markdown className="prose desktop:mx-20" remarkPlugins={[remarkGfm]}>
+              <Markdown 
+                className="prose prose-code:before:content-none prose-code:after:content-none desktop:mx-20" 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || '');
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        style={vscDarkPlus}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, '')}
+                      </SyntaxHighlighter>
+                    ) : (
+                      <code 
+                        className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded font-mono text-[0.875em] font-normal border border-gray-200" 
+                        {...props}
+                      >
+                        {children}
+                      </code>
+                    );
+                  }
+                }}
+              >
                 {contentToRender}
               </Markdown>
               
