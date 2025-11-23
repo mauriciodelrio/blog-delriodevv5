@@ -8,6 +8,7 @@ slug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
 englishSlug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
 overview: "¿Qué es lo que necesita un equipo al momento de contratar a un nuevo desarrollador? En este artículo te explico por qué las entrevistas técnicas basadas en algoritmos no son la mejor forma de evaluar a un candidato."
 published: true
+readingTime: "8 minutos"
 tags:
     - Programación
     - Consejos
@@ -83,7 +84,7 @@ Muchas veces se habla de que los seniors en una empresa deben estar abiertos al 
 
 ¡Hablen de sus proyectos! ¿Qué impacto creen que ha tenido lo que han hecho? ¿Qué aprendieron en sus antiguos puestos de empleo? ¿Cómo manejaron situaciones que se escapaban de su actual seniority? ¿Cómo se comunican con sus colegas? ¿Cómo manejan el feedback?
 
-Esto no quiere decir que no esperemos una respesta sólida basada en **conocimientos técnicos**, pero en el diálogo, eso se da de forma natural. Si una persona ha trabajado en proyectos reales, seguramente tendrá mucho que contar. Y si no lo ha hecho, bueno, es una oportunidad para conocer sus ganas de aprender y crecer.
+Esto no quiere decir que no esperemos una respuesta sólida basada en **conocimientos técnicos**, pero en el diálogo, eso se da de forma natural. Si una persona ha trabajado en proyectos reales, seguramente tendrá mucho que contar. Y si no lo ha hecho, bueno, es una oportunidad para conocer sus ganas de aprender y crecer.
 
 ## Entonces, Yo **NO HARÍA** entrevistas técnicas
 

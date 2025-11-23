@@ -116,7 +116,7 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
                   </div>
                   
                   {/* Título principal con colores dinámicos */}
-                  <h1 className={`w-full desktop:text-6xl mobile:text-4xl tablet:text-5xl font-black desktop:py-4 text-center bg-gradient-to-r bg-clip-text text-transparent drop-shadow-2xl leading-tight ${gradientStyle ? `from-white via-blue-100 to-purple-100` : `${textColors.titleGradient || 'from-white via-blue-100 to-purple-100'}`}`}>
+                  <h1 className={`w-full desktop:text-6xl mobile:text-3xl tablet:text-5xl font-black desktop:py-4 text-center bg-gradient-to-r bg-clip-text text-transparent drop-shadow-2xl leading-tight ${gradientStyle ? `from-white via-blue-100 to-purple-100` : `${textColors.titleGradient || 'from-white via-blue-100 to-purple-100'}`}`}>
                     {title}
                   </h1>
                   
@@ -158,20 +158,32 @@ export default function BlogPostClient({ frontmatter, content, spanishFrontmatte
               </div>
               
               <Markdown 
-                className="prose prose-code:before:content-none prose-code:after:content-none desktop:mx-20" 
+                className="prose prose-code:before:content-none prose-code:after:content-none desktop:mx-20 
+                           mobile:prose-pre:max-w-[calc(100vw-2rem)] mobile:prose-pre:overflow-x-auto
+                           tablet:prose-pre:max-w-full desktop:prose-pre:max-w-full" 
                 remarkPlugins={[remarkGfm]}
                 components={{
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
                     return !inline && match ? (
-                      <SyntaxHighlighter
-                        style={vscDarkPlus}
-                        language={match[1]}
-                        PreTag="div"
-                        {...props}
-                      >
-                        {String(children).replace(/\n$/, '')}
-                      </SyntaxHighlighter>
+                      <div className="mobile:w-[calc(100vw-2rem)] mobile:max-w-[calc(100vw-2rem)] mobile:overflow-x-auto 
+                                      tablet:w-full tablet:max-w-full desktop:w-full desktop:max-w-full 
+                                      rounded-lg my-4 -mx-2 mobile:mx-0">
+                        <SyntaxHighlighter
+                          style={vscDarkPlus}
+                          language={match[1]}
+                          PreTag="div"
+                          customStyle={{
+                            margin: 0,
+                            borderRadius: '0.5rem',
+                            fontSize: '0.875rem',
+                          }}
+                          wrapLongLines={false}
+                          {...props}
+                        >
+                          {String(children).replace(/\n$/, '')}
+                        </SyntaxHighlighter>
+                      </div>
                     ) : (
                       <code 
                         className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded font-mono text-[0.875em] font-normal border border-gray-200" 

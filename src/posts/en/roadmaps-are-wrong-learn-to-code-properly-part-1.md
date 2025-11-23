@@ -8,6 +8,7 @@ slug: "roadmaps-are-wrong-learn-to-code-properly-part-1"
 spanishSlug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1"
 overview: "In this article, I present the first part of a series where I explain why roadmaps for learning to code are poorly focused and how you should approach your learning from scratch."
 published: true
+readingTime: "10 minutes"
 tags:
     - Programming
     - Tips

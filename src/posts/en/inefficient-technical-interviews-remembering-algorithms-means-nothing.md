@@ -8,6 +8,7 @@ slug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
 spanishSlug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
 overview: "What does a team need when hiring a new developer? In this article I explain why technical interviews based on algorithms are not the best way to evaluate a candidate."
 published: true
+readingTime: "8 minutes"
 tags:
     - Programming
     - Tips

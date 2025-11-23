@@ -8,7 +8,7 @@ slug: "mas-alla-del-prop-drilling"
 englishSlug: "beyond-prop-drilling"
 overview: "En este artículo, hablaremos sobre nuestras propias negligencias en el manejo del estado en aplicaciones React y cómo superarlas con patrones escalables y sin dependencias."
 published: true
-readingTime: "15 min"
+readingTime: "15 minutos"
 tags:
     - Programación
     - Tutoriales
