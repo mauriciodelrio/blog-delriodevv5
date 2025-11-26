@@ -2,7 +2,7 @@
 title: "Are You a Senior? You Should Question It"
 author: "Mauricio Del Río"
 category: "Programming"
-date: "2025-11-19"
+date: "2025-11-25"
 bannerImage: "/blog_images/senior.png"
 slug: "are-you-a-senior-you-should-question-it"
 spanishSlug: "eres-un-senior-deberias-cuestionartelo"

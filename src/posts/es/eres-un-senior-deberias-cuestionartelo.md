@@ -2,7 +2,7 @@
 title: "¿Eres un senior? Deberías cuestionártelo"
 author: "Mauricio Del Río"
 category: "Programación"
-date: "2025-11-19"
+date: "2025-11-25"
 bannerImage: "/blog_images/senior.png"
 slug: "eres-un-senior-deberias-cuestionartelo"
 englishSlug: "are-you-a-senior-you-should-question-it"
