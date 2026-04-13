@@ -32,7 +32,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
       categories: locale === 'es' ? categorization.categoriesSpanish : categorization.categories,
       tags: locale === 'es' ? categorization.tagsSpanish : categorization.tags,
     };
-    
+
     setContentToRender(newPosts);
     setCategorizationToRender(newCategorization);
     setSelectedCategories([]);
@@ -49,39 +49,35 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
     if (!selectedTags.includes(tag)) {
       newTags = [...selectedTags, tag];
       setSelectedTags([...selectedTags, tag]);
-      
-      newTags.forEach(tag =>
-        currentPosts.forEach(post => {
+
+      newTags.forEach((tag) =>
+        currentPosts.forEach((post) => {
           post.frontmatter.tags.includes(tag) && filteredPosts.push(post);
-        })
+        }),
       );
-      
-      ids = filteredPosts.map(post => post.frontmatter.title);
-      filteredPosts = filteredPosts.filter(({ frontmatter }, index) => 
-        !ids.includes(frontmatter.title, index + 1)
-      );
+
+      ids = filteredPosts.map((post) => post.frontmatter.title);
+      filteredPosts = filteredPosts.filter(({ frontmatter }, index) => !ids.includes(frontmatter.title, index + 1));
       setContentToRender(sortPostsByDateDesc(filteredPosts));
     } else {
-      newTags = selectedTags.filter(t => t !== tag);
-      
+      newTags = selectedTags.filter((t) => t !== tag);
+
       if (newTags.length === 0) {
         setSelectedTags([]);
         setContentToRender(sortPostsByDateDesc(currentPosts));
         return;
       }
-      
-      setSelectedTags(selectedTags.filter(t => t !== tag));
-      
-      newTags.forEach(tag =>
-        currentPosts.forEach(post => {
+
+      setSelectedTags(selectedTags.filter((t) => t !== tag));
+
+      newTags.forEach((tag) =>
+        currentPosts.forEach((post) => {
           post.frontmatter.tags.includes(tag) && filteredPosts.push(post);
-        })
+        }),
       );
-      
-      ids = filteredPosts.map(post => post.frontmatter.title);
-      filteredPosts = filteredPosts.filter(({ frontmatter }, index) => 
-        !ids.includes(frontmatter.title, index + 1)
-      );
+
+      ids = filteredPosts.map((post) => post.frontmatter.title);
+      filteredPosts = filteredPosts.filter(({ frontmatter }, index) => !ids.includes(frontmatter.title, index + 1));
       setContentToRender(sortPostsByDateDesc(filteredPosts));
     }
   };
@@ -89,7 +85,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
   const selectCategory = (category) => {
     const filteredPosts = [];
     const currentPosts = locale === 'es' ? spanishPosts : posts;
-    
+
     if (selectedCategories.includes(category)) {
       setSelectedCategories([]);
       setContentToRender(sortPostsByDateDesc(currentPosts));
@@ -97,11 +93,11 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
       return;
     } else {
       setSelectedCategories([category]);
-      
-      currentPosts.forEach(post => {
+
+      currentPosts.forEach((post) => {
         post.frontmatter.category === category && filteredPosts.push(post);
       });
-      
+
       setShowCategories(false);
       setContentToRender(sortPostsByDateDesc(filteredPosts));
     }
@@ -124,7 +120,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
 
   const handleOrder = () => {
     const ordered = [...contentToRender];
-    
+
     if (!changedOrder) {
       ordered.sort((a, b) => {
         return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
@@ -134,7 +130,7 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
         return new Date(a.frontmatter.date) - new Date(b.frontmatter.date);
       });
     }
-    
+
     setContentToRender(ordered);
     setChangedOrder(!changedOrder);
   };
@@ -163,6 +159,6 @@ export function usePostsActions(posts, spanishPosts, categorization, locale) {
     handleClickTags,
     closeAllBoxes,
     handleOrder,
-    clearAllFilters
+    clearAllFilters,
   };
 }

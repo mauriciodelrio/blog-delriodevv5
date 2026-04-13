@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+
+# Generated files
+public/
+
+# Data files
+data/
+
+# Misc
+*.min.js
+*.min.css

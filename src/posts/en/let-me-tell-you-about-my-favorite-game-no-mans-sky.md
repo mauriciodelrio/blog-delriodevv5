@@ -1,18 +1,19 @@
 ---
 title: "Let me tell you about my favorite game: No Man's Sky"
-author: "Mauricio Del Río"
-category: "Games"
-date: "2024-07-26"
-bannerImage: "/blog_images/nms.jpg"
-slug: "let-me-tell-you-about-my-favorite-game-no-mans-sky"
-spanishSlug: "te-cuento-sobre-mi-juego-favorito-no-mans-sky"
+author: 'Mauricio Del Río'
+category: 'Games'
+date: '2024-07-26'
+bannerImage: '/blog_images/nms.jpg'
+slug: 'let-me-tell-you-about-my-favorite-game-no-mans-sky'
+spanishSlug: 'te-cuento-sobre-mi-juego-favorito-no-mans-sky'
 overview: "In this post, I'll tell you about how No Man's Sky changed the way I see video games"
-images: "/blog_images/nms.jpg,/blog_images/nms2.jpg,/blog_images/nms3.jpg,/blog_images/nms4.jpg"
+images: '/blog_images/nms.jpg,/blog_images/nms2.jpg,/blog_images/nms3.jpg,/blog_images/nms4.jpg'
 published: true
 tags:
-    - Offtopic
-    - Games
+  - Offtopic
+  - Games
 ---
+
 ## No Man's Sky
 
 This game is developed by Hello Games, a small indie video game development company based in the UK, owned by Sean Murray along with other collaborators. The company is responsible for some interesting games like Joe Danger.

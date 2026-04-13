@@ -1,11 +1,12 @@
-import "@/styles/globals.css";
+import '@/styles/globals.css';
 import { headers } from 'next/headers';
 
 export async function generateMetadata() {
   // Metadata base para cuando no hay locale específico
   return {
     title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
-    description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
+    description:
+      'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
     keywords: [
       'web development',
       'react developer',
@@ -26,7 +27,7 @@ export async function generateMetadata() {
       'remote work',
       'freelance developer',
       'chile developer',
-      'latin america tech'
+      'latin america tech',
     ],
     authors: [{ name: 'Mauricio Del Río', url: 'https://delrio.dev' }],
     creator: 'Mauricio Del Río',
@@ -37,8 +38,8 @@ export async function generateMetadata() {
     alternates: {
       canonical: '/',
       languages: {
-        'en': '/en',
-        'es': '/es',
+        en: '/en',
+        es: '/es',
       },
     },
     openGraph: {
@@ -46,7 +47,8 @@ export async function generateMetadata() {
       locale: 'en_US',
       url: '/',
       title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
-      description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
+      description:
+        'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies. Technical Lead specializing in frontend architecture and team management.',
       siteName: 'DelRio Dev',
       images: [
         {
@@ -54,13 +56,14 @@ export async function generateMetadata() {
           width: 1200,
           height: 630,
           alt: 'Mauricio Del Río - Senior Web Developer',
-        }
+        },
       ],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Mauricio Del Río | Senior Web Developer & Technical Lead',
-      description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies.',
+      description:
+        'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies.',
       creator: '@mauriciodelrio',
       images: ['/api/og?locale=en&type=home'],
     },
@@ -95,17 +98,15 @@ export async function generateMetadata() {
   };
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   // Extraer el locale del pathname para el atributo lang
-  const headersList = headers();
+  const headersList = await headers();
   const pathname = headersList.get('x-pathname') || '';
   const locale = pathname.split('/')[1] || 'en';
-  
+
   return (
     <html lang={locale}>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,19 +1,20 @@
 ---
-title: "Entrevistas técnicas ineficientes: Recordar algoritmos no significa nada"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-11-19"
-bannerImage: "/blog_images/entrevista.png"
-slug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
-englishSlug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
-overview: "¿Qué es lo que necesita un equipo al momento de contratar a un nuevo desarrollador? En este artículo te explico por qué las entrevistas técnicas basadas en algoritmos no son la mejor forma de evaluar a un candidato."
+title: 'Entrevistas técnicas ineficientes: Recordar algoritmos no significa nada'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-11-19'
+bannerImage: '/blog_images/entrevista.png'
+slug: 'entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada'
+englishSlug: 'inefficient-technical-interviews-remembering-algorithms-means-nothing'
+overview: '¿Qué es lo que necesita un equipo al momento de contratar a un nuevo desarrollador? En este artículo te explico por qué las entrevistas técnicas basadas en algoritmos no son la mejor forma de evaluar a un candidato.'
 published: true
-readingTime: "8 minutos"
+readingTime: '8 minutos'
 tags:
-    - Programación
-    - Consejos
-    - Crítica
+  - Programación
+  - Consejos
+  - Crítica
 ---
+
 ## Las entrevistas técnicas
 
 ¡Buenas! De los lectores acá presentes ¿Cúantas veces han tenido que pasar por una entrevista técnica para un puesto de desarrollo de software? Seguramente muchas, **muchísimas** veces.
@@ -34,7 +35,7 @@ Pero los procesos de resolución de algoritmos en vivo frustran mucho esa dinám
 
 Bueno, esto tiene _matices_, conocer algoritmos te hace una persona que busca eficiencia en sus soluciones. Pero el hecho de recordar 30 algoritmos y saber implementarlos al pie de la letra, no significa que seas un buen desarrollador.
 
-Pero **sí** puede significar que eres una persona aplicada, que estudia antes de una entrevista y que se preocupa por el puesto al cuál está aplicando. 
+Pero **sí** puede significar que eres una persona aplicada, que estudia antes de una entrevista y que se preocupa por el puesto al cuál está aplicando.
 
 El punto no pasa por prepararse o no, de hecho yo creo que gran parte de los entrevistados se preparan para afrontar una entrevista técnica. La pregunta es ¿Vale la pena prepararse realizando ejercicios de Leetcode?
 
@@ -70,7 +71,6 @@ A mi me encantaría enfrentar entrevistas que me permitan **conversar sobre esto
 Para mí, **prácticamente ausentes**. ¿Cómo enfrentas un problema crítico cuando a uno de tus desarrolladores que ha estado trabajando en un feature que debe salir a producción en 2 días, sufre un accidente que lo incapacita por unos días? ¿Cómo manejas una situación en donde a 3 días de terminar un sprint, te cambian toda la planificación sabiendo que impactará negativamente en el ambiente del equipo? ¿Cómo le explicas a tu equipo que necesitamos tomar horas extras para cumplir con un deadline importante sin desmotivarlos?
 
 Un senior **DEBE** saber comunicar estas situaciones. Esperar a que un Project Manager o un Product Owner te sobe el lomo y te diga _"Tienes que hacer horas extras"_ no es lo ideal. Un senior debe **saber comunicar al equipo** la importancia de cumplir con los deadlines, pero también debe saber escuchar al equipo y entender sus necesidades.
-
 
 ## Las entrevistas situacionales y conversacionales
 

@@ -1,21 +1,22 @@
 ---
-title: "Roadmaps are wrong: learn to code properly - Part 1"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-11-01"
-bannerImage: "/blog_images/roadmap.png"
-slug: "roadmaps-are-wrong-learn-to-code-properly-part-1"
-spanishSlug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1"
-overview: "In this article, I present the first part of a series where I explain why roadmaps for learning to code are poorly focused and how you should approach your learning from scratch."
+title: 'Roadmaps are wrong: learn to code properly - Part 1'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-11-01'
+bannerImage: '/blog_images/roadmap.png'
+slug: 'roadmaps-are-wrong-learn-to-code-properly-part-1'
+spanishSlug: 'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1'
+overview: 'In this article, I present the first part of a series where I explain why roadmaps for learning to code are poorly focused and how you should approach your learning from scratch.'
 published: true
-readingTime: "10 minutes"
+readingTime: '10 minutes'
 tags:
-    - Programming
-    - Tips
-    - Tutorials
-    - Roadmaps
-    - Learning
+  - Programming
+  - Tips
+  - Tutorials
+  - Roadmaps
+  - Learning
 ---
+
 ## Disclaimer: I'm not trying to offend anyone with this article, but I do want to give my honest opinion on a topic that I think is important.
 
 ### BOOOM!!!

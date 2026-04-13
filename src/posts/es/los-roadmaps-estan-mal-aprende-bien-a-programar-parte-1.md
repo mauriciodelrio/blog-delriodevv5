@@ -1,21 +1,22 @@
 ---
-title: "Los roadmaps están mal: aprende bien a programar - Parte 1"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-11-01"
-bannerImage: "/blog_images/roadmap.png"
-slug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1"
-englishSlug: "roadmaps-are-wrong-learn-to-code-properly-part-1"
-overview: "En este artículo te presento la primera parte de una serie donde te explico por qué los roadmaps para aprender a programar están mal enfocados y cómo deberías abordar tu aprendizaje desde cero."
+title: 'Los roadmaps están mal: aprende bien a programar - Parte 1'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-11-01'
+bannerImage: '/blog_images/roadmap.png'
+slug: 'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1'
+englishSlug: 'roadmaps-are-wrong-learn-to-code-properly-part-1'
+overview: 'En este artículo te presento la primera parte de una serie donde te explico por qué los roadmaps para aprender a programar están mal enfocados y cómo deberías abordar tu aprendizaje desde cero.'
 published: true
-readingTime: "10 minutos"
+readingTime: '10 minutos'
 tags:
-    - Programación
-    - Consejos
-    - Tutoriales
-    - Roadmaps
-    - Aprendizaje
+  - Programación
+  - Consejos
+  - Tutoriales
+  - Roadmaps
+  - Aprendizaje
 ---
+
 ## Disclaimer: No busco ofender a nadie con este artículo, pero sí quiero dar mi opinión honesta sobre un tema que me parece importante.
 
 ### BOOOM!!!
@@ -30,15 +31,15 @@ El mundo de la tecnología es **ENORME**. No son décadas de desarrollo, son **S
 
 ## ¿Al-juarizmi? ¿Cantor? ¿Laplace? ¿Boole? ¿Babbage? ¿Turing? ¿Ada Lovelace?
 
-No quiero sonar pretencioso, pero conocer la historia, en cualquier ámbito de lo que quieras estudiar, te da perspectiva. Saber por qué se inventó algo, quién lo inventó, en qué contexto histórico, social y económico se dio el invento, te ayuda a entender mejor su propósito y su funcionamiento. 
+No quiero sonar pretencioso, pero conocer la historia, en cualquier ámbito de lo que quieras estudiar, te da perspectiva. Saber por qué se inventó algo, quién lo inventó, en qué contexto histórico, social y económico se dio el invento, te ayuda a entender mejor su propósito y su funcionamiento.
 
 Digamos que, la gente que trabaja en el área tecnologíca tiene patrones relativamente marcados; Somos curiosos, nos gusta resolver problemas y entenderlos, somos creativos y nos gusta plasmar nuestras ideas en algo tangible. Pero sobre todo, somos personas que buscamos entender el _"por qué"_ de las cosas.
 
-Y esto no es de extrañar, la historia de la informática se construyó en base a personas que cumplían el mismo patrón. ¿Podemos crear un lenguaje universal con combinatorias? ¿Qué pasa si ya no quiero sumar números muy grandes a mano? ¿Cómo puedo automatizar tareas repetitivas? ¿Qué pasa si quiero que una máquina haga lo que yo le digo?. 
+Y esto no es de extrañar, la historia de la informática se construyó en base a personas que cumplían el mismo patrón. ¿Podemos crear un lenguaje universal con combinatorias? ¿Qué pasa si ya no quiero sumar números muy grandes a mano? ¿Cómo puedo automatizar tareas repetitivas? ¿Qué pasa si quiero que una máquina haga lo que yo le digo?.
 
 ## No digo que debas comenzar por historia pero...
 
-¡**Debes** comenzar por historia! Jaja! Creías que no lo iba a decir. Bueno, al menos un poco, por curiosidad. Si te interesa, puedo escribir algún artículo didáctico y resumido sobre grandes personajes de la informática y sus aportes, pero eso depende de ustedes como lectores, si ven este artículo publicado por ahí, me lo pueden dejar como comentario. 
+¡**Debes** comenzar por historia! Jaja! Creías que no lo iba a decir. Bueno, al menos un poco, por curiosidad. Si te interesa, puedo escribir algún artículo didáctico y resumido sobre grandes personajes de la informática y sus aportes, pero eso depende de ustedes como lectores, si ven este artículo publicado por ahí, me lo pueden dejar como comentario.
 
 ## El concepto de Algoritmo
 
@@ -46,13 +47,13 @@ Antes de pensar siquiera en un lenguaje de programación de moda, debes entender
 
 > Un algoritmo es un conjunto de instrucciones o pasos definidos y ordenados que se siguen para resolver un problema o realizar una tarea específica.
 
-Puede verse básica y muy amplia, pero es que es eso, un axioma de la vida misma. **TODOS** los días utilizas algoritmos para tu vida diaria sin darte cuenta. ¿Tienes rutinas cierto? Secuencia de acciones que realizas repetitivamente para lograr un objetivo. Claro, tu rutina puede tener variaciones en el día a día, pero normalmente llegas al destino. 
+Puede verse básica y muy amplia, pero es que es eso, un axioma de la vida misma. **TODOS** los días utilizas algoritmos para tu vida diaria sin darte cuenta. ¿Tienes rutinas cierto? Secuencia de acciones que realizas repetitivamente para lograr un objetivo. Claro, tu rutina puede tener variaciones en el día a día, pero normalmente llegas al destino.
 
 Un algoritmo no es más que eso, una rutina, pasos secuenciales desde un origen a un destino.
 
 ## Pensando en algoritmos
 
-Te levantas en la mañana, te duchas, te vistes, desayunas, tomas el metro, micro, auto, bicicleta, caminas simplemente, llegas al trabajo, te sirves un café porque mueres de sueño, prendes el equipo y te pones a trabajar. 
+Te levantas en la mañana, te duchas, te vistes, desayunas, tomas el metro, micro, auto, bicicleta, caminas simplemente, llegas al trabajo, te sirves un café porque mueres de sueño, prendes el equipo y te pones a trabajar.
 
 Tu rutina puede ser igualmente, levantarte, salir a hacer ejercicio, ducharte, vestirte, desayunar, ir a dejar a los niños al colegio, volver a casa, trabajar desde casa, almorzar, etc.
 
@@ -75,10 +76,9 @@ Nuestro trabajo implementa también rutinas, del mismo modo que en la vida diari
 
 Pero por eso mismo es que te estoy dando la lata con esto, para llegar a dimensionar todos estos pasos, debes dimensionar lo grande y complejo que es el mundo de la informática, abrir tu mente a entender de que para que la humanidad pueda lograr hacer este simple _login_, se han necesitado siglos de desarrollo, avances tecnológicos, matemáticos y científicos.
 
-
 ## Lógica booleana
 
-La sociedad dice que los informáticos somos medios raros, cuadrados, poco sociales, literales, a estas alturas he escuchado de todo, y en parte tienen un poco de razón, pero es porque nos condicionamos mucho a lo que hacemos. 
+La sociedad dice que los informáticos somos medios raros, cuadrados, poco sociales, literales, a estas alturas he escuchado de todo, y en parte tienen un poco de razón, pero es porque nos condicionamos mucho a lo que hacemos.
 
 Puede sonar un poco _fatalista_ lo que diré, y quizás algunos humanistas no estén muy de acuerdo con esto pero, al final de todo camino, cualquiera que sea, las deciciones son binarias. ¿Qué es una decisión binaria? Es una decisión que tiene dos opciones, sí o no, verdadero o falso, o como también solemos notarlo en programación: 1 o 0.
 
@@ -111,4 +111,4 @@ Concluyendo esta primera parte, te dejo con las siguientes recomendaciones inici
 5. **Practica la resolución de problemas:** Desarrolla tu capacidad para resolver problemas lógicos y matemáticos.
 6. **Sé paciente y perseverante:** La programación es un camino largo y a veces difícil, pero la recompensa vale la pena.
 
-Nos vemos en el siguiente! 
+Nos vemos en el siguiente!

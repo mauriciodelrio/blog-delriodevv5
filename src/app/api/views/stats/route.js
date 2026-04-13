@@ -7,10 +7,10 @@ const VIEWS_FILE = path.join(process.cwd(), 'data', 'views.json');
 
 // Configuración de reglas para badges
 const BADGE_RULES = {
-  NEW_DAYS: 7,           // Posts nuevos: menos de 7 días
-  POPULAR_THRESHOLD: 50,  // Popular: más de 50 vistas
+  NEW_DAYS: 7, // Posts nuevos: menos de 7 días
+  POPULAR_THRESHOLD: 50, // Popular: más de 50 vistas
   TRENDING_THRESHOLD: 10, // Trending: más de 10 vistas en últimos 7 días
-  TRENDING_DAYS: 7       // Período para calcular trending
+  TRENDING_DAYS: 7, // Período para calcular trending
 };
 
 // Función para leer datos de vistas
@@ -39,17 +39,17 @@ function isNewPost(createdAt) {
 // Función para calcular vistas recientes (trending)
 function getRecentViews(postData, days = BADGE_RULES.TRENDING_DAYS) {
   if (!postData.dailyViews) return 0;
-  
+
   const now = new Date();
   let recentViews = 0;
-  
+
   for (let i = 0; i < days; i++) {
     const date = new Date(now);
     date.setDate(date.getDate() - i);
     const dateStr = date.toISOString().split('T')[0];
     recentViews += postData.dailyViews[dateStr] || 0;
   }
-  
+
   return recentViews;
 }
 
@@ -61,21 +61,21 @@ function calculateBadge(slug, postData, allPosts) {
       type: 'new',
       priority: 1,
       views: postData.views || 0,
-      recentViews: getRecentViews(postData)
+      recentViews: getRecentViews(postData),
     };
   }
-  
+
   // 2. Encontrar el post con más vistas para "top"
-  const maxViews = Math.max(...Object.values(allPosts).map(p => p.views || 0));
+  const maxViews = Math.max(...Object.values(allPosts).map((p) => p.views || 0));
   if (postData.views === maxViews && maxViews > 0) {
     return {
       type: 'top',
       priority: 2,
       views: postData.views,
-      recentViews: getRecentViews(postData)
+      recentViews: getRecentViews(postData),
     };
   }
-  
+
   // 3. Verificar si es trending
   const recentViews = getRecentViews(postData);
   if (recentViews >= BADGE_RULES.TRENDING_THRESHOLD) {
@@ -83,26 +83,26 @@ function calculateBadge(slug, postData, allPosts) {
       type: 'trending',
       priority: 3,
       views: postData.views || 0,
-      recentViews: recentViews
+      recentViews: recentViews,
     };
   }
-  
+
   // 4. Verificar si es popular
   if ((postData.views || 0) >= BADGE_RULES.POPULAR_THRESHOLD) {
     return {
       type: 'popular',
       priority: 4,
       views: postData.views,
-      recentViews: recentViews
+      recentViews: recentViews,
     };
   }
-  
+
   // 5. Por defecto: imperdible (para posts que no califican para otros badges)
   return {
     type: 'must-read',
     priority: 5,
     views: postData.views || 0,
-    recentViews: recentViews
+    recentViews: recentViews,
   };
 }
 
@@ -112,25 +112,25 @@ async function generateSlugMapping() {
     const fs = await import('fs');
     const matter = await import('gray-matter');
     const path = await import('path');
-    
+
     const postsDirectory = path.default.join(process.cwd(), 'src', 'posts');
     const slugMapping = {}; // español -> inglés
     const reverseMapping = {}; // inglés -> español
-    
+
     // Leer archivos en español
     const esDir = path.default.join(postsDirectory, 'es');
     if (fs.default.existsSync(esDir)) {
-      const esFiles = fs.default.readdirSync(esDir).filter(file => file.endsWith('.md'));
-      
+      const esFiles = fs.default.readdirSync(esDir).filter((file) => file.endsWith('.md'));
+
       for (const file of esFiles) {
         try {
           const filePath = path.default.join(esDir, file);
           const fileContents = fs.default.readFileSync(filePath, 'utf8');
           const { data: frontmatter } = matter.default(fileContents);
-          
+
           const esSlug = file.replace(/\.md$/, '');
           const enSlug = frontmatter.englishSlug;
-          
+
           if (enSlug) {
             slugMapping[esSlug] = enSlug;
             reverseMapping[enSlug] = esSlug;
@@ -140,21 +140,21 @@ async function generateSlugMapping() {
         }
       }
     }
-    
+
     // Verificar archivos en inglés para completar mapeo
     const enDir = path.default.join(postsDirectory, 'en');
     if (fs.default.existsSync(enDir)) {
-      const enFiles = fs.default.readdirSync(enDir).filter(file => file.endsWith('.md'));
-      
+      const enFiles = fs.default.readdirSync(enDir).filter((file) => file.endsWith('.md'));
+
       for (const file of enFiles) {
         try {
           const filePath = path.default.join(enDir, file);
           const fileContents = fs.default.readFileSync(filePath, 'utf8');
           const { data: frontmatter } = matter.default(fileContents);
-          
+
           const enSlug = file.replace(/\.md$/, '');
           const esSlug = frontmatter.spanishSlug;
-          
+
           // Solo agregar si no existe ya (prioridad a los archivos ES)
           if (esSlug && !slugMapping[esSlug]) {
             slugMapping[esSlug] = enSlug;
@@ -165,7 +165,7 @@ async function generateSlugMapping() {
         }
       }
     }
-    
+
     return { slugMapping, reverseMapping };
   } catch (error) {
     console.error('Error generating slug mapping:', error);
@@ -173,12 +173,12 @@ async function generateSlugMapping() {
     return {
       slugMapping: {
         'consejos-utiles-para-configurar-tu-visual-studio-code': 'useful-tips-to-configure-your-visual-studio-code',
-        'te-cuento-sobre-mi-juego-favorito-no-mans-sky': 'let-me-tell-you-about-my-favorite-game-no-mans-sky'
+        'te-cuento-sobre-mi-juego-favorito-no-mans-sky': 'let-me-tell-you-about-my-favorite-game-no-mans-sky',
       },
       reverseMapping: {
         'useful-tips-to-configure-your-visual-studio-code': 'consejos-utiles-para-configurar-tu-visual-studio-code',
-        'let-me-tell-you-about-my-favorite-game-no-mans-sky': 'te-cuento-sobre-mi-juego-favorito-no-mans-sky'
-      }
+        'let-me-tell-you-about-my-favorite-game-no-mans-sky': 'te-cuento-sobre-mi-juego-favorito-no-mans-sky',
+      },
     };
   }
 }
@@ -189,13 +189,13 @@ async function getPostDetails() {
     const fs = await import('fs');
     const matter = await import('gray-matter');
     const path = await import('path');
-    
+
     const postsDirectory = path.default.join(process.cwd(), 'src', 'posts');
     const postDetails = {};
-    
+
     // Generar mapeo dinámico
     const { slugMapping } = await generateSlugMapping();
-    
+
     // Función para obtener slug canónico (siempre usar el inglés como referencia)
     const getCanonicalSlug = (slug) => {
       // Si el slug está en el mapeo (es español), devolver el inglés
@@ -205,21 +205,21 @@ async function getPostDetails() {
       // Si no está en el mapeo, probablemente ya es el slug inglés
       return slug;
     };
-    
+
     // Leer archivos en español para obtener fechas de publicación
     const esDir = path.default.join(postsDirectory, 'es');
     if (fs.default.existsSync(esDir)) {
-      const esFiles = fs.default.readdirSync(esDir).filter(file => file.endsWith('.md'));
-      
+      const esFiles = fs.default.readdirSync(esDir).filter((file) => file.endsWith('.md'));
+
       for (const file of esFiles) {
         try {
           const filePath = path.default.join(esDir, file);
           const fileContents = fs.default.readFileSync(filePath, 'utf8');
           const { data: frontmatter } = matter.default(fileContents);
-          
+
           const slug = file.replace(/\.md$/, '');
           const canonicalSlug = getCanonicalSlug(slug);
-          
+
           // Usar slug canónico para unificar tracking
           postDetails[canonicalSlug] = {
             publishedAt: frontmatter.date || new Date().toISOString(),
@@ -227,29 +227,29 @@ async function getPostDetails() {
             category: frontmatter.category,
             slugs: {
               es: slug,
-              en: canonicalSlug
-            }
+              en: canonicalSlug,
+            },
           };
         } catch (error) {
           console.error(`Error reading ${file}:`, error);
         }
       }
     }
-    
+
     // Leer archivos en inglés para completar información faltante
     const enDir = path.default.join(postsDirectory, 'en');
     if (fs.default.existsSync(enDir)) {
-      const enFiles = fs.default.readdirSync(enDir).filter(file => file.endsWith('.md'));
-      
+      const enFiles = fs.default.readdirSync(enDir).filter((file) => file.endsWith('.md'));
+
       for (const file of enFiles) {
         try {
           const filePath = path.default.join(enDir, file);
           const fileContents = fs.default.readFileSync(filePath, 'utf8');
           const { data: frontmatter } = matter.default(fileContents);
-          
+
           const slug = file.replace(/\.md$/, '');
           const canonicalSlug = getCanonicalSlug(slug);
-          
+
           // Solo agregar si no existe ya (prioridad a archivos en español para fechas)
           if (!postDetails[canonicalSlug]) {
             postDetails[canonicalSlug] = {
@@ -258,8 +258,8 @@ async function getPostDetails() {
               category: frontmatter.category,
               slugs: {
                 en: slug,
-                es: null // Se completará si existe
-              }
+                es: null, // Se completará si existe
+              },
             };
           } else {
             // Completar información del inglés
@@ -270,7 +270,7 @@ async function getPostDetails() {
         }
       }
     }
-    
+
     return postDetails;
   } catch (error) {
     console.error('Error getting post details:', error);
@@ -280,16 +280,16 @@ async function getPostDetails() {
         publishedAt: '2025-10-20T00:00:00Z',
         slugs: {
           es: 'consejos-utiles-para-configurar-tu-visual-studio-code',
-          en: 'useful-tips-to-configure-your-visual-studio-code'
-        }
+          en: 'useful-tips-to-configure-your-visual-studio-code',
+        },
       },
       'let-me-tell-you-about-my-favorite-game-no-mans-sky': {
         publishedAt: '2025-10-25T00:00:00Z',
         slugs: {
           es: 'te-cuento-sobre-mi-juego-favorito-no-mans-sky',
-          en: 'let-me-tell-you-about-my-favorite-game-no-mans-sky'
-        }
-      }
+          en: 'let-me-tell-you-about-my-favorite-game-no-mans-sky',
+        },
+      },
     };
   }
 }
@@ -297,21 +297,21 @@ async function getPostDetails() {
 export async function GET(request) {
   try {
     ViewsMonitor.info('Stats API request');
-    
+
     const { searchParams } = new URL(request.url);
     const slug = searchParams.get('slug');
-    
+
     const viewsData = readViewsData();
     const postDetails = await getPostDetails();
     const { slugMapping } = await generateSlugMapping();
-    
+
     // Función para normalizar slug a canónico usando mapeo dinámico
     const getCanonicalSlug = (inputSlug) => {
       // Si es slug español, convertir a inglés
       if (slugMapping[inputSlug]) {
         return slugMapping[inputSlug];
       }
-      
+
       // Buscar el slug en los detalles de posts como fallback
       for (const [canonicalSlug, details] of Object.entries(postDetails)) {
         if (details.slugs?.es === inputSlug || details.slugs?.en === inputSlug || canonicalSlug === inputSlug) {
@@ -320,18 +320,18 @@ export async function GET(request) {
       }
       return inputSlug; // Fallback al slug original si no se encuentra
     };
-    
+
     // Si se solicita un slug específico
     if (slug) {
       const canonicalSlug = getCanonicalSlug(slug);
       const postData = viewsData.posts[canonicalSlug] || { views: 0, dailyViews: {}, weeklyViews: {} };
-      
+
       // Usar fecha de publicación real o fecha de creación en views
       const publishedAt = postDetails[canonicalSlug]?.publishedAt || postData.createdAt;
       const enrichedPostData = { ...postData, createdAt: publishedAt };
-      
+
       const badge = calculateBadge(canonicalSlug, enrichedPostData, viewsData.posts);
-      
+
       return NextResponse.json({
         slug: canonicalSlug,
         originalSlug: slug,
@@ -340,54 +340,54 @@ export async function GET(request) {
           views: postData.views || 0,
           recentViews: getRecentViews(postData),
           dailyViews: postData.dailyViews || {},
-          weeklyViews: postData.weeklyViews || {}
-        }
+          weeklyViews: postData.weeklyViews || {},
+        },
       });
     }
-    
+
     // Si no se especifica slug, devolver badges de todos los posts
     const badges = {};
     const stats = {};
-    
+
     // Primero, enriquecer datos con fechas de publicación usando slugs canónicos
     const enrichedPosts = {};
-    
+
     // Procesar posts existentes en viewsData
-    Object.keys(viewsData.posts).forEach(postSlug => {
+    Object.keys(viewsData.posts).forEach((postSlug) => {
       const canonicalSlug = getCanonicalSlug(postSlug);
       const postData = viewsData.posts[postSlug];
       const publishedAt = postDetails[canonicalSlug]?.publishedAt || postData.createdAt;
       enrichedPosts[canonicalSlug] = { ...postData, createdAt: publishedAt };
     });
-    
+
     // Agregar posts que existen en archivos pero no en viewsData
-    Object.keys(postDetails).forEach(canonicalSlug => {
+    Object.keys(postDetails).forEach((canonicalSlug) => {
       if (!enrichedPosts[canonicalSlug]) {
         enrichedPosts[canonicalSlug] = {
           views: 0,
           dailyViews: {},
           weeklyViews: {},
-          createdAt: postDetails[canonicalSlug].publishedAt
+          createdAt: postDetails[canonicalSlug].publishedAt,
         };
       }
     });
-    
+
     // Calcular badges para todos los posts usando slugs canónicos
-    Object.keys(enrichedPosts).forEach(canonicalSlug => {
+    Object.keys(enrichedPosts).forEach((canonicalSlug) => {
       const postData = enrichedPosts[canonicalSlug];
       badges[canonicalSlug] = calculateBadge(canonicalSlug, postData, enrichedPosts);
       stats[canonicalSlug] = {
         views: postData.views || 0,
         recentViews: getRecentViews(postData),
         dailyViews: postData.dailyViews || {},
-        weeklyViews: postData.weeklyViews || {}
+        weeklyViews: postData.weeklyViews || {},
       };
     });
-    
+
     // Estadísticas globales
     const totalViews = Object.values(enrichedPosts).reduce((sum, post) => sum + (post.views || 0), 0);
     const totalPosts = Object.keys(enrichedPosts).length;
-    
+
     return NextResponse.json({
       badges,
       stats,
@@ -395,15 +395,14 @@ export async function GET(request) {
       global: {
         totalViews,
         totalPosts,
-        lastUpdated: viewsData.metadata?.lastUpdated || new Date().toISOString()
+        lastUpdated: viewsData.metadata?.lastUpdated || new Date().toISOString(),
       },
-      rules: BADGE_RULES
+      rules: BADGE_RULES,
     });
-    
   } catch (error) {
     ViewsMonitor.error('Error in GET /api/views/stats', {
       error: error.message,
-      stack: error.stack
+      stack: error.stack,
     });
     console.error('Error in GET /api/views/stats:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

@@ -5,7 +5,7 @@ export function useBlogActions(frontmatter, content, spanishFrontmatter, spanish
   // Determinar contenido inicial basado en el locale
   const initialContent = locale === 'es' ? spanishContent : content;
   const initialFrontmatter = locale === 'es' ? spanishFrontmatter : frontmatter;
-  
+
   const [contentToRender, setContentToRender] = useState(initialContent);
   const [frontmatterToRender, setFrontmatterToRender] = useState(initialFrontmatter);
   const [imgs, setImgs] = useState([]);
@@ -15,7 +15,7 @@ export function useBlogActions(frontmatter, content, spanishFrontmatter, spanish
   // Effect para manejar las imágenes
   useEffect(() => {
     if (images && images.length > 0) {
-      const imageElements = images.split(",").map((img, index) => (
+      const imageElements = images.split(',').map((img, index) => (
         <div key={index}>
           <img src={img} className="w-fit h-auto" alt={`Image ${index + 1}`} />
         </div>
@@ -46,12 +46,12 @@ export function useBlogActions(frontmatter, content, spanishFrontmatter, spanish
       date,
       bannerImage,
       tags,
-      readingTime
+      readingTime,
     },
     translationSlugs: {
       englishSlug: frontmatter?.slug || spanishFrontmatter?.englishSlug,
-      spanishSlug: spanishFrontmatter?.slug || frontmatter?.spanishSlug
+      spanishSlug: spanishFrontmatter?.slug || frontmatter?.spanishSlug,
     },
-    goBack: () => window.history.back()
+    goBack: () => window.history.back(),
   };
 }

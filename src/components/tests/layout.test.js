@@ -2,11 +2,20 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Layout from '../layout';
 
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    replace: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+  }),
+  usePathname: () => '/',
+  useSearchParams: () => new URLSearchParams(),
+}));
+
 test('renders header, main content, and footer', () => {
-  render(<Layout>
-    Hello World!
-  </Layout>);
-  
+  render(<Layout>Hello World!</Layout>);
+
   // Check if header is rendered
   const headerElement = screen.getByRole('banner');
   expect(headerElement).toBeInTheDocument();

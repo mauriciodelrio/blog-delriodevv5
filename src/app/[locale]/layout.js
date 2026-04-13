@@ -6,14 +6,14 @@ import StructuredData from '@/components/StructuredData';
 
 // Generar metadata dinámica basada en el locale
 export async function generateMetadata({ params }) {
-  const { locale } = params;
-  
+  const { locale } = await params;
+
   if (!i18n.locales.includes(locale)) {
     return {};
   }
-  
+
   const dict = getDictionary(locale);
-  
+
   return {
     title: dict.metadata.title,
     description: dict.metadata.description,
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }) {
           width: 1200,
           height: 630,
           alt: dict.metadata.title,
-        }
+        },
       ],
     },
     twitter: {
@@ -48,8 +48,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `/${locale}`,
       languages: {
-        'en': '/en',
-        'es': '/es',
+        en: '/en',
+        es: '/es',
       },
     },
     robots: {
@@ -76,22 +76,20 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ locale }));
 }
 
-export default function LocaleLayout({ children, params }) {
-  const { locale } = params;
-  
+export default async function LocaleLayout({ children, params }) {
+  const { locale } = await params;
+
   // Verificar que el locale sea válido
   if (!i18n.locales.includes(locale)) {
     notFound();
   }
-  
+
   // Renderizar con Layout que incluye Header y Footer
   return (
     <>
       <StructuredData type="website" />
       <StructuredData type="person" />
-      <Layout locale={locale}>
-        {children}
-      </Layout>
+      <Layout locale={locale}>{children}</Layout>
       <CookieBanner locale={locale} />
     </>
   );

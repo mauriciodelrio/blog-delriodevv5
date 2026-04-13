@@ -2,11 +2,11 @@ import { getAllPostSlugs } from '@/utils/postUtils';
 
 export default async function sitemap() {
   const baseUrl = 'https://delrio.dev';
-  
+
   // Obtener todos los slugs de posts
   const englishSlugs = await getAllPostSlugs('en');
   const spanishSlugs = await getAllPostSlugs('es');
-  
+
   // URLs estáticas principales
   const staticUrls = [
     {
@@ -58,7 +58,7 @@ export default async function sitemap() {
       },
     },
   ];
-  
+
   // URLs de posts en inglés
   const englishPostUrls = englishSlugs.map((slug) => ({
     url: `${baseUrl}/en/posts/${slug}`,
@@ -66,7 +66,7 @@ export default async function sitemap() {
     changeFrequency: 'weekly',
     priority: 0.7,
   }));
-  
+
   // URLs de posts en español
   const spanishPostUrls = spanishSlugs.map((slug) => ({
     url: `${baseUrl}/es/posts/${slug}`,
@@ -74,6 +74,6 @@ export default async function sitemap() {
     changeFrequency: 'weekly',
     priority: 0.7,
   }));
-  
+
   return [...staticUrls, ...englishPostUrls, ...spanishPostUrls];
 }

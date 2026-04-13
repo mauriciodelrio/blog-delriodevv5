@@ -1,28 +1,28 @@
 ---
-title: "Más allá del Prop Drilling: Patrones de Estado Nativo Escalables y Sin Dependencias"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-11-22"
-bannerImage: "/blog_images/prop_drilling.png"
-slug: "mas-alla-del-prop-drilling"
-englishSlug: "beyond-prop-drilling"
-overview: "En este artículo, hablaremos sobre nuestras propias negligencias en el manejo del estado en aplicaciones React y cómo superarlas con patrones escalables y sin dependencias."
+title: 'Más allá del Prop Drilling: Patrones de Estado Nativo Escalables y Sin Dependencias'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-11-22'
+bannerImage: '/blog_images/prop_drilling.png'
+slug: 'mas-alla-del-prop-drilling'
+englishSlug: 'beyond-prop-drilling'
+overview: 'En este artículo, hablaremos sobre nuestras propias negligencias en el manejo del estado en aplicaciones React y cómo superarlas con patrones escalables y sin dependencias.'
 published: true
-readingTime: "15 minutos"
+readingTime: '15 minutos'
 tags:
-    - Programación
-    - Tutoriales
-    - Aprendizaje
-    - React
+  - Programación
+  - Tutoriales
+  - Aprendizaje
+  - React
 ---
+
 ## Esto será para laaaaargo...
 
 Da igual tu seniority, nuestro ritmo de trabajo determina qué hacemos y cómo lo hacemos. En el día a día, nos justificamos con el tiempo, la presión y las entregas. Pero seamos honestos, muchas veces hacer bien las cosas puede tomar un poquito más de tiempo, pero a la larga, nos **ahorra mucho más**.
 
-Quiero dejar esto muy claro. **YO TAMBIÉN SOY CULPABLE**, sí, con mayúsculas. Incluso con mis años de experiencia, sigo cayendo en malas prácticas y justificándome a mí mismo con el tiempo. 
+Quiero dejar esto muy claro. **YO TAMBIÉN SOY CULPABLE**, sí, con mayúsculas. Incluso con mis años de experiencia, sigo cayendo en malas prácticas y justificándome a mí mismo con el tiempo.
 
-Este artículo es un _tirón de orejas_, primeramente para mí, para ustedes como lectores, es el resultado de unos días de estudio, que tiene como objetivo, entregarles una recopilación interesante acerca de cómo mejorar nuestras prácticas habituales trabajando con React. (_cof cof... Gracias IA por ayudarme a juntar ideas_) 
-
+Este artículo es un _tirón de orejas_, primeramente para mí, para ustedes como lectores, es el resultado de unos días de estudio, que tiene como objetivo, entregarles una recopilación interesante acerca de cómo mejorar nuestras prácticas habituales trabajando con React. (_cof cof... Gracias IA por ayudarme a juntar ideas_)
 
 ## Vamos al grano, hablemos de **Prop Drilling**
 
@@ -86,12 +86,12 @@ Vamos con un ejemplo de caos:
   </AuthProvider>
 </ThemeProvider>
 ```
+
 ¿Te suena familiar cierto? Bueno, acá iremos dando algunas correcciones a este problema.
 
 ### Solución 1 - **Combinar Providers**
 
 Una forma de reducir el número de Providers es combinarlos en un solo Provider que maneje múltiples contextos. Esto puede ayudar a reducir la complejidad del árbol de componentes y hacer que el código sea más fácil de seguir. Acá va un ejemplo, me baso en Next.js, pero el concepto es el mismo en React puro:
-
 
 ```jsx
 // _app.tsx
@@ -111,14 +111,14 @@ const CombinedProvider = ({ children }) => {
         <SettingsProvider>
           <DataProvider>
             <NotificationProvider>
-                <PepeProvider>
-                    <PedroProvider>
-                        <JuanitoProvider>
-                        // ...
-                            {children}
-                        </JuanitoProvider>
-                    </PedroProvider>
-                </PepeProvider>
+              <PepeProvider>
+                <PedroProvider>
+                  <JuanitoProvider>
+                    // ...
+                    {children}
+                  </JuanitoProvider>
+                </PedroProvider>
+              </PepeProvider>
             </NotificationProvider>
           </DataProvider>
         </SettingsProvider>
@@ -174,7 +174,6 @@ Si tienes un componente que necesita gatillar un evento (ejemplo: un botón con 
 ¿Cómo logramos esto? Fácil, separamos el contexto en dos diferentes, uno para el **estado** y otro para las **funciones que modifican ese estado.**
 
 ```jsx
-
 // StateContext.tsx
 const StateContext = React.createContext({ data: null });
 // ActionsContext.tsx
@@ -220,7 +219,7 @@ import { ThemeContext } from './ThemeContext';
 
 export const SmartCard = ({ overrideTheme }: { overrideTheme?: boolean }) => {
   let theme = 'light';
-  
+
   // Contexto condicional: Solo nos suscribimos si es necesario
   if (!overrideTheme) {
     const themeContext = use(ThemeContext);
@@ -250,7 +249,7 @@ import React, { useMemo } from 'react';
 const ExpensiveComponent = ({ data }) => {
   const processedData = useMemo(() => {
     // Simulamos un cálculo costoso
-    return data.map(item => item * 2);
+    return data.map((item) => item * 2);
   }, [data]); // Solo se recalcula si 'data' cambia
 
   return (
@@ -285,7 +284,7 @@ Hay otra joyita que leí por ahí (ni sabía de su existencia) y es el hook `use
 Llama `useActionState` al nivel superior de tu componente para crear un estado que se actualiza al invocar una acción de formulario. Pasas `useActionState` una función de acción de formulario existente, así como un estado inicial, y esta devuelve una nueva acción que usas en tu formulario, junto con el último estado del formulario y si la acción sigue pendiente. El último estado del formulario también se pasa a la función que proporcionaste. (Sí esto es sacado de la _documentación oficial_, pero es que está muy bien explicado).
 
 ```jsx
-import { useActionState } from "react";
+import { useActionState } from 'react';
 
 async function increment(previousState, formData) {
   return previousState + 1;
@@ -298,8 +297,8 @@ function StatefulForm({}) {
       {state}
       <button formAction={formAction}>Increment</button>
     </form>
-  )
-};
+  );
+}
 ```
 
 El estado del formulario es el valor devuelto por la acción la última vez que se envió. Si el formulario aún no se ha enviado, se establece en el estado inicial.
@@ -329,7 +328,7 @@ export type CartState = {
   isOpen: boolean;
 };
 
-export type CartAction = 
+export type CartAction =
   | { type: 'ADD_ITEM'; payload: CartItem }
   | { type: 'REMOVE_ITEM'; payload: { id: string } }
   | { type: 'TOGGLE_CART' }
@@ -347,7 +346,7 @@ import { CartState, CartAction } from '../types/cart';
 export const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_ITEM': {
-      const existingItemIndex = state.items.findIndex(i => i.id === action.payload.id);
+      const existingItemIndex = state.items.findIndex((i) => i.id === action.payload.id);
       const updatedItems = [...state.items];
 
       if (existingItemIndex >= 0) {
@@ -355,17 +354,17 @@ export const cartReducer = (state: CartState, action: CartAction): CartState => 
       } else {
         updatedItems.push({ ...action.payload, quantity: 1 });
       }
-      
+
       // Calculamos el total aquí para evitar recalcularlo en cada render...
       const newTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
       return { ...state, items: updatedItems, totalAmount: newTotal };
     }
-    
+
     // ... implementación de otros casos (REMOVE, TOGGLE, blah)
     case 'TOGGLE_CART':
       return { ...state, isOpen: !state.isOpen };
-      
+
     default:
       return state;
   }
@@ -400,7 +399,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   // NOTA: dispatch es estable por diseño en React.
-  // No necesita useMemo. state cambia, por lo que separarlos evita 
+  // No necesita useMemo. state cambia, por lo que separarlos evita
   // que los componentes que solo usan dispatch se rendericen cuando state cambia.
 
   return (
@@ -443,10 +442,10 @@ export const AddToCartButton = ({ product }: { product: Product }) => {
   console.log('Render: AddToCartButton'); // Esto solo aparecerá una vez.
 
   return (
-    <button 
-      onClick={() => dispatch({ 
-        type: 'ADD_ITEM', 
-        payload: { ...product, quantity: 1 } 
+    <button
+      onClick={() => dispatch({
+        type: 'ADD_ITEM',
+        payload: { ...product, quantity: 1 }
       })}
     >
       Add to Cart
@@ -465,9 +464,9 @@ import { useCartState } from '../context/CartContext';
 
 export const CartCounter = () => {
   const { items } = useCartState(); // Consumimos StateContext
-  
+
   const count = items.reduce((acc, item) => acc + item.quantity, 0);
-  
+
   console.log('Render: CartCounter'); // Esto aparecerá cada vez que cambie el carrito.
 
   return <span>Items: {count}</span>;
@@ -480,7 +479,7 @@ Acá hagamos una pequeña pausa técnica. Hasta ahora, con unos pocos cambios, h
 
 Ahora, esta pausa tiene un propósito y realmente es **Contradecirme a mí mismo**.
 
-Verás, este artículo no existe por el simple hecho de que soy un defensor ferreo de _no usar_ librerías externas. Pero hay que entender también el entorno de tu empresa, proyecto y equipo. 
+Verás, este artículo no existe por el simple hecho de que soy un defensor ferreo de _no usar_ librerías externas. Pero hay que entender también el entorno de tu empresa, proyecto y equipo.
 
 Hay veces en donde los proyectos son tan grandes y escalables, que el recurso _menos es más_ tiene algunas consecuencias.
 
@@ -496,7 +495,7 @@ Cuando tienes, por ejemplo, productos críticos, ya no piensas en instalar libre
 
 Muchas de las librerías de manejo de estados más famosas cumplen con estos requisitos, pero también hay un problemita: **Quedas atado a otra librería crítica más.**
 
-Las librerías críticas cada cierto tiempo suben versiones __major__, ¿El problema? Tienen **Breaking Changes**. Esto significa que cada cierto tiempo, debes actualizar tu código para que siga funcionando correctamente con la nueva versión de la librería (si la librería deja de tener soporte activo y no actualizas, cualquier brecha de seguridad puede terminar en un **desastre**).
+Las librerías críticas cada cierto tiempo suben versiones **major**, ¿El problema? Tienen **Breaking Changes**. Esto significa que cada cierto tiempo, debes actualizar tu código para que siga funcionando correctamente con la nueva versión de la librería (si la librería deja de tener soporte activo y no actualizas, cualquier brecha de seguridad puede terminar en un **desastre**).
 
 ¿Qué pasa en proyectos gigantes? Debes subir un major de una librería externa que maneja básicamente todo el store de tu frontend, el más mínimo error por un breaking change puede **tirar toda tu aplicación.**
 
@@ -514,17 +513,17 @@ Pero Zustand, por sí solo, no hace magia. Optimizar tu aplicación sigue siendo
 
 ## ¿Terminamos? Hmmm...
 
-Vamos a partir con una pequeña conclusión: 
+Vamos a partir con una pequeña conclusión:
 
 > No uses un manejador de estados externo porque te da flojera usar Context API. Úsalo según el contexto de tu proyecto y equipo.
 
-Los desarrolladores tenemos un poco de espíritu de _flojera_, Además, como la tecnología crece a pasos agigantados, muchas veces caemos en eso de _"usar la herramienta X porque es la moda del momento"._ 
+Los desarrolladores tenemos un poco de espíritu de _flojera_, Además, como la tecnología crece a pasos agigantados, muchas veces caemos en eso de _"usar la herramienta X porque es la moda del momento"._
 
 Zustand en este caso, **no es la moda del momento**, de hecho es genial y la defiendo a morir, pero no es una solución mágica, con React nativo se pueden hacer grandes cosas si sabes cómo hacerlo.
 
 ## Plot twist - Signals
 
-¿Creíste que Zustand era mi santo grial? **NI DE CERCA**. últimamente y por motivos laborales, me vi involucrado en realizar una _PoC_ con **Signals**. 
+¿Creíste que Zustand era mi santo grial? **NI DE CERCA**. últimamente y por motivos laborales, me vi involucrado en realizar una _PoC_ con **Signals**.
 
 En este artículo no pienso explicar qué es Signals, pero si llegaste a esta parte del artículo, dame un tiempito para preparar un artículo completo acerca de este patrón que, honestamente, me tiene fascinado. ¡Dale una chance de [leer por tu cuenta](https://preactjs.com/guide/v10/signals/)!
 
@@ -535,4 +534,3 @@ Usa librerías externas, usa React nativo, usa lo que quieras. Pero **entiende l
 Al final del día, lo que importa es entregar algo de calidad, mantenible y escalable, eso no te lo entrega una librería, eso es **TU RESPONSABILIDAD** como desarrollador.
 
 **MUUUUCHAS GRACIAS** por llegar hasta acá, espero que este artículo te haya sido útil y nos vemos en el próximo, si vez publicado esto en alguna red social, deja un comentario, me gustaría leerte! ¡Saludos!.
-

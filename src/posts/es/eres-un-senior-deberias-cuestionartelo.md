@@ -1,19 +1,20 @@
 ---
-title: "¿Eres un senior? Deberías cuestionártelo"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-11-25"
-bannerImage: "/blog_images/senior.png"
-slug: "eres-un-senior-deberias-cuestionartelo"
-englishSlug: "are-you-a-senior-you-should-question-it"
-overview: "¿Qué significa ser senior en la industria IT? En este artículo no te daré la respuesta, pero sí te plantearé preguntas que te ayudarán a reflexionar sobre tu rol como desarrollador senior."
+title: '¿Eres un senior? Deberías cuestionártelo'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-11-25'
+bannerImage: '/blog_images/senior.png'
+slug: 'eres-un-senior-deberias-cuestionartelo'
+englishSlug: 'are-you-a-senior-you-should-question-it'
+overview: '¿Qué significa ser senior en la industria IT? En este artículo no te daré la respuesta, pero sí te plantearé preguntas que te ayudarán a reflexionar sobre tu rol como desarrollador senior.'
 published: true
-readingTime: "12 minutos"
+readingTime: '12 minutos'
 tags:
-    - Software
-    - Consejos
-    - Reflexión
+  - Software
+  - Consejos
+  - Reflexión
 ---
+
 ## ¡Acá estamos otra vez!
 
 Buenas a todos. Este artículo nace a partir de una conversación que tuve con un amigo mío, gran ingeniero de software, que fue mi mentor cuando recién comencé a escribir un poco de código. Yo ya estoy formalmente en la industria más de 9 años, mi amigo lleva mucho más, y hace tiempo que no conversábamos.
@@ -66,7 +67,7 @@ Esto golpea fuerte, pero también, si lo tomas del lado amable, este golpe de re
 
 ## El qué, el por qué y el cómo
 
-### El qué 
+### El qué
 
 En tus primeros años de experiencia, tu trabajo será más o menos simple. Te darán un requerimiento, lo revisas, haces consultas (y espero que hagas consultas), ejecutas, te toma tiempo pero lo logras.
 
@@ -76,7 +77,7 @@ Realmente el qué responde a la **necesidad del negocio**, y más aún, a resolv
 
 Esto no es evidente a simple vista. De hecho, es probable que incluso con bastante experiencia en tu cuerpo, nunca te haya tocado sentarte con un cliente para entender **QUÉ** es lo que realmente necesita.
 
-### El por qué 
+### El por qué
 
 Esta pregunta está muy ligada a la primera, pero tiene matices diferentes. El por qué responde a la **justificación** de la necesidad del negocio.
 
@@ -88,7 +89,7 @@ Cuando haces frente a riesgos, puedes priorizar, planificar, comunicar, y lo má
 
 Sí, un senior debe saber delegar. No puedes hacerlo todo tú solo, y si lo haces, probablemente estés haciendo mal tu trabajo.
 
-### El cómo 
+### El cómo
 
 Aunque no lo parezca, el cómo tiende a ser lo más sencillo de un proceso. Por lo general está ligado a la **implementación técnica** del requerimiento en cuestión.
 
@@ -199,13 +200,3 @@ Me tomaré la libertad de hablar por mí mismo. **Yo no estoy ni cerca de serlo.
 Te invito a dejar tus comentarios donde sea que leas este artículo, me encantaría conocer tu opinión al respecto.
 
 ¡Nos vemos!
-
-
-
-
-
-
-
-
-
-

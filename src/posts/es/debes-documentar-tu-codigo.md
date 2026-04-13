@@ -1,39 +1,39 @@
 ---
-title: "Por qué documentar tu código no es perder el tiempo"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2026-01-24"
-bannerImage: "/blog_images/documentar.png"
-slug: "debes-documentar-tu-codigo"
-englishSlug: "you-should-document-your-code"
-overview: "El código se autoexplica si está bien hecho, en este artículo voy a romper un poco ese mito y te contaré por qué es importante documentar tu código, incluso si eres el único que lo va a leer."
+title: 'Por qué documentar tu código no es perder el tiempo'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2026-01-24'
+bannerImage: '/blog_images/documentar.png'
+slug: 'debes-documentar-tu-codigo'
+englishSlug: 'you-should-document-your-code'
+overview: 'El código se autoexplica si está bien hecho, en este artículo voy a romper un poco ese mito y te contaré por qué es importante documentar tu código, incluso si eres el único que lo va a leer.'
 published: true
-readingTime: "10 minutos"
+readingTime: '10 minutos'
 tags:
-    - Programación
-    - Consejos
-    - Opinión
+  - Programación
+  - Consejos
+  - Opinión
 ---
 
 ## Lo que para tí es ordenado, para otro puede ser un caos
 
 Hola! hace tiempo que no escribía un nuevo artículo, mi inspiración esta vez pasa por unas pruebas de concepto que tuve que realizar en mi trabajo. El código en sí no era tan complicado de entender, pero los pasos necesarios para poder ejecutar correctamente este proyecto de forma local en base a como estaba creado el entorno, era un **verdadero caos**.
 
-No se confundan, el código en sí estaba bastante ordenado, con prácticas aceptables, siguiendo bien los estándares de tipificados, distribución de archivos, nombre de variables, etc. Pero el hecho es que era un repositorio que *nunca* me había tocado revisar. En mi trabajo actual, damos soporte a más de **40 artefactos web** de una aplicación de escala muy grande y compleja, por lo que recordar cada detalle de cada proyecto es imposible.
+No se confundan, el código en sí estaba bastante ordenado, con prácticas aceptables, siguiendo bien los estándares de tipificados, distribución de archivos, nombre de variables, etc. Pero el hecho es que era un repositorio que _nunca_ me había tocado revisar. En mi trabajo actual, damos soporte a más de **40 artefactos web** de una aplicación de escala muy grande y compleja, por lo que recordar cada detalle de cada proyecto es imposible.
 
 Y esto es evidente, hay muchas squads que dan soporte a 3 o 4 artefactos web cada una, para ellos, es relativamente sencillo entender el scope de cada uno de ellos, pero mi equipo, da soporte a todas estas squads (además de otras cosas), entonces, tener que leer cada proyecto, escrito por diversas células de desarrollo, con distintos estilos y formas de hacer las cosas, es un verdadero dolor de cabeza.
 
-Es por esto que a nivel de cuenta, se están implementando estándares internos de ordenamiento de código, code style, procesos de semver, PRs, strong linting, etc. Proceso bastante cuestionado y muy difícil de empatizar. Cuando en tu círculo cercano, o sea, en tu misma squad, todos los devs entienden lo que hacen, de pronto ven estas prácticas como una *pérdida de tiempo*.
+Es por esto que a nivel de cuenta, se están implementando estándares internos de ordenamiento de código, code style, procesos de semver, PRs, strong linting, etc. Proceso bastante cuestionado y muy difícil de empatizar. Cuando en tu círculo cercano, o sea, en tu misma squad, todos los devs entienden lo que hacen, de pronto ven estas prácticas como una _pérdida de tiempo_.
 
 ## Los estándares y un poco de ego
 
 Siguiendo con el punto anterior, cuando implementamos nuevas reglas automatizadas para análisis de código estático, lo primero que salta a la vista es: _"¿Por qué tengo que seguir estas reglas si mi código ya está bien hecho?"_ _"Por qué debo usar X formato si la documentación de Y librería usa otro formato?"_ _"¿Por qué tengo que perder tiempo en estas tonteras si los archivos están bien definidos?"_.
 
-Acá los desarrolladores, en muchos de estos puntos, tienen toda la razón, si tu código sigue estándares definidos por algún framework, genial pero, si TypeScript tiene un estándar para definir archivos que contienen types e interfaces, Next.js tiene por otro lado un formato *distinto* para definir los mismos tipos de archivos. ¿Es un estándar entonces?
+Acá los desarrolladores, en muchos de estos puntos, tienen toda la razón, si tu código sigue estándares definidos por algún framework, genial pero, si TypeScript tiene un estándar para definir archivos que contienen types e interfaces, Next.js tiene por otro lado un formato _distinto_ para definir los mismos tipos de archivos. ¿Es un estándar entonces?
 
 > Si hay más de una forma correcta de hacer la misma cosa, no hay un estándar.
 
-Cuando hablamos de estándares, en este sentido, solamente deberíamos categorizarlo como una "convención". Si nos remitimos al concepto de una convención ¿Podemos definir nuestras propias convenciones? Claro que sí, nuestra convención puede estar totalmente basada en una ya existente por alguna librería o framework incluído en el repositorio. La convención decidida, no indica que es la *única* forma correcta de escribir código, indica que toda la capa de equipos web, escribirán su código bajo esa convención, para que la legibilidad y mantenibilidad del código sea mucho mejor.
+Cuando hablamos de estándares, en este sentido, solamente deberíamos categorizarlo como una "convención". Si nos remitimos al concepto de una convención ¿Podemos definir nuestras propias convenciones? Claro que sí, nuestra convención puede estar totalmente basada en una ya existente por alguna librería o framework incluído en el repositorio. La convención decidida, no indica que es la _única_ forma correcta de escribir código, indica que toda la capa de equipos web, escribirán su código bajo esa convención, para que la legibilidad y mantenibilidad del código sea mucho mejor.
 
 Transmitir este mensaje es un poco difícil, porque implica salir de tu zona de confort y tu propia burbuja de trabajo. Cuando trabajas en una empresa en donde prácticamente todos los devs son semisenior para arriba, el ego sobre cómo hacer las cosas "bien" es muy común. Particularmente en el equipo en donde estoy, he tenido que abstraerme un poco de eso, porque cuando llega un equipo explicándome que no ven necesario definir o clasificar un archivo de X o Y forma, la verdad es que, en términos puros de buenas prácticas, tienen toda la razón, pero en términos de la mantenibilidad interna, **no la tienen**.
 
@@ -43,11 +43,11 @@ Y acá es donde quiero conectar con el tema central de este artículo. Los está
 
 OK, ya tenemos nuestro código estructurado, con un coverage muy alto, linting estricto, tipados fuertes, carpetas y archivos bajo el mismo formato, todo indexado y un largo etcétera. ¿Esto me asegura realmente que el código es legible? Acá igual hay controversia, y tiene que ver con el mismo ego del desarrollador.
 
-Ya me ha tocado algunas veces conocer personas puristas de "programar" como tal, que sienten que solo leyendo el código, si está bien ordenado, es más que suficiente, sin comentarios, sin nada. La verdad es que **no**, porque en nuestro día a día nosotros no perdemos el tiempo leyendo código, nosotros trabajamos en base a procesos y flujos de información, de un punto A a un punto B. 
+Ya me ha tocado algunas veces conocer personas puristas de "programar" como tal, que sienten que solo leyendo el código, si está bien ordenado, es más que suficiente, sin comentarios, sin nada. La verdad es que **no**, porque en nuestro día a día nosotros no perdemos el tiempo leyendo código, nosotros trabajamos en base a procesos y flujos de información, de un punto A a un punto B.
 
-Para alguien que tiene tiempos acotados, asiste a muchas reuniones, dedica tiempo a planificación, definición de nuevos objetivos, resolución de casos críticos, etc. Lo que *menos* importa en toda esa larga lista de tareas de un sprint es realmente leer código como tal. Puedes llevar 20 años en la industria, y vas a perder igualmente mucho tiempo entendiendo el trabajo de otros (¡y el tuyo igual!). 
+Para alguien que tiene tiempos acotados, asiste a muchas reuniones, dedica tiempo a planificación, definición de nuevos objetivos, resolución de casos críticos, etc. Lo que _menos_ importa en toda esa larga lista de tareas de un sprint es realmente leer código como tal. Puedes llevar 20 años en la industria, y vas a perder igualmente mucho tiempo entendiendo el trabajo de otros (¡y el tuyo igual!).
 
-Un código ordenado y con convenciones definidas, ayuda, sobretodo cuando quieres aplicar cambios masivos y transversales, ya que es sencillo no perderse en estructuras, pero esto no implica *absolutamente nada* a la hora de querer levantar la aplicación, probar flujos, entender si debes usar data mockeada, real, etc.
+Un código ordenado y con convenciones definidas, ayuda, sobretodo cuando quieres aplicar cambios masivos y transversales, ya que es sencillo no perderse en estructuras, pero esto no implica _absolutamente nada_ a la hora de querer levantar la aplicación, probar flujos, entender si debes usar data mockeada, real, etc.
 
 ## No huyas de documentar
 
@@ -59,7 +59,7 @@ Te doy un ejemplo rápido. Imagina que tienes una función que calcula un descue
 
 ```javascript
 // ❌ Sin contexto
-const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0;
+const getDiscount = (user) => (user.purchases > 10 ? 0.15 : user.isNew ? 0.1 : 0);
 
 // ✅ Con contexto DEL PROCESO DE NEGOCIO
 /**
@@ -68,10 +68,10 @@ const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0
  * Nuevos usuarios (primera compra): 10%
  * @see https://confluence.empresa.com/politica-descuentos
  */
-const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0;
+const getDiscount = (user) => (user.purchases > 10 ? 0.15 : user.isNew ? 0.1 : 0);
 ```
 
-No estoy explicando *qué* hace el código (eso se entiende), estoy explicando el contexto de negocio detrás de esa lógica. Esa es la diferencia.
+No estoy explicando _qué_ hace el código (eso se entiende), estoy explicando el contexto de negocio detrás de esa lógica. Esa es la diferencia.
 
 La documentación tiene otras capas igualmente. No sé si lo has notado, pero cuando creas cualquier repositorio en GitHub, tienes la opción de crear un archivo `README.md`. Ese archivo tiene un propósito de existencia, no está de adorno. El `README.md` es el **primer punto de contacto** que alguien tiene con tu proyecto. Ahí debes explicar de forma clara y concisa, qué hace tu proyecto, cómo instalarlo, cómo correrlo, y cualquier otra información relevante para que alguien pueda entender rápidamente el propósito del proyecto.
 
@@ -93,7 +93,7 @@ Si debes documentar en inglés y te falta mucha gramática, lo mismo! escrite to
 
 Existen herramientas que facilitan la documentación técnica y vale la pena que las conozcas. **JSDoc** y **TSDoc** te permiten documentar funciones directamente en el código, generando referencias automáticas que tu IDE puede mostrar. **Swagger/OpenAPI** hace lo mismo pero para APIs REST, documentando endpoints de forma estandarizada.
 
-Ahora, quiero ser claro: estas herramientas son muy útiles, pero siguen siendo documentación técnica pura. Lo que realmente marca la diferencia es cuando combinas lo técnico con el lenguaje natural, explicando no solo la firma de una función, sino el **propósito de negocio** que cumple. Las herramientas te ayudan con la estructura, pero la claridad del mensaje depende de *ti*.
+Ahora, quiero ser claro: estas herramientas son muy útiles, pero siguen siendo documentación técnica pura. Lo que realmente marca la diferencia es cuando combinas lo técnico con el lenguaje natural, explicando no solo la firma de una función, sino el **propósito de negocio** que cumple. Las herramientas te ayudan con la estructura, pero la claridad del mensaje depende de _ti_.
 
 ## Tu documentación debe ser dinámica
 

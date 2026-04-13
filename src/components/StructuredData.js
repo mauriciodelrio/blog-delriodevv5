@@ -33,7 +33,7 @@ export default function StructuredData({ type = 'website', data = {} }) {
           },
           ...data,
         };
-      
+
       case 'person':
         return {
           ...baseData,
@@ -43,7 +43,8 @@ export default function StructuredData({ type = 'website', data = {} }) {
           url: 'https://delrio.dev',
           image: 'https://delrio.dev/profile-image.jpg',
           jobTitle: 'Senior Web Developer & Technical Lead',
-          description: 'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies',
+          description:
+            'Senior Web Developer with 9+ years of experience in React, Next.js, Node.js, and modern web technologies',
           worksFor: {
             '@type': 'Organization',
             name: 'Globant',
@@ -76,7 +77,7 @@ export default function StructuredData({ type = 'website', data = {} }) {
           },
           ...data,
         };
-      
+
       case 'blog':
         return {
           ...baseData,
@@ -97,7 +98,7 @@ export default function StructuredData({ type = 'website', data = {} }) {
           },
           ...data,
         };
-      
+
       case 'article':
         return {
           ...baseData,
@@ -125,16 +126,13 @@ export default function StructuredData({ type = 'website', data = {} }) {
           inLanguage: data.language || 'en',
           ...data,
         };
-      
+
       default:
         return baseData;
     }
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData()) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData()) }} />
   );
 }

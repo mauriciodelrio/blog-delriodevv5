@@ -1,21 +1,22 @@
 ---
-title: "Roadmaps are wrong: learn to code properly - Part 2"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-11-05"
-bannerImage: "/blog_images/roadmap.png"
-slug: "roadmaps-are-wrong-learn-to-code-properly-part-2"
-spanishSlug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2"
-overview: "In this article I present the second part of a series where I explain why roadmaps for learning programming are poorly focused and how you should approach your learning from scratch."
+title: 'Roadmaps are wrong: learn to code properly - Part 2'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-11-05'
+bannerImage: '/blog_images/roadmap.png'
+slug: 'roadmaps-are-wrong-learn-to-code-properly-part-2'
+spanishSlug: 'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2'
+overview: 'In this article I present the second part of a series where I explain why roadmaps for learning programming are poorly focused and how you should approach your learning from scratch.'
 published: true
-readingTime: "10 minutes"
+readingTime: '10 minutes'
 tags:
-    - Programming
-    - Tips
-    - Tutorials
-    - Roadmaps
-    - Learning
+  - Programming
+  - Tips
+  - Tutorials
+  - Roadmaps
+  - Learning
 ---
+
 ## Here we are again!
 
 In my [previous article](https://delrio.dev/en/posts/roadmaps-are-wrong-learn-to-code-properly-part-1) I talked to you about the importance of knowing the history of computer science, the concept of algorithm and how to think in algorithms. If you haven't read that first part, I recommend you do it before continuing with this article, as it's **fundamental** to understand what I'm going to explain next.
@@ -34,17 +35,17 @@ Hardware is the tangible, the physical, the palpable, the pieces that make up an
 
 Why do we talk about hardware? This isn't really out of curiosity. We need to understand **beyond what we see on the surface.** What is fast access memory? What are cache memories? What is a processor? What is a core? What are execution threads? Why do GPUs exist? What is a data bus?
 
-It might sound a bit *foreign* perhaps, but knowing the differences between memories, data persistence, processing speed, parallelism, etc. will help you better understand how the programs you write work and how to optimize them.
+It might sound a bit _foreign_ perhaps, but knowing the differences between memories, data persistence, processing speed, parallelism, etc. will help you better understand how the programs you write work and how to optimize them.
 
 ### Software
 
-You can't touch software (Well, according to Steve Jobs, yes you can touch software, but let's say it's a bit... *subjective*, maybe on a magic-induced trip you can, but the reality is you **can't**).
+You can't touch software (Well, according to Steve Jobs, yes you can touch software, but let's say it's a bit... _subjective_, maybe on a magic-induced trip you can, but the reality is you **can't**).
 
 Software is built on top of hardware, here we deploy much of our work, we can't make software without understanding hardware, how do we do backend without understanding servers? How do we make mobile applications without understanding mobile devices? How do we make software without knowing what layers they run on?
 
 And not just software, we need to know how to understand our interpreter, our intermediary between us and the machine. The **operating system**. What is an operating system? Why do so many exist? What differences are there between Windows, Linux and MacOS? What is a Linux distribution? What is a kernel? What is a file system? How does the operating system handle processes and memory?
 
-We could say that an operating system is software too, but it works at a slightly lower scale, with *low-level languages*, they interact much more directly with hardware and have much more efficient resource management.
+We could say that an operating system is software too, but it works at a slightly lower scale, with _low-level languages_, they interact much more directly with hardware and have much more efficient resource management.
 
 ## Wait... Low-level languages? What's that?
 
@@ -52,11 +53,11 @@ Here programming language words start to peek out, and yes, it's time to talk a 
 
 ### Low-level languages
 
-Low-level languages are those that are closer to machine language, that is, to the binary code that hardware understands. These languages allow more direct control over system resources, but are harder to learn and use. Some examples of low-level languages are *assembly* and the *C language*.
+Low-level languages are those that are closer to machine language, that is, to the binary code that hardware understands. These languages allow more direct control over system resources, but are harder to learn and use. Some examples of low-level languages are _assembly_ and the _C language_.
 
 These languages are ideal for tasks that require **high performance and efficiency**, such as operating system development, device drivers, and applications that need direct hardware access in general.
 
-*Anecdotally*, until recently, universities here in Chile dedicated quite a bit of time to teaching low-level languages, mainly C and assembly, so that students would understand how the machine works at a deeper level. Today, many universities have opted to focus more on high-level languages, but I think it's still important to have a solid foundation in low-level languages to better understand how everything works.
+_Anecdotally_, until recently, universities here in Chile dedicated quite a bit of time to teaching low-level languages, mainly C and assembly, so that students would understand how the machine works at a deeper level. Today, many universities have opted to focus more on high-level languages, but I think it's still important to have a solid foundation in low-level languages to better understand how everything works.
 
 I'm not saying you should start using C or assembly, it might be a bit of a waste of time if your goal is to speed up your learning, but I recommend that at some point in your learning path, you dedicate time to getting to know them, they're very interesting and will give you a solid brush stroke of how fast they can be.
 
@@ -70,7 +71,7 @@ I won't go deep here, because well, there are already other people who dedicate 
 
 What is **data**? What is **information**?
 
-These questions can even be *philosophical*, but we won't go off on tangents, in computer science data is a concrete representation of a value, it can be a number, a letter, a word, an image, etc.
+These questions can even be _philosophical_, but we won't go off on tangents, in computer science data is a concrete representation of a value, it can be a number, a letter, a word, an image, etc.
 
 Data as such doesn't make much sense by itself. I can simply have the data _"19/04/1992"_, but what does that data mean? Why is it important? What information does that data give me?
 
@@ -108,7 +109,7 @@ If you want to sort a list of numbers from smallest to largest, you can use a so
 
 If you have a list of products and want to select only those that have a price below a certain value, you can use a selection algorithm to filter the list and get only the products that meet that criterion.
 
-Sounds simple? *Emmm yes*, but the complexity lies in **efficiency**. Not all algorithms are the same, some are faster and more efficient than others. Learning about different algorithms and their complexities will help you write more efficient and optimized code.
+Sounds simple? _Emmm yes_, but the complexity lies in **efficiency**. Not all algorithms are the same, some are faster and more efficient than others. Learning about different algorithms and their complexities will help you write more efficient and optimized code.
 
 Have you been told that technical interviews will ask you questions about algorithms and data structures? If the answer is no... Why doesn't this topic appear in a roadmap?
 
@@ -132,7 +133,7 @@ When you make a text document and save it on your computer, you're using the fil
 
 When you use a web application that saves your data in the cloud, it's probably using a database to store that information in a structured and efficient way.
 
-Do you know how an operating system *handles* files? How is it that having millions of files on a hard drive, you can find a specific one in seconds? How is that data organized on the disk? What is a file system? What types of file systems exist?
+Do you know how an operating system _handles_ files? How is it that having millions of files on a hard drive, you can find a specific one in seconds? How is that data organized on the disk? What is a file system? What types of file systems exist?
 
 These questions are open, but I invite you to investigate them, understanding how data storage works will help you write more efficient and optimized software.
 
@@ -144,7 +145,7 @@ Did you think I forgot about this? **Not at all!** We've been working on a singl
 
 And the internet opens doors to... **networks!** Computer networks, data networks, information networks.
 
-Networks for me were always something... *meh*, very boring, but it's necessary to understand them a bit to comprehend how data exchange works in the modern world.
+Networks for me were always something... _meh_, very boring, but it's necessary to understand them a bit to comprehend how data exchange works in the modern world.
 
 When you send a message to a friend, when you upload a photo to a social network, when you make an online purchase, you're using networks to share data between different devices and users.
 
@@ -158,7 +159,7 @@ Can you imagine if I had all your personal information exposed on the internet? 
 
 **Computer security** is a crucial topic in the programming world. How to start programming without understanding that everything you do can be vulnerable to attacks and information theft?
 
-Since you reviewed algorithms, you could take a theoretical look at the concepts of cryptography, hashing, authentication. *CAREFUL*, I'm not telling you to learn to implement these concepts, just to understand the theory behind them.
+Since you reviewed algorithms, you could take a theoretical look at the concepts of cryptography, hashing, authentication. _CAREFUL_, I'm not telling you to learn to implement these concepts, just to understand the theory behind them.
 
 ## The Alexandria of code - Don't let your work burn!
 
@@ -180,13 +181,13 @@ You can use git for your own files, even if you're not programming, it's a very 
 
 Yes, many want to put AI everywhere, and it's fine in a way, because if you're entering this world, you can't stay behind. But AI is **not magic**, and it's not the solution to all problems.
 
-Before learning to understand an artificial intelligence (Which is much more than asking it please to write code for you), you should use these tools to your advantage. I for example right now use AI to correct some spelling and grammatical errors of all the *nonsense* I write, but I don't ask it to write the article for me, because then it wouldn't make sense.
+Before learning to understand an artificial intelligence (Which is much more than asking it please to write code for you), you should use these tools to your advantage. I for example right now use AI to correct some spelling and grammatical errors of all the _nonsense_ I write, but I don't ask it to write the article for me, because then it wouldn't make sense.
 
 AI is a tool that should be used for pedagogical purposes, at least, in your initial learning stage. Don't ask AI to solve your algorithms, ask it to teach you step by step, ask it to give you a detailed example and then ask it to give you some exercises to practice.
 
 After doing them, ask it to review your solutions and explain what you got wrong and what you did right.
 
-**Use AI as a teacher!** Believe me it explains much better than many professors I've had at university, even those who claim to be *doctors*.
+**Use AI as a teacher!** Believe me it explains much better than many professors I've had at university, even those who claim to be _doctors_.
 
 ## Summary
 

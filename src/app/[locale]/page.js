@@ -2,8 +2,8 @@ import { getDictionary } from '@/lib/i18n';
 import HomePage from '../../components/HomePage';
 
 export default async function Page({ params }) {
-  const dictionary = await getDictionary(params.locale);
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
 
-  return <HomePage params={params} dictionary={dictionary} />;
+  return <HomePage params={{ locale }} dictionary={dictionary} />;
 }
-

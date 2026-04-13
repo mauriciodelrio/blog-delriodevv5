@@ -1,18 +1,19 @@
 ---
-title: "Consejos útiles para configurar tu Visual Studio Code"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2024-05-15"
-bannerImage: "/blog_images/vs_code.jpeg"
-slug: "consejos-utiles-para-configurar-tu-visual-studio-code"
-englishSlug: "useful-tips-to-configure-your-visual-studio-code"
-overview: "En este artículo verás los mejores plugins para instalar en Visual Studio Code en base a lo que he utilizado por muchos años como programador"
+title: 'Consejos útiles para configurar tu Visual Studio Code'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2024-05-15'
+bannerImage: '/blog_images/vs_code.jpeg'
+slug: 'consejos-utiles-para-configurar-tu-visual-studio-code'
+englishSlug: 'useful-tips-to-configure-your-visual-studio-code'
+overview: 'En este artículo verás los mejores plugins para instalar en Visual Studio Code en base a lo que he utilizado por muchos años como programador'
 published: true
 tags:
-    - Programación
-    - Consejos
-    - Tutoriales
+  - Programación
+  - Consejos
+  - Tutoriales
 ---
+
 ## Hablemos de Visual Studio Code
 
 Visual Studio Code es un entorno de desarrollo integrado (IDE) que proporciona herramientas y facilidades para escribir código. Por lo general, los IDE también ofrecen herramientas de compilación, transpilación, y la posibilidad de tener una terminal propia para depurar, testear y ejecutar tu aplicación.

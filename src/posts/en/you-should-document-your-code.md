@@ -1,39 +1,39 @@
 ---
-title: "Why documenting your code is not a waste of time"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2026-01-24"
-bannerImage: "/blog_images/documentar.png"
-slug: "you-should-document-your-code"
-spanishSlug: "debes-documentar-tu-codigo"
+title: 'Why documenting your code is not a waste of time'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2026-01-24'
+bannerImage: '/blog_images/documentar.png'
+slug: 'you-should-document-your-code'
+spanishSlug: 'debes-documentar-tu-codigo'
 overview: "Clean code is self-explanatory if it's well written. In this article, I'm going to challenge that myth and tell you why it's important to document your code, even if you're the only one who will ever read it."
 published: true
-readingTime: "10 minutes"
+readingTime: '10 minutes'
 tags:
-    - Programming
-    - Tips
-    - Opinion
+  - Programming
+  - Tips
+  - Opinion
 ---
 
 ## What's organized for you might be chaos for someone else
 
 Hey! It's been a while since I wrote a new article. My inspiration this time comes from some proof of concepts I had to work on at my job. The code itself wasn't that hard to understand, but the steps required to properly run this project locally based on how the environment was set up were a **complete mess**.
 
-Don't get me wrong, the code itself was quite organized, with acceptable practices, following typing standards, file distribution, variable naming, etc. But the thing is, it was a repository I had *never* touched before. In my current job, we support over **40 web artifacts** from a very large and complex application, so remembering every detail of every project is impossible.
+Don't get me wrong, the code itself was quite organized, with acceptable practices, following typing standards, file distribution, variable naming, etc. But the thing is, it was a repository I had _never_ touched before. In my current job, we support over **40 web artifacts** from a very large and complex application, so remembering every detail of every project is impossible.
 
 And this is obvious—there are many squads that support 3 or 4 web artifacts each. For them, it's relatively easy to understand the scope of each one. But my team supports all these squads (among other things), so having to read every project, written by different development cells, with different styles and ways of doing things, is a real headache.
 
-That's why, at the account level, we're implementing internal standards for code organization, code style, semver processes, PRs, strong linting, etc. A process that's quite questioned and very hard to empathize with. When everyone in your close circle, meaning your own squad, understands what they're doing, suddenly these practices seem like a *waste of time*.
+That's why, at the account level, we're implementing internal standards for code organization, code style, semver processes, PRs, strong linting, etc. A process that's quite questioned and very hard to empathize with. When everyone in your close circle, meaning your own squad, understands what they're doing, suddenly these practices seem like a _waste of time_.
 
 ## Standards and a bit of ego
 
 Following up on the previous point, when we implement new automated rules for static code analysis, the first thing that comes up is: _"Why do I have to follow these rules if my code is already well written?"_ _"Why should I use X format if Y library's documentation uses a different format?"_ _"Why do I have to waste time on this nonsense if the files are already well-defined?"_.
 
-Here, developers are right about many of these points. If your code follows standards defined by some framework, great. But if TypeScript has a standard for defining files that contain types and interfaces, and Next.js has a *different* format for defining the same types of files... is it really a standard then?
+Here, developers are right about many of these points. If your code follows standards defined by some framework, great. But if TypeScript has a standard for defining files that contain types and interfaces, and Next.js has a _different_ format for defining the same types of files... is it really a standard then?
 
 > If there's more than one correct way to do the same thing, there is no standard.
 
-When we talk about standards in this sense, we should only categorize it as a "convention." If we go back to the concept of a convention, can we define our own conventions? Of course we can. Our convention can be entirely based on an existing one from some library or framework included in the repository. The decided convention doesn't indicate it's the *only* correct way to write code—it indicates that the entire layer of web teams will write their code under that convention, so that legibility and maintainability are much better.
+When we talk about standards in this sense, we should only categorize it as a "convention." If we go back to the concept of a convention, can we define our own conventions? Of course we can. Our convention can be entirely based on an existing one from some library or framework included in the repository. The decided convention doesn't indicate it's the _only_ correct way to write code—it indicates that the entire layer of web teams will write their code under that convention, so that legibility and maintainability are much better.
 
 Conveying this message is a bit difficult because it implies stepping out of your comfort zone and your own work bubble. When you work at a company where practically all devs are mid-level or above, the ego about how to do things "the right way" is very common. Particularly in the team I'm in, I've had to abstract myself a bit from that, because when a team comes telling me they don't see the need to define or classify a file in X or Y way, the truth is that, in pure terms of best practices, they're absolutely right, but in terms of internal maintainability, **they're not**.
 
@@ -45,9 +45,9 @@ OK, we already have our structured code, with high coverage, strict linting, str
 
 I've met people who are purists about "programming" as such, who feel that just reading the code, if it's well organized, is more than enough—no comments, nothing. The truth is **no**, because in our day-to-day we don't spend time reading code. We work based on processes and information flows, from point A to point B.
 
-For someone who has limited time, attends many meetings, dedicates time to planning, defining new objectives, resolving critical cases, etc., what matters *least* in that long list of sprint tasks is actually reading code. You can have 20 years in the industry, and you'll still spend a lot of time understanding other people's work (and your own too!).
+For someone who has limited time, attends many meetings, dedicates time to planning, defining new objectives, resolving critical cases, etc., what matters _least_ in that long list of sprint tasks is actually reading code. You can have 20 years in the industry, and you'll still spend a lot of time understanding other people's work (and your own too!).
 
-Organized code with defined conventions helps, especially when you want to apply massive and cross-cutting changes, since it's easy not to get lost in structures. But this implies *absolutely nothing* when it comes to wanting to spin up the application, test flows, understand if you should use mocked data, real data, etc.
+Organized code with defined conventions helps, especially when you want to apply massive and cross-cutting changes, since it's easy not to get lost in structures. But this implies _absolutely nothing_ when it comes to wanting to spin up the application, test flows, understand if you should use mocked data, real data, etc.
 
 ## Don't run away from documenting
 
@@ -59,7 +59,7 @@ Let me give you a quick example. Imagine you have a function that calculates a d
 
 ```javascript
 // ❌ Without context
-const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0;
+const getDiscount = (user) => (user.purchases > 10 ? 0.15 : user.isNew ? 0.1 : 0);
 
 // ✅ With BUSINESS PROCESS context
 /**
@@ -68,10 +68,10 @@ const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0
  * New users (first purchase): 10%
  * @see https://confluence.company.com/discount-policy
  */
-const getDiscount = (user) => user.purchases > 10 ? 0.15 : user.isNew ? 0.10 : 0;
+const getDiscount = (user) => (user.purchases > 10 ? 0.15 : user.isNew ? 0.1 : 0);
 ```
 
-I'm not explaining *what* the code does (that's self-evident)—I'm explaining the business context behind that logic. That's the difference.
+I'm not explaining _what_ the code does (that's self-evident)—I'm explaining the business context behind that logic. That's the difference.
 
 Documentation has other layers too. I don't know if you've noticed, but when you create any repository on GitHub, you have the option to create a `README.md` file. That file has a purpose for existing—it's not just decoration. The `README.md` is the **first point of contact** someone has with your project. There you should explain clearly and concisely what your project does, how to install it, how to run it, and any other relevant information so someone can quickly understand the project's purpose.
 
@@ -93,7 +93,7 @@ If you need to document in English and you lack grammar skills, same thing! Writ
 
 There are tools that facilitate technical documentation, and it's worth knowing about them. **JSDoc** and **TSDoc** allow you to document functions directly in the code, generating automatic references that your IDE can display. **Swagger/OpenAPI** does the same but for REST APIs, documenting endpoints in a standardized way.
 
-Now, I want to be clear: these tools are very useful, but they're still pure technical documentation. What really makes the difference is when you combine the technical with natural language, explaining not just the signature of a function, but the **business purpose** it serves. Tools help you with structure, but message clarity depends on *you*.
+Now, I want to be clear: these tools are very useful, but they're still pure technical documentation. What really makes the difference is when you combine the technical with natural language, explaining not just the signature of a function, but the **business purpose** it serves. Tools help you with structure, but message clarity depends on _you_.
 
 ## Your documentation should be dynamic
 

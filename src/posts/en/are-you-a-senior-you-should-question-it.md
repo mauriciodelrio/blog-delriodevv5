@@ -1,19 +1,20 @@
 ---
-title: "Are You a Senior? You Should Question It"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-11-25"
-bannerImage: "/blog_images/senior.png"
-slug: "are-you-a-senior-you-should-question-it"
-spanishSlug: "eres-un-senior-deberias-cuestionartelo"
+title: 'Are You a Senior? You Should Question It'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-11-25'
+bannerImage: '/blog_images/senior.png'
+slug: 'are-you-a-senior-you-should-question-it'
+spanishSlug: 'eres-un-senior-deberias-cuestionartelo'
 overview: "What does it mean to be a senior in the IT industry? In this article I won't give you the answer, but I will pose questions that will help you reflect on your role as a senior developer."
 published: true
-readingTime: "12 minutes"
+readingTime: '12 minutes'
 tags:
-    - Software
-    - Advice
-    - Reflection
+  - Software
+  - Advice
+  - Reflection
 ---
+
 ## Here we are again!
 
 Hello everyone. This article was born from a conversation I had with a friend of mine, a great software engineer, who was my mentor when I first started writing a bit of code. I've been formally in the industry for more than 9 years, my friend has been around much longer, and we hadn't talked in a while.
@@ -66,7 +67,7 @@ This hits hard, but also, if you take it from the kind side, this reality check 
 
 ## The what, the why and the how
 
-### The what 
+### The what
 
 In your first years of experience, your work will be more or less simple. They'll give you a requirement, you review it, you ask questions (and I hope you ask questions), you execute, it takes time but you achieve it.
 
@@ -76,7 +77,7 @@ The what really answers to the **business need**, and even more, to solving a ne
 
 This is not evident at first glance. In fact, it's likely that even with quite a bit of experience under your belt, you've never had to sit down with a client to understand **WHAT** they really need.
 
-### The why 
+### The why
 
 This question is closely linked to the first one, but has different nuances. The why answers to the **justification** of the business need.
 
@@ -88,7 +89,7 @@ When you face risks, you can prioritize, plan, communicate, and most importantly
 
 Yes, a senior must know how to delegate. You can't do everything yourself, and if you do, you're probably doing your job wrong.
 
-### The how 
+### The how
 
 Although it may not seem like it, the how tends to be the simplest part of a process. It's usually linked to the **technical implementation** of the requirement in question.
 

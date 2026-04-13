@@ -1,19 +1,20 @@
 ---
-title: "Inefficient technical interviews: Remembering algorithms means nothing"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-11-19"
-bannerImage: "/blog_images/entrevista.png"
-slug: "inefficient-technical-interviews-remembering-algorithms-means-nothing"
-spanishSlug: "entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada"
-overview: "What does a team need when hiring a new developer? In this article I explain why technical interviews based on algorithms are not the best way to evaluate a candidate."
+title: 'Inefficient technical interviews: Remembering algorithms means nothing'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-11-19'
+bannerImage: '/blog_images/entrevista.png'
+slug: 'inefficient-technical-interviews-remembering-algorithms-means-nothing'
+spanishSlug: 'entrevistas-tecnicas-ineficientes-recordar-algoritmos-no-significa-nada'
+overview: 'What does a team need when hiring a new developer? In this article I explain why technical interviews based on algorithms are not the best way to evaluate a candidate.'
 published: true
-readingTime: "8 minutes"
+readingTime: '8 minutes'
 tags:
-    - Programming
-    - Tips
-    - Criticism
+  - Programming
+  - Tips
+  - Criticism
 ---
+
 ## Technical interviews
 
 Hello! Of the readers here present, how many times have you had to go through a technical interview for a software development position? Surely many, many times.
@@ -92,4 +93,3 @@ It may sound risky, but when you're looking for seniors, you know perfectly when
 Let's talk about what's relevant then, let's talk about reactivity, storing, fetching, performance, security, dependency auditing, testing, accessibility, i18n, SEO. And above all... **Let's talk!**
 
 To finish, being a bit contradictory, I'll make some articles talking about a few algorithms that can save your life in a technical interview. Don't learn 20... **Learn 3!**
-

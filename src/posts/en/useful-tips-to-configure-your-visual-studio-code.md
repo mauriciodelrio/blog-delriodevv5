@@ -1,18 +1,19 @@
 ---
-title: "Useful tips for setting up your Visual Studio Code"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2024-05-15"
-bannerImage: "/blog_images/vs_code.jpeg"
-slug: "useful-tips-to-configure-your-visual-studio-code"
-spanishSlug: "consejos-utiles-para-configurar-tu-visual-studio-code"
-overview: "In this article, you will see the best plugins to install in Visual Studio Code based on what I have used for many years as a programmer."
+title: 'Useful tips for setting up your Visual Studio Code'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2024-05-15'
+bannerImage: '/blog_images/vs_code.jpeg'
+slug: 'useful-tips-to-configure-your-visual-studio-code'
+spanishSlug: 'consejos-utiles-para-configurar-tu-visual-studio-code'
+overview: 'In this article, you will see the best plugins to install in Visual Studio Code based on what I have used for many years as a programmer.'
 published: true
 tags:
-    - Programming
-    - Tips
-    - Tutorials
+  - Programming
+  - Tips
+  - Tutorials
 ---
+
 ## Lets talk about Visual Studio Code
 
 Visual Studio Code is an Integrated Development Environment (IDE) that provides tools and facilities for writing code. Typically, IDEs also offer tools for compiling, transpiling, and the ability to have your own terminal for debugging, testing, and running your application.

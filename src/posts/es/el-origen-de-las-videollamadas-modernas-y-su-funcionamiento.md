@@ -1,28 +1,28 @@
 ---
-title: "El origen de las videollamadas modernas y su funcionamiento"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-12-12"
-bannerImage: "/blog_images/cafetera.png"
-slug: "el-origen-de-las-videollamadas-modernas-y-su-funcionamiento"
-englishSlug: "the-origin-of-modern-video-calls-and-how-they-work"
-overview: "De la pereza salen buenas ideas. En este artículo te cuento anécdotas interesantes que han transformado la forma en que nos comunicamos hoy en día. Además, verás conceptos técnicos básicos sobre cómo funcionan las videollamadas."
+title: 'El origen de las videollamadas modernas y su funcionamiento'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-12-12'
+bannerImage: '/blog_images/cafetera.png'
+slug: 'el-origen-de-las-videollamadas-modernas-y-su-funcionamiento'
+englishSlug: 'the-origin-of-modern-video-calls-and-how-they-work'
+overview: 'De la pereza salen buenas ideas. En este artículo te cuento anécdotas interesantes que han transformado la forma en que nos comunicamos hoy en día. Además, verás conceptos técnicos básicos sobre cómo funcionan las videollamadas.'
 published: true
-readingTime: "5 minutos"
+readingTime: '5 minutos'
 tags:
-    - Historia
-    - Curiosidades
-    - Conceptos
-    - Aprendizaje
+  - Historia
+  - Curiosidades
+  - Conceptos
+  - Aprendizaje
 ---
 
 ## La curiosidad no mató al gato, ¡lo hizo famoso en Tik Tok!
 
 Tengo varias ideas en mente para escribir nuevos artículos, pero siento que son un poco densos, hoy quiero hacer algo un poco más divertido. Le pregunté a mi pareja sobre algo que realmente le da curiosidad saber acerca del mundo tecnológico moderno, y me dijo: "¿Cómo funcionan las videollamadas? ¿Cómo podemos ver una imagen en tiempo real a través de internet?".
 
-Bueno, la verdad es una pregunta bastante interesante, obviamente no lo sé, así que me puse a investigar a la moderna: Gemini 3 + verificación de información en internet. 
+Bueno, la verdad es una pregunta bastante interesante, obviamente no lo sé, así que me puse a investigar a la moderna: Gemini 3 + verificación de información en internet.
 
-A mí me gusta comenzar desde una perspectiva histórica, entender el pasado nos hace comprender mejor el presente. Así es como encontré varias historias interesantes que iré compartiendo con ustedes. 
+A mí me gusta comenzar desde una perspectiva histórica, entender el pasado nos hace comprender mejor el presente. Así es como encontré varias historias interesantes que iré compartiendo con ustedes.
 
 Este artículo va dedicado a mi pareja, si no les gusta a ustedes _no me importa mucho jaja_.
 
@@ -94,14 +94,6 @@ Por eso que las videollamadas no son 100% en tiempo real, ese segundo o 2 segund
 
 ## Mensaje final
 
-Este artículo es cortito y anecdótico, espero que les haya gustado, tengo en mente algunas otras ideas, pero he estado con mucho trabajo últimamente. Estoy atento a sus comentarios, críticas y sugerencias. 
+Este artículo es cortito y anecdótico, espero que les haya gustado, tengo en mente algunas otras ideas, pero he estado con mucho trabajo últimamente. Estoy atento a sus comentarios, críticas y sugerencias.
 
 No vean mucho Tik Tok, voten informado este domingo, y nos vemos en el próximo artículo.
-
-
-
-
-
-
-
-

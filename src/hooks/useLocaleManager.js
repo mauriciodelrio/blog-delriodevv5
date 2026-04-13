@@ -18,20 +18,20 @@ export function useLocaleManager(currentLocale) {
     try {
       // Construir nueva URL con traducciones de slug si es necesario
       const newPath = await buildTranslatedUrl(currentPath, newLocale);
-      
+
       // Navegar a la nueva ruta
       router.push(newPath);
     } catch (error) {
       console.error('Error building translated URL:', error);
-      
+
       // Fallback: construir URL básica sin traducción de slug
       const segments = currentPath.split('/').filter(Boolean);
-      
+
       // Remover el locale actual del path si existe
       if (segments.length > 0 && ['en', 'es'].includes(segments[0])) {
         segments.shift();
       }
-      
+
       // Construir nueva ruta
       const fallbackPath = `/${newLocale}/${segments.join('/')}`;
       router.push(fallbackPath);
@@ -43,7 +43,7 @@ export function useLocaleManager(currentLocale) {
     // Solo aplicar si hay consentimiento y no estamos en el locale correcto
     if (cookieUtils.hasConsent('preferences')) {
       const savedLocale = cookieUtils.get(COOKIE_NAMES.LOCALE);
-      
+
       if (savedLocale && savedLocale !== currentLocale && ['en', 'es'].includes(savedLocale)) {
         // Cambiar al locale guardado
         changeLocale(savedLocale, window.location.pathname);
@@ -54,6 +54,6 @@ export function useLocaleManager(currentLocale) {
   return {
     changeLocale,
     currentLocale,
-    hasLocaleConsent: () => cookieUtils.hasConsent('preferences')
+    hasLocaleConsent: () => cookieUtils.hasConsent('preferences'),
   };
 }

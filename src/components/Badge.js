@@ -41,13 +41,7 @@ export function CardBadge({ type, locale = 'en', className = '' }) {
 export function InlineBadge({ type, locale = 'en', className = '' }) {
   if (!type) return null;
 
-  return (
-    <Badge 
-      type={type} 
-      locale={locale} 
-      className={`ml-2 ${className}`} 
-    />
-  );
+  return <Badge type={type} locale={locale} className={`ml-2 ${className}`} />;
 }
 
 // Hook para verificar si un badge debe mostrarse

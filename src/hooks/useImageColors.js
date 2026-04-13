@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import { extractDominantColors, generateGradientFromColors, generateTextColorsFromBackground } from '@/utils/colorExtractor';
+import {
+  extractDominantColors,
+  generateGradientFromColors,
+  generateTextColorsFromBackground,
+} from '@/utils/colorExtractor';
 
 /**
  * Hook for extracting colors from banner images and generating dynamic styles
@@ -11,7 +15,7 @@ export function useImageColors(bannerImage) {
     primary: 'text-white',
     secondary: 'text-blue-100',
     accent: 'text-purple-100',
-    titleGradient: 'from-white via-blue-100 to-purple-100'
+    titleGradient: 'from-white via-blue-100 to-purple-100',
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,22 +23,22 @@ export function useImageColors(bannerImage) {
     if (!bannerImage) return;
 
     setIsLoading(true);
-    
+
     extractDominantColors(bannerImage, 5)
-      .then(extractedColors => {
+      .then((extractedColors) => {
         setColors(extractedColors);
-        
+
         // Generar gradiente dinámico con opacidad muy suave
         const gradient = generateGradientFromColors(extractedColors, 0.45);
         setGradientStyle(gradient);
-        
+
         // Generar colores de texto complementarios
         const textCols = generateTextColorsFromBackground(extractedColors);
         setTextColors(textCols);
-        
+
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.warn('Error extracting colors from image:', error);
         // Fallback a colores por defecto
         setGradientStyle(null);
@@ -42,7 +46,7 @@ export function useImageColors(bannerImage) {
           primary: 'text-white',
           secondary: 'text-blue-100',
           accent: 'text-purple-100',
-          titleGradient: 'from-white via-blue-100 to-purple-100'
+          titleGradient: 'from-white via-blue-100 to-purple-100',
         });
         setIsLoading(false);
       });
@@ -52,6 +56,6 @@ export function useImageColors(bannerImage) {
     colors,
     gradientStyle,
     textColors,
-    isLoading
+    isLoading,
   };
 }

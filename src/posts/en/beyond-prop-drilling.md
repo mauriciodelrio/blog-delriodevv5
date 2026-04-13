@@ -1,20 +1,21 @@
 ---
-title: "Beyond Prop Drilling: Scalable and Dependency-Free Native State Patterns"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-11-22"
-bannerImage: "/blog_images/prop_drilling.png"
-slug: "beyond-prop-drilling"
-spanishSlug: "mas-alla-del-prop-drilling"
+title: 'Beyond Prop Drilling: Scalable and Dependency-Free Native State Patterns'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-11-22'
+bannerImage: '/blog_images/prop_drilling.png'
+slug: 'beyond-prop-drilling'
+spanishSlug: 'mas-alla-del-prop-drilling'
 overview: "In this article, we'll talk about our own negligence in state management in React applications and how to overcome them with scalable and dependency-free patterns."
 published: true
-readingTime: "15 minutes"
+readingTime: '15 minutes'
 tags:
-    - Programming
-    - Tutorials
-    - Learning
-    - React
+  - Programming
+  - Tutorials
+  - Learning
+  - React
 ---
+
 ## This will be looooong...
 
 No matter your seniority, our work pace determines what we do and how we do it. In our day-to-day, we justify ourselves with time, pressure and deadlines. But let's be honest, many times doing things right can take a little more time, but in the long run, it **saves us much more**.
@@ -22,7 +23,6 @@ No matter your seniority, our work pace determines what we do and how we do it. 
 I want to make this very clear. **I AM ALSO GUILTY**, yes, in capital letters. Even with my years of experience, I still fall into bad practices and justify myself with time.
 
 This article is an _ear pull_, first of all for me, for you as readers, it's the result of a few days of study, which aims to give you an interesting compilation about how to improve our usual practices working with React. (_cough cough... Thanks AI for helping me gather ideas_)
-
 
 ## Let's get to the point, let's talk about **Prop Drilling**
 
@@ -86,12 +86,12 @@ Let's go with an example of chaos:
   </AuthProvider>
 </ThemeProvider>
 ```
+
 Sounds familiar right? Well, here we'll give some corrections to this problem.
 
 ### Solution 1 - **Combine Providers**
 
 One way to reduce the number of Providers is to combine them into a single Provider that handles multiple contexts. This can help reduce the complexity of the component tree and make the code easier to follow. Here's an example, I'm basing it on Next.js, but the concept is the same in pure React:
-
 
 ```jsx
 // _app.tsx
@@ -111,14 +111,14 @@ const CombinedProvider = ({ children }) => {
         <SettingsProvider>
           <DataProvider>
             <NotificationProvider>
-                <PepeProvider>
-                    <PedroProvider>
-                        <JuanitoProvider>
-                        // ...
-                            {children}
-                        </JuanitoProvider>
-                    </PedroProvider>
-                </PepeProvider>
+              <PepeProvider>
+                <PedroProvider>
+                  <JuanitoProvider>
+                    // ...
+                    {children}
+                  </JuanitoProvider>
+                </PedroProvider>
+              </PepeProvider>
             </NotificationProvider>
           </DataProvider>
         </SettingsProvider>
@@ -174,7 +174,6 @@ If you have a component that needs to trigger an event (example: a button with a
 How do we achieve this? Easy, we separate the context into two different ones, one for the **state** and another for the **functions that modify that state.**
 
 ```jsx
-
 // StateContext.tsx
 const StateContext = React.createContext({ data: null });
 // ActionsContext.tsx
@@ -220,7 +219,7 @@ import { ThemeContext } from './ThemeContext';
 
 export const SmartCard = ({ overrideTheme }: { overrideTheme?: boolean }) => {
   let theme = 'light';
-  
+
   // Conditional context: We only subscribe if necessary
   if (!overrideTheme) {
     const themeContext = use(ThemeContext);
@@ -250,7 +249,7 @@ import React, { useMemo } from 'react';
 const ExpensiveComponent = ({ data }) => {
   const processedData = useMemo(() => {
     // We simulate an expensive calculation
-    return data.map(item => item * 2);
+    return data.map((item) => item * 2);
   }, [data]); // Only recalculated if 'data' changes
 
   return (
@@ -285,7 +284,7 @@ There's another gem I read somewhere (I didn't even know of its existence) and i
 Call `useActionState` at the top level of your component to create a state that updates when invoking a form action. You pass `useActionState` an existing form action function, as well as an initial state, and it returns a new action that you use in your form, along with the latest form state and whether the action is still pending. The latest form state is also passed to the function you provided. (Yes, this is taken from the _official documentation_, but it's very well explained).
 
 ```jsx
-import { useActionState } from "react";
+import { useActionState } from 'react';
 
 async function increment(previousState, formData) {
   return previousState + 1;
@@ -298,8 +297,8 @@ function StatefulForm({}) {
       {state}
       <button formAction={formAction}>Increment</button>
     </form>
-  )
-};
+  );
+}
 ```
 
 The form state is the value returned by the action the last time it was submitted. If the form has not been submitted yet, it's set to the initial state.
@@ -329,7 +328,7 @@ export type CartState = {
   isOpen: boolean;
 };
 
-export type CartAction = 
+export type CartAction =
   | { type: 'ADD_ITEM'; payload: CartItem }
   | { type: 'REMOVE_ITEM'; payload: { id: string } }
   | { type: 'TOGGLE_CART' }
@@ -347,7 +346,7 @@ import { CartState, CartAction } from '../types/cart';
 export const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_ITEM': {
-      const existingItemIndex = state.items.findIndex(i => i.id === action.payload.id);
+      const existingItemIndex = state.items.findIndex((i) => i.id === action.payload.id);
       const updatedItems = [...state.items];
 
       if (existingItemIndex >= 0) {
@@ -355,17 +354,17 @@ export const cartReducer = (state: CartState, action: CartAction): CartState => 
       } else {
         updatedItems.push({ ...action.payload, quantity: 1 });
       }
-      
+
       // We calculate the total here to avoid recalculating it on each render...
       const newTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
       return { ...state, items: updatedItems, totalAmount: newTotal };
     }
-    
+
     // ... implementation of other cases (REMOVE, TOGGLE, blah)
     case 'TOGGLE_CART':
       return { ...state, isOpen: !state.isOpen };
-      
+
     default:
       return state;
   }
@@ -443,10 +442,10 @@ export const AddToCartButton = ({ product }: { product: Product }) => {
   console.log('Render: AddToCartButton'); // This will only appear once.
 
   return (
-    <button 
-      onClick={() => dispatch({ 
-        type: 'ADD_ITEM', 
-        payload: { ...product, quantity: 1 } 
+    <button
+      onClick={() => dispatch({
+        type: 'ADD_ITEM',
+        payload: { ...product, quantity: 1 }
       })}
     >
       Add to Cart
@@ -465,9 +464,9 @@ import { useCartState } from '../context/CartContext';
 
 export const CartCounter = () => {
   const { items } = useCartState(); // We consume StateContext
-  
+
   const count = items.reduce((acc, item) => acc + item.quantity, 0);
-  
+
   console.log('Render: CartCounter'); // This will appear every time the cart changes.
 
   return <span>Items: {count}</span>;
@@ -496,7 +495,7 @@ When you have, for example, critical products, you no longer think about install
 
 Many of the most famous state management libraries meet these requirements, but there's also a little problem: **You get tied to another critical library.**
 
-Critical libraries every so often release __major__ versions, The problem? They have **Breaking Changes**. This means that every so often, you must update your code so it continues to work correctly with the new version of the library (if the library stops having active support and you don't update, any security breach can end in a **disaster**).
+Critical libraries every so often release **major** versions, The problem? They have **Breaking Changes**. This means that every so often, you must update your code so it continues to work correctly with the new version of the library (if the library stops having active support and you don't update, any security breach can end in a **disaster**).
 
 What happens in giant projects? You must upgrade a major version of an external library that basically handles all the store of your frontend, the slightest error from a breaking change can **bring down your entire application.**
 

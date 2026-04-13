@@ -14,12 +14,12 @@ export class ViewsMonitor {
       message,
       data,
       pid: process.pid,
-      environment: process.env.NODE_ENV || 'development'
+      environment: process.env.NODE_ENV || 'development',
     };
-    
+
     // En Vercel, siempre log a consola (aparece en función logs)
     console.log(`[${level}] ${timestamp} - ${message}`, data);
-    
+
     // Log a archivo solo si no estamos en serverless
     if (!process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME) {
       try {
@@ -30,27 +30,27 @@ export class ViewsMonitor {
       }
     }
   }
-  
+
   static info(message, data) {
     this.log('INFO', message, data);
   }
-  
+
   static warn(message, data) {
     this.log('WARN', message, data);
   }
-  
+
   static error(message, data) {
     this.log('ERROR', message, data);
   }
-  
+
   static async checkHealth() {
     const health = {
       timestamp: new Date().toISOString(),
       status: 'healthy',
       issues: [],
-      environment: process.env.VERCEL ? 'serverless' : 'traditional'
+      environment: process.env.VERCEL ? 'serverless' : 'traditional',
     };
-    
+
     try {
       // Verificar que el archivo existe y es legible
       if (!fs.existsSync(VIEWS_FILE)) {
@@ -58,18 +58,19 @@ export class ViewsMonitor {
         health.status = 'warning';
       } else {
         const stats = fs.statSync(VIEWS_FILE);
-        
+
         // Verificar tamaño
-        if (stats.size > 20 * 1024 * 1024) { // 20MB
+        if (stats.size > 20 * 1024 * 1024) {
+          // 20MB
           health.issues.push('Views file is very large');
           health.status = 'warning';
         }
-        
+
         // Verificar que es JSON válido
         try {
           const data = fs.readFileSync(VIEWS_FILE, 'utf8');
           const parsed = JSON.parse(data);
-          
+
           if (!parsed.posts || !parsed.metadata) {
             health.issues.push('Invalid JSON structure');
             health.status = 'error';
@@ -82,7 +83,7 @@ export class ViewsMonitor {
           health.status = 'error';
         }
       }
-      
+
       // Verificar permisos de escritura - ajustado para Vercel
       if (!process.env.VERCEL) {
         try {
@@ -104,47 +105,45 @@ export class ViewsMonitor {
           health.status = 'error';
         }
       }
-      
     } catch (error) {
       health.issues.push(`Health check failed: ${error.message}`);
       health.status = 'error';
     }
-    
+
     return health;
   }
-  
+
   static async cleanupOldBackups() {
     try {
       // En Vercel, el sistema de archivos es de solo lectura
-      // excepto para /tmp, así que esta función principalmente 
+      // excepto para /tmp, así que esta función principalmente
       // sirve para entornos tradicionales
       if (process.env.VERCEL) {
         this.info('Cleanup skipped in serverless environment');
         return { skipped: true, reason: 'serverless environment' };
       }
-      
+
       const dataDir = path.dirname(VIEWS_FILE);
       const files = fs.readdirSync(dataDir);
-      const backupFiles = files.filter(file => file.endsWith('.backup'));
-      
+      const backupFiles = files.filter((file) => file.endsWith('.backup'));
+
       const retentionDays = parseInt(process.env.VIEWS_BACKUP_RETENTION_DAYS) || 7;
-      const cutoffTime = Date.now() - (retentionDays * 24 * 60 * 60 * 1000);
-      
+      const cutoffTime = Date.now() - retentionDays * 24 * 60 * 60 * 1000;
+
       let cleaned = 0;
       for (const file of backupFiles) {
         const filePath = path.join(dataDir, file);
         const stats = fs.statSync(filePath);
-        
+
         if (stats.mtime.getTime() < cutoffTime) {
           fs.unlinkSync(filePath);
           this.info('Cleaned up old backup', { file });
           cleaned++;
         }
       }
-      
+
       this.info('Cleanup completed', { filesRemoved: cleaned });
       return { success: true, filesRemoved: cleaned };
-      
     } catch (error) {
       this.error('Failed to cleanup old backups', { error: error.message });
       return { success: false, error: error.message };

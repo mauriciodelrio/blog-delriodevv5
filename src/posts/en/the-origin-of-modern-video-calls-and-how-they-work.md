@@ -1,28 +1,28 @@
 ---
-title: "The Origin of Modern Video Calls and How They Work"
-author: "Mauricio Del Río"
-category: "Programming"
-date: "2025-12-12"
-bannerImage: "/blog_images/cafetera.png"
-slug: "the-origin-of-modern-video-calls-and-how-they-work"
-spanishSlug: "el-origen-de-las-videollamadas-modernas-y-su-funcionamiento"
-overview: "Good ideas come from laziness. In this article, I tell you interesting anecdotes that have transformed the way we communicate today. In addition, you will see basic technical concepts about how video calls work."
+title: 'The Origin of Modern Video Calls and How They Work'
+author: 'Mauricio Del Río'
+category: 'Programming'
+date: '2025-12-12'
+bannerImage: '/blog_images/cafetera.png'
+slug: 'the-origin-of-modern-video-calls-and-how-they-work'
+spanishSlug: 'el-origen-de-las-videollamadas-modernas-y-su-funcionamiento'
+overview: 'Good ideas come from laziness. In this article, I tell you interesting anecdotes that have transformed the way we communicate today. In addition, you will see basic technical concepts about how video calls work.'
 published: true
-readingTime: "5 minutes"
+readingTime: '5 minutes'
 tags:
-    - History
-    - Curiosities
-    - Concepts
-    - Learning
+  - History
+  - Curiosities
+  - Concepts
+  - Learning
 ---
 
 ## Curiosity didn't kill the cat, it made it famous on Tik Tok!
 
 I have several ideas in mind to write new articles, but I feel they are a bit dense, today I want to do something a little more fun. I asked my partner about something she is really curious to know about the modern technological world, and she told me: "How do video calls work? How can we see an image in real time over the internet?".
 
-Well, the truth is it's quite an interesting question, obviously I don't know, so I started researching the modern way: Gemini 3 + information verification on the internet. 
+Well, the truth is it's quite an interesting question, obviously I don't know, so I started researching the modern way: Gemini 3 + information verification on the internet.
 
-I like to start from a historical perspective, understanding the past makes us understand the present better. That's how I found several interesting stories that I will be sharing with you. 
+I like to start from a historical perspective, understanding the past makes us understand the present better. That's how I found several interesting stories that I will be sharing with you.
 
 This article is dedicated to my partner, if you don't like it _I don't care much haha_.
 
@@ -94,6 +94,6 @@ That's why video calls are not 100% in real time, that second or 2 seconds of di
 
 ## Final message
 
-This article is short and anecdotal, I hope you liked it, I have some other ideas in mind, but I have been very busy lately. I am attentive to your comments, criticisms and suggestions. 
+This article is short and anecdotal, I hope you liked it, I have some other ideas in mind, but I have been very busy lately. I am attentive to your comments, criticisms and suggestions.
 
 Don't watch too much Tik Tok, vote informed this Sunday, and see you in the next article.

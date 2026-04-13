@@ -6,25 +6,25 @@ import { getDictionary } from '@/lib/i18n';
 export async function generateStaticParams() {
   const params = [];
   const locales = ['en', 'es'];
-  
+
   for (const locale of locales) {
     const slugs = await getAllPostSlugs(locale);
-    slugs.forEach(slug => {
+    slugs.forEach((slug) => {
       params.push({ locale, slug });
     });
   }
-  
+
   return params;
 }
 
 // Server Component - maneja la lógica del servidor
 export default async function PostPage({ params }) {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
   const dict = getDictionary(locale);
-  
+
   try {
     const { frontmatter, content, spanishFrontmatter, spanishContent } = await getPostData(slug, locale);
-    
+
     return (
       <BlogPostClient
         frontmatter={frontmatter}
@@ -40,12 +40,8 @@ export default async function PostPage({ params }) {
     return (
       <div className="flex flex-wrap justify-center w-full h-max p-8">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">
-            {dict.posts.notFound}
-          </h1>
-          <p>
-            {dict.posts.notFoundDescription}
-          </p>
+          <h1 className="text-2xl font-bold mb-4">{dict.posts.notFound}</h1>
+          <p>{dict.posts.notFoundDescription}</p>
         </div>
       </div>
     );
@@ -54,12 +50,12 @@ export default async function PostPage({ params }) {
 
 // Generar metadata para SEO (reemplaza getStaticProps para metadata)
 export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
-  
+  const { locale, slug } = await params;
+
   try {
     const { frontmatter, spanishFrontmatter } = await getPostData(slug, locale);
     const postData = locale === 'es' ? spanishFrontmatter : frontmatter;
-    
+
     return {
       title: postData.title + ' | DelRio Dev',
       description: postData.excerpt || `Blog post about ${postData.category}`,
@@ -77,8 +73,8 @@ export async function generateMetadata({ params }) {
       alternates: {
         canonical: `/${locale}/posts/${slug}`,
         languages: {
-          'en': `/en/posts/${slug}`,
-          'es': `/es/posts/${slug}`,
+          en: `/en/posts/${slug}`,
+          es: `/es/posts/${slug}`,
         },
       },
     };

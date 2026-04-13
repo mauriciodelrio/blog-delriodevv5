@@ -15,13 +15,9 @@ export default function GlobalError({ error, reset }) {
         <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center bg-gray-50">
           <div className="max-w-md mx-auto">
             <div className="text-6xl mb-4">💥</div>
-            <h1 className="text-2xl font-bold mb-4 text-red-600">
-              Critical Error
-            </h1>
-            <p className="text-gray-600 mb-8">
-              A critical error occurred. Please refresh the page or try again later.
-            </p>
-            
+            <h1 className="text-2xl font-bold mb-4 text-red-600">Critical Error</h1>
+            <p className="text-gray-600 mb-8">A critical error occurred. Please refresh the page or try again later.</p>
+
             <div className="space-y-4">
               <button
                 onClick={reset}
@@ -29,9 +25,9 @@ export default function GlobalError({ error, reset }) {
               >
                 Try Again
               </button>
-              
+
               <button
-                onClick={() => window.location.href = '/'}
+                onClick={() => (window.location.href = '/')}
                 className="inline-block bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
               >
                 Go Home

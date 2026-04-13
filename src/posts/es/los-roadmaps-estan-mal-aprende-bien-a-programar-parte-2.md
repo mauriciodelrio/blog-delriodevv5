@@ -1,25 +1,25 @@
 ---
-title: "Los roadmaps están mal: aprende bien a programar - Parte 2"
-author: "Mauricio Del Río"
-category: "Programación"
-date: "2025-11-05"
-bannerImage: "/blog_images/roadmap.png"
-slug: "los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2"
-englishSlug: "roadmaps-are-wrong-learn-to-code-properly-part-2"
-overview: "En este artículo presento la segunda parte de una serie donde explico por qué los roadmaps para aprender programación están mal enfocados y cómo deberías enfocar tu aprendizaje desde cero."
+title: 'Los roadmaps están mal: aprende bien a programar - Parte 2'
+author: 'Mauricio Del Río'
+category: 'Programación'
+date: '2025-11-05'
+bannerImage: '/blog_images/roadmap.png'
+slug: 'los-roadmaps-estan-mal-aprende-bien-a-programar-parte-2'
+englishSlug: 'roadmaps-are-wrong-learn-to-code-properly-part-2'
+overview: 'En este artículo presento la segunda parte de una serie donde explico por qué los roadmaps para aprender programación están mal enfocados y cómo deberías enfocar tu aprendizaje desde cero.'
 published: true
-readingTime: "10 minutos"
+readingTime: '10 minutos'
 tags:
-    - Programación
-    - Tips
-    - Tutoriales
-    - Roadmaps
-    - Aprendizaje
+  - Programación
+  - Tips
+  - Tutoriales
+  - Roadmaps
+  - Aprendizaje
 ---
+
 ## Acá estamos otra vez!
 
 En mi [artículo anterior](https://delrio.dev/es/posts/los-roadmaps-estan-mal-aprende-bien-a-programar-parte-1) te hablé sobre la importancia de conocer la historia de la informática, el concepto de algoritmo y cómo pensar en algoritmos. Si no has leído esa primera parte, te recomiendo que lo hagas antes de continuar con este artículo, ya que es **fundamental** para entender lo que voy a explicar a continuación.
-
 
 ## Estuve dándole unas vueltas al artículo anterior y ... ¿Ahora qué?
 
@@ -31,7 +31,7 @@ Antes de tocar cualquier lenguaje de programación o comenzar a decirle a la IA 
 
 ### Hardware
 
-El hardware es lo tangible, lo físico, lo palpable, las piezas que componen cualquier tipo de aparato electrónico. Antes de la llegada de los computadores personales, el hardware era algo mucho más grande y complejo, pero con el tiempo, la *miniaturización* de los componentes electrónicos ha permitido que hoy en día tengamos dispositivos muy potentes en tamaños muy pequeños.
+El hardware es lo tangible, lo físico, lo palpable, las piezas que componen cualquier tipo de aparato electrónico. Antes de la llegada de los computadores personales, el hardware era algo mucho más grande y complejo, pero con el tiempo, la _miniaturización_ de los componentes electrónicos ha permitido que hoy en día tengamos dispositivos muy potentes en tamaños muy pequeños.
 
 Por qué hablamos de hardware. Esto no es realmente por la curiosidad. Debemos entender **más allá de lo que vemos en la superficie**. ¿Qué es una memoria de acceso rápido? ¿Qué son las memorias caché? ¿Qué es un procesador? ¿Qué es un núcleo? ¿Qué son los hilos de ejecución? ¿Para qué existen las GPU? ¿Qué es un bus de datos?
 
@@ -39,13 +39,13 @@ Puede sonar un poco ajeno quizás, pero saber las diferencias de las memorias, p
 
 ### Software
 
-El software no lo puedes tocar (Bueno, según steve jobs, sí puedes tocar el software, pero digamos que es un poco... *subjetivo*, quizás en un viaje inducido por magia puedes, pero la realidad es que **no**). 
+El software no lo puedes tocar (Bueno, según steve jobs, sí puedes tocar el software, pero digamos que es un poco... _subjetivo_, quizás en un viaje inducido por magia puedes, pero la realidad es que **no**).
 
-El software se construye sobre el hardware, acá desplegamos gran parte de nuestro trabajo, *no podemos hacer software sin entender hardware*, ¿cómo hacemos backend sin entender servidores? ¿Cómo hacemos aplicaciones móviles sin entender los dispositivos móviles? ¿Cómo hacemos software sin saber sobre qué capas corren?
+El software se construye sobre el hardware, acá desplegamos gran parte de nuestro trabajo, _no podemos hacer software sin entender hardware_, ¿cómo hacemos backend sin entender servidores? ¿Cómo hacemos aplicaciones móviles sin entender los dispositivos móviles? ¿Cómo hacemos software sin saber sobre qué capas corren?
 
 Y no solo software, debemos saber entender nuestro intérprete, nuestro intermediario entre nosotros y la máquina. El **sistema operativo**. ¿Qué es un sistema operativo? ¿Por qué existen tantos? ¿Qué diferencias hay entre Windows, Linux y MacOS? ¿Qué es una distribución de Linux? ¿Qué es un kernel? ¿Qué es un sistema de archivos? ¿Cómo maneja el sistema operativo los procesos y la memoria?
 
-Podríamos decir que un sistema operativo es software igualmente, pero trabaja a una escala un poco más baja, con *lenguajes de bajo nivel*, interactúan de forma mucho más directa con el hardware y tienen un manejo mucho más eficiente de los recursos del sistema.
+Podríamos decir que un sistema operativo es software igualmente, pero trabaja a una escala un poco más baja, con _lenguajes de bajo nivel_, interactúan de forma mucho más directa con el hardware y tienen un manejo mucho más eficiente de los recursos del sistema.
 
 ## Espera... ¿Lenguajes de bajo nivel? ¿Qué es eso?
 
@@ -53,11 +53,11 @@ Acá ya se empiezan a asomar las palabras de Lenguajes de programación, y sí, 
 
 ### Lenguajes de bajo nivel
 
-Los lenguajes de bajo nivel son aquellos que están más cerca del lenguaje máquina, es decir, del código binario que entiende el hardware. Estos lenguajes permiten un control más directo sobre los recursos del sistema, pero son más difíciles de aprender y usar. Algunos ejemplos de lenguajes de bajo nivel son el *ensamblador* y el *lenguaje C*.
+Los lenguajes de bajo nivel son aquellos que están más cerca del lenguaje máquina, es decir, del código binario que entiende el hardware. Estos lenguajes permiten un control más directo sobre los recursos del sistema, pero son más difíciles de aprender y usar. Algunos ejemplos de lenguajes de bajo nivel son el _ensamblador_ y el _lenguaje C_.
 
 Estos lenguajes son ideales para tareas que requieren un **alto rendimiento y eficiencia**, como el desarrollo de sistemas operativos, controladores de dispositivos, y aplicaciones que necesitan un acceso directo al hardware en general.
 
-*Anecdóticamente*, hasta hace poco, las universidades acá en Chile dedicaban bastante tiempo a enseñar lenguajes de bajo nivel, principalmente C y ensamblador, para que los estudiantes entendieran cómo funciona la máquina a un nivel más profundo. Hoy en día, muchas universidades han optado por enfocarse más en lenguajes de alto nivel, pero creo que aún es importante tener una base sólida en lenguajes de bajo nivel para entender mejor cómo funciona todo.
+_Anecdóticamente_, hasta hace poco, las universidades acá en Chile dedicaban bastante tiempo a enseñar lenguajes de bajo nivel, principalmente C y ensamblador, para que los estudiantes entendieran cómo funciona la máquina a un nivel más profundo. Hoy en día, muchas universidades han optado por enfocarse más en lenguajes de alto nivel, pero creo que aún es importante tener una base sólida en lenguajes de bajo nivel para entender mejor cómo funciona todo.
 
 No digo que debas partir usando C o ensamblador, puede ser un poco de pérdida de tiempo si tu objetivo es agilizar tu aprendizaje, pero recomiendo que en algún momento de tu path de aprendizaje, le dediques un tiempo a conocerlos, son muy interesantes y te darán una pincelada sólida de lo veloces que pueden ser.
 
@@ -71,13 +71,13 @@ Acá no voy a profundizar, porque bueno, ya hay otras personas que les dedican t
 
 ¿Qué es un **dato**? ¿Qué es la **información**?
 
-Estas preguntas pueden incluso ser *filosóficas*, pero no nos iremos por las ramas, en la informática un dato es una **representación concreta de un valor**, puede ser un número, una letra, una palabra, una imagen, etc. 
+Estas preguntas pueden incluso ser _filosóficas_, pero no nos iremos por las ramas, en la informática un dato es una **representación concreta de un valor**, puede ser un número, una letra, una palabra, una imagen, etc.
 
 Un dato como tal, **no tiene mucho sentido por sí solo**. Yo simplemente puedo tener el dato _"19/04/1992"_, pero ¿Qué significa ese dato? ¿Por qué es importante? ¿Qué información me entrega ese dato?
 
 La información es el **contexto** que le damos a los datos para que tengan sentido. En este caso, si te digo que _"19/04/1992"_ es mi fecha de nacimiento, ahora ese dato tiene un **significado** y una **importancia** para mí.
 
-**Todo el software que existe**, es la constante de *enviar y recibir datos e información*, procesarlos, transformarlos y presentarlos de una manera que tenga sentido para la persona que lo utiliza.
+**Todo el software que existe**, es la constante de _enviar y recibir datos e información_, procesarlos, transformarlos y presentarlos de una manera que tenga sentido para la persona que lo utiliza.
 
 Enviamos nuestro email y contraseña (**datos**) para iniciar sesión en una aplicación, la aplicación procesa esos datos y nos devuelve acceso a nuestra cuenta (**información**).
 
@@ -109,7 +109,7 @@ Si quieres ordenar una lista de números de menor a mayor, puedes usar un algori
 
 Si tienes una lista de productos y quieres seleccionar solo aquellos que tienen un precio menor a cierto valor, puedes usar un algoritmo de selección para filtrar la lista y obtener solo los productos que cumplen con ese criterio.
 
-¿Suena simple? *Emmm sí*, pero la complejidad radica en la **eficiencia**. No todos los algoritmos son iguales, algunos son más rápidos y eficientes que otros. Aprender sobre diferentes algoritmos y sus complejidades te ayudará a escribir código más eficiente y optimizado.
+¿Suena simple? _Emmm sí_, pero la complejidad radica en la **eficiencia**. No todos los algoritmos son iguales, algunos son más rápidos y eficientes que otros. Aprender sobre diferentes algoritmos y sus complejidades te ayudará a escribir código más eficiente y optimizado.
 
 ¿Te han dicho que las entrevistas técnicas te harán preguntas sobre algoritmos y estructuras de datos? Si la respuesta es no... ¿Por qué no aparece este tópico en un roadmap?
 
@@ -133,7 +133,7 @@ Cuando haces un documento de texto y lo guardas en tu computador, estás utiliza
 
 Cuando usas una aplicación web que guarda tus datos en la nube, probablemente esté utilizando una base de datos para almacenar esa información de manera estructurada y eficiente.
 
-¿Sabes como un sistema operativo *maneja* los archivos? ¿Cómo puede ser que teniendo millones de archivos en un disco duro, puedas encontrar uno específico en segundos? ¿Cómo se organizan esos datos en el disco? ¿Qué es un sistema de archivos? ¿Qué tipos de sistemas de archivos existen?
+¿Sabes como un sistema operativo _maneja_ los archivos? ¿Cómo puede ser que teniendo millones de archivos en un disco duro, puedas encontrar uno específico en segundos? ¿Cómo se organizan esos datos en el disco? ¿Qué es un sistema de archivos? ¿Qué tipos de sistemas de archivos existen?
 
 Estas preguntas son abiertas, pero te invito a investigarlas, entender cómo funciona el almacenamiento de datos te ayudará a escribir software más eficiente y optimizado.
 
@@ -145,7 +145,7 @@ Estas preguntas son abiertas, pero te invito a investigarlas, entender cómo fun
 
 Y el internet nos abre las puertas a las... **¡redes!** Redes de computadoras, redes de datos, redes de información.
 
-Las redes para mí siempre fueron algo ... *meh*, muy aburridas, pero es necesario entenderlas un poco para comprender cómo funciona el intercambio de datos en el mundo moderno.
+Las redes para mí siempre fueron algo ... _meh_, muy aburridas, pero es necesario entenderlas un poco para comprender cómo funciona el intercambio de datos en el mundo moderno.
 
 Cuando envías un mensaje a un amigo, cuando subes una foto a una red social, cuando haces una compra en línea, estás utilizando redes para compartir datos entre diferentes dispositivos y usuarios.
 
@@ -159,7 +159,7 @@ Cuando envías un mensaje a un amigo, cuando subes una foto a una red social, cu
 
 La **seguridad informática** es un tema crucial en el mundo de la programación. ¿Cómo comenzar a programar sin entender que todo lo que haces puede ser vulnerable a ataques y robos de información?
 
-Ya que repasaste algoritmos, podrías echar un vistazo teórico a los conceptos de criptografía, hashing, autenticación. *OJO*, no te estoy diciendo que aprendas a implementar estos conceptos, solo que entiendas la teoría detrás de ellos.
+Ya que repasaste algoritmos, podrías echar un vistazo teórico a los conceptos de criptografía, hashing, autenticación. _OJO_, no te estoy diciendo que aprendas a implementar estos conceptos, solo que entiendas la teoría detrás de ellos.
 
 ## La Alejandría del código - ¡Que no se incendie tu trabajo!
 
@@ -173,7 +173,7 @@ El control de versiones nos permite hacer precisamente eso. Podemos guardar dife
 
 Acá entra en juego **git**, el sistema de control de versiones más popular en la actualidad. Aprender a usar git es **fundamental** para cualquier programador, ya que es una herramienta que te permitirá trabajar de manera colaborativa con otros desarrolladores, gestionar tus proyectos de manera eficiente y mantener un historial claro de los cambios en tu código.
 
-No necesitas programar para aprender git, puedes comenzar aprendiendo los conceptos básicos, como repositorios, commits, ramas, merges, pull requests, entre otros. 
+No necesitas programar para aprender git, puedes comenzar aprendiendo los conceptos básicos, como repositorios, commits, ramas, merges, pull requests, entre otros.
 
 Puedes usar git para tus propios archivos, incluso si no estás programando, es una herramienta muy útil para cualquier tipo de proyecto que implique cambios y versiones.
 
@@ -181,13 +181,13 @@ Puedes usar git para tus propios archivos, incluso si no estás programando, es 
 
 Sí, muchos quieren meter la IA en todos lados, y está bien de cierta forma, porque si estás entrando a este mundo, no puedes quedarte atrás. Pero la IA **no es magia**, y no es la solución a todos los problemas.
 
-Antes de aprender a entender una inteligencia artificial (Que es mucho más que pedirle por favor que te escriba código), debes usar estas herramientas a tu favor. Yo por ejemplo ahora mismo uso la IA para corregir algunos errores ortográficos y gramaticales de todas las *burradas* que escribo, pero no le pido que escriba el artículo por mí, porque entonces no tendría sentido.
+Antes de aprender a entender una inteligencia artificial (Que es mucho más que pedirle por favor que te escriba código), debes usar estas herramientas a tu favor. Yo por ejemplo ahora mismo uso la IA para corregir algunos errores ortográficos y gramaticales de todas las _burradas_ que escribo, pero no le pido que escriba el artículo por mí, porque entonces no tendría sentido.
 
 La IA es una herramienta que debe ser usada con fines pedagógicos, al menos, en tu etapa inicial de aprendizaje. No le pidas a la IA a que te resuelva tus algoritmos, pídele que te enseñe paso a paso, pídele que te de un ejemplo detallado y luego pídele que te de algunos ejercicios para practicar.
 
 Luego de hacerlos, pídele que te revise tus soluciones y te explique en qué te equivocaste y qué hiciste bien.
 
-**¡Usa a la IA de profesor!** Créeme que explica mucho mejor que muchos profesores que he tenido en la universidad, incluso los que aseguran ser *doctores*.
+**¡Usa a la IA de profesor!** Créeme que explica mucho mejor que muchos profesores que he tenido en la universidad, incluso los que aseguran ser _doctores_.
 
 ## Resumen
 

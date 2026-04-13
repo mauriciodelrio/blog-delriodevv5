@@ -8,54 +8,18 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:apis": "./test-apis.sh"
-  },
-  "jest": {
-    "testEnvironment": "jest-environment-jsdom",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-      "^@/(.*)$": "<rootDir>/src/$1",
-      "^@/components/(.*)$": "<rootDir>/src/components/$1",
-      "^@/hooks/(.*)$": "<rootDir>/src/hooks/$1",
-      "^@/utils/(.*)$": "<rootDir>/src/utils/$1",
-      "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
-      "^@/styles/(.*)$": "<rootDir>/src/styles/$1",
-      "^@/public/(.*)$": "<rootDir>/public/$1",
-      "^@/posts/(.*)$": "<rootDir>/src/posts/$1",
-      "^@/app/(.*)$": "<rootDir>/src/app/$1"
-    },
-    "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": [
-        "next/jest",
-        {
-          "presets": [
-            "next/babel"
-          ]
-        }
-      ]
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
-      "^.+\\.module\\.(css|sass|scss)$"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "test:apis": "./test-apis.sh",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,md}\""
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "autoprefixer": "^10.4.19",
     "colorthief": "^2.6.0",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.13",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^15.5.14",
+    "react": "^19",
+    "react-dom": "^19",
     "react-extract-colors": "^1.0.3",
     "react-icons": "^5.2.1",
     "react-markdown": "^9.0.1",
@@ -65,16 +29,17 @@
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
-    "@testing-library/jest-dom": "^6.4.8",
-    "@testing-library/react": "^16.0.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.14",
+    "jest": "^30",
+    "jest-environment-jsdom": "^30",
     "postcss": "^8",
+    "prettier": "^3.8.2",
     "raw-loader": "^4.0.2",
-    "react-test-renderer": "^18.3.1",
+    "react-test-renderer": "^19",
     "tailwindcss": "^3.4.1"
   }
 }
