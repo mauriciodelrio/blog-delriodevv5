@@ -116,6 +116,40 @@ export async function getPostData(slug, locale = 'en') {
   }
 }
 
+export async function getAllPostsMetadata(locale = 'en') {
+  try {
+    const postsDirectory = path.join(process.cwd(), 'src', 'posts', locale);
+    const filenames = fs.readdirSync(postsDirectory);
+    const posts = [];
+
+    for (const filename of filenames) {
+      if (filename.endsWith('.md')) {
+        try {
+          const postPath = path.join(postsDirectory, filename);
+          const fileContent = fs.readFileSync(postPath, 'utf-8');
+          const { data: frontmatter } = matter(fileContent);
+
+          if (frontmatter.published !== false) {
+            posts.push({
+              slug: filename.replace('.md', ''),
+              date: frontmatter.date || null,
+              englishSlug: frontmatter.englishSlug || null,
+              spanishSlug: frontmatter.spanishSlug || null,
+            });
+          }
+        } catch (error) {
+          console.error(`Error reading file ${filename}:`, error);
+        }
+      }
+    }
+
+    return posts;
+  } catch (error) {
+    console.error(`Error reading posts directory for ${locale}:`, error);
+    return [];
+  }
+}
+
 export async function getAllPostSlugs(locale = 'en') {
   try {
     const postsDirectory = path.join(process.cwd(), 'src', 'posts', locale);

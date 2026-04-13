@@ -83,12 +83,8 @@ export async function generateMetadata() {
       },
     },
     verification: {
-      google: 'AQUI_VAS_A_PEGAR_TU_CODIGO_DE_GOOGLE_SEARCH_CONSOLE',
-      // yandex: 'tu-codigo-de-verificacion-de-yandex',
-      // yahoo: 'tu-codigo-de-verificacion-de-yahoo',
-      // other: {
-      //   'msvalidate.01': 'tu-codigo-de-bing',
-      // },
+      // google: 'tu-codigo-si-usas-verificacion-por-etiqueta-html',
+      // La verificación actual es por DNS, no requiere código aquí
     },
     other: {
       'theme-color': '#ffffff',
