@@ -229,9 +229,9 @@ export const dictionaries = {
       overview: {
         title: 'Overview',
         paragraph1:
-          "Hi there! I'm Mauricio, a JavaScript enthusiast with 9+ years of turning coffee into code and bugs into features (with more bugs! Hahaha). My career is marked a lot by React, but it's a labor coincidence. Also, I am more than a frontend developer or TL, I love computer science. Programming? It's just a tool. I want to design, build, think and create solutions that make me feel proud of my work.",
+          "Hi there! I'm Mauricio, a JavaScript enthusiast with 9+ years of experience. React has shaped a big part of my career, but it's purely circumstantial. Also, I am more than a frontend developer or TL, I love computer science. Programming? It's just a tool. I want to design, build, think and create solutions that make me feel proud of my work.",
         paragraph2:
-          "I have a lot of experience working in Agile environments, collaborating with cross-functional teams to deliver high-quality software solutions blah blah blah... (What a boring line, right?) I think that it's more important to highlight the capacity to say NO, but in the same line, propose alternatives that can help the team achieve its goals.",
+          "For me, it's more important to value the ability to say NO, while also proposing alternatives that can help the team achieve its goals.",
         paragraph3:
           "I'm trying to think outside the box. I love to learn other stuff that's not necessarily related to programming, like philosophy, psychology, art, music, cooking, etc. I believe that a well-rounded individual can bring a unique perspective to software development, leading to more innovative and effective solutions.",
       },
@@ -252,7 +252,7 @@ export const dictionaries = {
         },
         usach: {
           university: 'Universidad de Santiago de Chile',
-          degree: 'Bachelor Degree on Computer Science',
+          degree: "Bachelor's Degree in Computer Science",
           period: '2015 - 2020 (Incomplete)',
         },
       },
@@ -260,11 +260,36 @@ export const dictionaries = {
         {
           company: 'Globant',
           url: 'https://www.globant.com/',
-          title: 'Senior Web Developer',
-          startDate: '2025-02-02',
+          title: 'Tech Lead',
+          startDate: '2026-03-30',
           endDate: 'Current',
           description:
-            'I work as a Senior Web Developer for a major airline client. My team develops cross-functional tools for over 30 web artifacts built with Next.js. My current objectives are: Creating packages and utilities for cross-product use. Establishing and supporting standard code quality rules. Automating and defining product delivery processes. Planning and implementing methods for optimizing and updating critical dependencies across all supported artifacts. Defining security rules and vulnerability management processes.',
+            "As the Tech Lead for the web Design System of a major airline client, I direct the end-to-end lifecycle of their primary visual component library. My focus is on scaling the web and webview architecture while ensuring high standards in accessibility, visual consistency, and dependency usability. I coordinate the technical roadmap, manage release workflows across diverse environments, and oversee production support, ensuring our components serve as a reliable, high-performance foundation for the entire frontend team.",
+          keywords: [
+            'Javascript',
+            'React',
+            'Typescript',
+            'TailwindCSS',
+            'Jest',
+            'Eslint',
+            'Shell',
+            'CI/CD',
+            'Storybook',
+            'Design Systems',
+            'Frontend Architecture',
+            'Accessibility',
+            'Leadership',
+          ],
+          methodology: ['Agile', 'Scrum'],
+        },
+        {
+          company: 'Globant',
+          url: 'https://www.globant.com/',
+          title: 'Senior Web Developer',
+          startDate: '2025-02-02',
+          endDate: '2026-03-30',
+          description:
+            'I worked as a Senior Web Developer for a major airline client. My team developed cross-functional tools for over 30 web artifacts built with Next.js. My objectives were: Creating packages and utilities for cross-product use. Establishing and supporting standard code quality rules. Automating and defining product delivery processes. Planning and implementing methods for optimizing and updating critical dependencies across all supported artifacts. Defining security rules and vulnerability management processes.',
           keywords: [
             'Javascript',
             'React',
@@ -611,9 +636,9 @@ export const dictionaries = {
       overview: {
         title: 'Resumen',
         paragraph1:
-          '¡Hola! Soy Mauricio, un entusiasta de JavaScript con 9+ años convirtiendo café en código y bugs en features (¡con más bugs! Jajaja). Mi carrera está muy marcada por React, pero es una coincidencia laboral. Además, soy más que un desarrollador frontend o TL, amo las ciencias de la computación. ¿Programación? Es solo una herramienta. Quiero diseñar, construir, pensar y crear soluciones que me hagan sentir orgulloso de mi trabajo.',
+          '¡Hola! Soy Mauricio, un entusiasta de JavaScript con más de 9 años de experiencia. React ha marcado gran parte de mi carrera, pero es puramente circunstancial. Además, soy más que un desarrollador frontend o TL, me apasionan las ciencias de la computación. ¿Programación? Es solo una herramienta. Quiero diseñar, construir, pensar y crear soluciones que me hagan sentir orgulloso de mi trabajo.',
         paragraph2:
-          'Tengo mucha experiencia trabajando en entornos Ágiles, colaborando con equipos multifuncionales para entregar soluciones de software de alta calidad bla bla bla... (¡Qué línea tan aburrida, verdad?) Creo que es más importante destacar la capacidad de decir NO, pero en la misma línea, proponer alternativas que puedan ayudar al equipo a lograr sus objetivos.',
+          'Para mí, es más importante valorar la capacidad de decir NO, proponiendo también alternativas que puedan ayudar al equipo a lograr sus objetivos.',
         paragraph3:
           'Trato de pensar fuera de la caja. Me encanta aprender otras cosas que no están necesariamente relacionadas con la programación, como filosofía, psicología, arte, música, cocina, etc. Creo que una persona integral puede aportar una perspectiva única al desarrollo de software, llevando a soluciones más innovadoras y efectivas.',
       },
@@ -642,11 +667,36 @@ export const dictionaries = {
         {
           company: 'Globant',
           url: 'https://www.globant.com/',
-          title: 'Desarrollador Web Senior',
-          startDate: '2025-02-02',
+          title: 'Líder Técnico',
+          startDate: '2026-03-31',
           endDate: 'Actual',
           description:
-            'Trabajo como Desarrollador Web Senior para un cliente de una aerolínea importante. Mi equipo desarrolla herramientas transversales para más de 30 artefactos web construidos con Next.js. Mis objetivos actuales son: Crear paquetes y utilidades para uso transversal entre productos. Establecer y apoyar reglas estándar de calidad de código. Automatizar y definir procesos de entrega de productos. Planificar e implementar métodos para optimizar y actualizar dependencias críticas en todos los artefactos soportados. Definir reglas de seguridad y procesos de gestión de vulnerabilidades.',
+            'Como Líder Técnico del Design System web de una importante aerolínea cliente, dirijo el ciclo de vida completo de su biblioteca de componentes visuales principal. Mi enfoque está en escalar la arquitectura web y webview garantizando altos estándares de accesibilidad, consistencia visual y usabilidad de dependencias. Coordino la hoja de ruta técnica, gestiono los flujos de publicación en entornos diversos y superviso el soporte en producción, asegurando que nuestros componentes sean una base confiable y de alto rendimiento para todo el equipo de frontend.',
+          keywords: [
+            'Javascript',
+            'React',
+            'Typescript',
+            'TailwindCSS',
+            'Jest',
+            'Eslint',
+            'Shell',
+            'CI/CD',
+            'Storybook',
+            'Design Systems',
+            'Frontend Architecture',
+            'Accessibility',
+            'Leadership',
+          ],
+          methodology: ['Ágil', 'Scrum'],
+        },
+        {
+          company: 'Globant',
+          url: 'https://www.globant.com/',
+          title: 'Desarrollador Web Senior',
+          startDate: '2025-02-02',
+          endDate: '2026-03-30',
+          description:
+            'Trabajé como Desarrollador Web Senior para un cliente de una aerolínea importante. Mi equipo desarrollaba herramientas transversales para más de 30 artefactos web construidos con Next.js. Mis objetivos fueron: Crear paquetes y utilidades para uso transversal entre productos. Establecer y apoyar reglas estándar de calidad de código. Automatizar y definir procesos de entrega de productos. Planificar e implementar métodos para optimizar y actualizar dependencias críticas en todos los artefactos soportados. Definir reglas de seguridad y procesos de gestión de vulnerabilidades.',
           keywords: [
             'Javascript',
             'React',

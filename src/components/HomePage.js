@@ -208,9 +208,9 @@ export default function HomePage({ params, dictionary }) {
               <span>{dictionary.home.contact.workLocation}</span>
             </div>
             <div className="hidden tablet:block text-gray-400">•</div>
-            <div className="text-center tablet:text-left">+56 9 3333 9394 / +56 9 2917 6592</div>
+            <Link href="https://wa.me/56929176592" target="_blank" className="text-center tablet:text-left hover:text-green-600 transition-colors">+56 9 2917 6592</Link>
             <div className="hidden tablet:block text-gray-400">•</div>
-            <div className="text-center tablet:text-left">mauricio.delr@gmail.com</div>
+            <Link href="mailto:mauricio.delr@gmail.com" className="text-center tablet:text-left hover:text-blue-600 transition-colors">mauricio.delr@gmail.com</Link>
           </div>
 
           {/* Social Links */}
@@ -251,6 +251,16 @@ export default function HomePage({ params, dictionary }) {
               onToggle={toggleAccordion}
             >
               {renderSkillTags(frontendSkills)}
+            </AccordionSection>
+
+            {/* AI Section */}
+            <AccordionSection
+              id="AI"
+              title={dictionary.home.sidebar.aiTools}
+              isOpen={accordionState.AI}
+              onToggle={toggleAccordion}
+            >
+              {renderSkillTags(aiSkills)}
             </AccordionSection>
 
             {/* Backend & Databases Section */}
@@ -311,16 +321,6 @@ export default function HomePage({ params, dictionary }) {
               onToggle={toggleAccordion}
             >
               {renderSkillTags(leadershipSkills)}
-            </AccordionSection>
-
-            {/* AI Section */}
-            <AccordionSection
-              id="AI"
-              title={dictionary.home.sidebar.aiTools}
-              isOpen={accordionState.AI}
-              onToggle={toggleAccordion}
-            >
-              {renderSkillTags(aiSkills)}
             </AccordionSection>
 
             {/* Languages Section */}
@@ -434,7 +434,7 @@ export default function HomePage({ params, dictionary }) {
                       <Link
                         href={job.url}
                         target="_blank"
-                        className="text-sm text-blue-600 hover:text-blue-800 underline mt-2 tablet:mt-0"
+                        className="text-sm text-gray-600 hover:text-gray-800 underline mt-2 tablet:mt-0"
                       >
                         {job.url}
                       </Link>
@@ -492,7 +492,7 @@ export default function HomePage({ params, dictionary }) {
                       <Link
                         href={experience.url}
                         target="_blank"
-                        className="text-sm text-blue-600 hover:text-blue-800 underline mt-2 tablet:mt-0"
+                        className="text-sm text-gray-600 hover:text-gray-800 underline mt-2 tablet:mt-0"
                       >
                         {experience.url}
                       </Link>
