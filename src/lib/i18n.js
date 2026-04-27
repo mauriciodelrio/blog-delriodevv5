@@ -10,6 +10,7 @@ export const dictionaries = {
       posts: 'Posts',
       home: 'Home',
       about: 'About',
+      projects: 'Projects',
       privacy: 'Privacy Policy',
       cookies: 'Cookie Policy',
     },
@@ -410,12 +411,71 @@ export const dictionaries = {
         },
       ],
     },
+    projects: {
+      title: 'My Projects',
+      subtitle: 'A selection of personal projects I actively develop and maintain.',
+      visitProject: 'Visit Project',
+      viewOnGitHub: 'View on GitHub',
+      status: {
+        active: 'Active',
+        beta: 'Beta',
+        openSource: 'Open Source',
+      },
+      items: [
+        {
+          name: 'Buscoabogados',
+          description:
+            'Legal directory connecting people with verified lawyers in Chile. Search by specialty, compare real profiles, and contact directly — no intermediaries or hidden fees.',
+          url: 'https://buscoabogados.cl',
+          github: null,
+          status: 'beta',
+          tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Turborepo', 'Node.js', 'Express', 'Python'],
+        },
+        {
+          name: 'FluxWind UI',
+          description:
+            'Open-source React component library with Tailwind CSS 4 and WCAG 2.2 AA accessibility. Built for speed, industry theming, and great developer experience.',
+          url: 'https://fluxwind.delrio.dev',
+          github: 'https://github.com/mauriciodelrio/fluxwind-ui',
+          status: 'openSource',
+          tags: ['React 19', 'TypeScript', 'Tailwind CSS 4', 'Storybook', 'Vitest'],
+        },
+        {
+          name: 'DelRio Dev Blog',
+          description:
+            'Personal tech blog with articles on software development, React, TypeScript, engineering culture, and more — available in English and Spanish.',
+          url: 'https://www.delrio.dev',
+          github: null,
+          status: 'active',
+          tags: ['Next.js', 'Markdown', 'i18n', 'Tailwind CSS'],
+        },
+        {
+          name: 'Tutorías DelRio',
+          description:
+            'One-on-one programming tutoring sessions. Learn React, TypeScript, Node.js, Next.js and more with an experienced mentor. $15,000 CLP / 45 min.',
+          url: 'https://tutorias.delrio.dev',
+          github: null,
+          status: 'active',
+          tags: ['React', 'TypeScript', 'Node.js', 'Next.js', 'JavaScript'],
+        },
+        {
+          name: 'DelRio Dev Skills',
+          description:
+            'A collection of 50+ GitHub Copilot skills covering frontend, backend, architecture, security (OWASP, GDPR, PCI, SOC2) and agent workflow — installable in one command via the CLI wizard.',
+          url: 'https://www.npmjs.com/package/delriodev-skills',
+          github: 'https://github.com/mauriciodelrio/delriodev-skills',
+          status: 'openSource',
+          tags: ['GitHub Copilot', 'TypeScript', 'CLI', 'npm', 'Open Source'],
+        },
+      ],
+    },
   },
   es: {
     navigation: {
       posts: 'Posts',
       home: 'Inicio',
       about: 'Acerca de',
+      projects: 'Proyectos',
       privacy: 'Política de Privacidad',
       cookies: 'Política de Cookies',
     },
@@ -814,6 +874,64 @@ export const dictionaries = {
           description: 'Fui creador de contenido, donde desarrollé contenido para sus cursos de JavaScript y React.',
           keywords: ['Javascript', 'React'],
           methodology: ['sesiones online'],
+        },
+      ],
+    },
+    projects: {
+      title: 'Mis Proyectos',
+      subtitle: 'Una selección de proyectos personales que desarrollo y mantengo activamente.',
+      visitProject: 'Visitar Proyecto',
+      viewOnGitHub: 'Ver en GitHub',
+      status: {
+        active: 'Activo',
+        beta: 'Beta',
+        openSource: 'Open Source',
+      },
+      items: [
+        {
+          name: 'Buscoabogados',
+          description:
+            'Directorio legal que conecta a personas con abogados verificados en Chile. Busca por especialidad, compara perfiles reales y contacta directamente, sin intermediarios ni tarifas ocultas.',
+          url: 'https://buscoabogados.cl',
+          github: null,
+          status: 'beta',
+          tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Turborepo', 'Node.js', 'Express', 'Python'],
+        },
+        {
+          name: 'FluxWind UI',
+          description:
+            'Librería de componentes React open-source con Tailwind CSS 4 y accesibilidad WCAG 2.2 AA. Diseñada para velocidad, temas por industria y gran experiencia de desarrollo.',
+          url: 'https://fluxwind.delrio.dev',
+          github: 'https://github.com/mauriciodelrio/fluxwind-ui',
+          status: 'openSource',
+          tags: ['React 19', 'TypeScript', 'Tailwind CSS 4', 'Storybook', 'Vitest'],
+        },
+        {
+          name: 'DelRio Dev Blog',
+          description:
+            'Blog técnico personal con artículos sobre desarrollo de software, React, TypeScript, cultura de ingeniería y más. Disponible en inglés y español.',
+          url: 'https://www.delrio.dev',
+          github: null,
+          status: 'active',
+          tags: ['Next.js', 'Markdown', 'i18n', 'Tailwind CSS'],
+        },
+        {
+          name: 'Tutorías DelRio',
+          description:
+            'Sesiones de tutoría de programación 1 a 1. Aprende React, TypeScript, Node.js, Next.js y más con un mentor experimentado. $15.000 CLP por sesión de 45 min.',
+          url: 'https://tutorias.delrio.dev',
+          github: null,
+          status: 'active',
+          tags: ['React', 'TypeScript', 'Node.js', 'Next.js', 'JavaScript'],
+        },
+        {
+          name: 'DelRio Dev Skills',
+          description:
+            'Más de 50 skills para GitHub Copilot que cubren frontend, backend, arquitectura, seguridad (OWASP, GDPR, PCI, SOC2) y flujo de agente. Instalables en un comando con el asistente CLI.',
+          url: 'https://www.npmjs.com/package/delriodev-skills',
+          github: 'https://github.com/mauriciodelrio/delriodev-skills',
+          status: 'openSource',
+          tags: ['GitHub Copilot', 'TypeScript', 'CLI', 'npm', 'Open Source'],
         },
       ],
     },

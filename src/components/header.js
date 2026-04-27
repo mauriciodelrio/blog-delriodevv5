@@ -34,6 +34,12 @@ export default function Header({ locale = 'en' }) {
               >
                 {dict.navigation.posts}
               </Link>
+              <Link
+                className="px-3 py-2 sm:px-4 sm:py-2 hover:bg-white hover:shadow-sm rounded-lg transition-all duration-200 text-sm sm:text-base font-medium text-gray-700 hover:text-gray-900"
+                href={`/${locale}/projects`}
+              >
+                {dict.navigation.projects}
+              </Link>
             </nav>
 
             {/* Language Toggle */}
